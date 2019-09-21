@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-04-19 14:54:15 +0100'>2019-04-19 14:54:15 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app/models /</small> constituency_petition_journal.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">89</span><small> lines of codes</small></div>
+              <div><span class="metric">14</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">7.5</span><small> complexity/method</small></div>
+              <div><span class="metric">16</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">105.57</span><small> complexity</small></div>
+              <div><span class="metric">93</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                10
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">class ConstituencyPetitionJournal &lt; ActiveRecord::Base<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>ConstituencyPetitionJournal has no descriptive comment</span>          </div>  </li></ol>
+  belongs_to :petition
+  belongs_to :constituency, primary_key: :external_id
+
+  validates :petition, presence: true
+  validates :constituency_id, presence: true, length: { maximum: 255 }
+  validates :signature_count, presence: true
+
+  delegate :name, :ons_code, :mp_name, to: :constituency
+
+  class &lt;&lt; self
+    def for(petition, constituency_id)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_petition_journal.html#L12" class="js-smell-location">0</a>                  <a href="country_petition_journal.html#L12" class="js-smell-location">1</a>                  </div>  </li></ol>
+      begin
+        find_or_create_by(petition: petition, constituency_id: constituency_id)
+      rescue ActiveRecord::RecordNotUnique =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>ConstituencyPetitionJournal#for has the variable name 'e'</span>          </div>  </li></ol>
+        retry
+      end
+    end
+
+    def older_than(time)
+      where(last_signed_at.lt(time).or(last_signed_at.eq(nil)))
+    end
+
+    def ordered
+      order(signature_count: :desc)
+    end
+
+    def increment_signature_counts_for(petition, since)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_petition_journal.html#L28" class="js-smell-location">0</a>                  <a href="country_petition_journal.html#L24" class="js-smell-location">1</a>                  </div>  </li></ol>
+      signature_counts(petition, since).each do |constituency_id, count|
+        next if constituency_id.blank?
+        self.for(petition, constituency_id).increment_signature_count(count, petition)
+      end
+    end
+
+    def reset_signature_counts_for(petition)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_petition_journal.html#L35" class="js-smell-location">0</a>                  <a href="country_petition_journal.html#L31" class="js-smell-location">1</a>                  </div>  </li></ol>
+      signature_counts(petition).each do |constituency_id, count|
+        next if constituency_id.blank?
+        self.for(petition, constituency_id).reset_signature_count(count, petition)
+      end
+
+      petition.constituency_petition_journals.older_than(petition.last_signed_at).delete_all
+    end
+
+    def invalidate_signature_for(signature, now = Time.current)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_petition_journal.html#L44" class="js-smell-location">0</a>                  <a href="country_petition_journal.html#L40" class="js-smell-location">1</a>                  </div>  </li></ol>
+      unless unrecordable?(signature)
+        self.for(signature.petition, signature.constituency_id).decrement_signature_count(now)
+      end
+    end
+
+    def with_signatures_for(constituency_id)
+      where(arel_table[:signature_count].gt(0)).where(arel_table[:constituency_id].eq(constituency_id))
+    end
+
+    private
+
+    def last_signed_at
+      arel_table[:last_signed_at]
+    end
+
+    def unrecordable?(signature)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_petition_journal.html#L60" class="js-smell-location">0</a>                  <a href="country_petition_journal.html#L52" class="js-smell-location">1</a>                  </div>  </li></ol>
+      signature.nil? || signature.petition.nil? || signature.constituency_id.blank? || !signature.validated_at?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Nil-Check.md" target="_blank"><b>NilCheck</b></a>        </span>      </div>      <span>ConstituencyPetitionJournal#unrecordable? performs a nil-check</span>          </div>  </li></ol>
+    end
+
+    def signature_counts(petition, since = nil)
+      petition.signatures.validated_count_by_constituency_id(since, petition.last_signed_at)
+    end
+  end
+
+  def increment_signature_count(count, petition)
+    sql = &quot;signature_count = signature_count + ?, last_signed_at = ?, updated_at = ?&quot;
+    update_all([sql, count, petition.last_signed_at, petition.updated_at])<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ConstituencyPetitionJournal#increment_signature_count refers to 'petition' more than self (maybe move it to another class?)</span>          </div>  </li></ol>
+  end
+
+  def reset_signature_count(count, petition)
+    sql = &quot;signature_count = ?, last_signed_at = ?, updated_at = ?&quot;
+    update_all([sql, count, petition.last_signed_at, petition.updated_at])<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>ConstituencyPetitionJournal#reset_signature_count refers to 'petition' more than self (maybe move it to another class?)</span>          </div>  </li></ol>
+  end
+
+  def decrement_signature_count(now = Time.current, count = 1)
+    sql = &quot;signature_count = greatest(signature_count - ?, 0), updated_at = ?&quot;
+    update_all([sql, count, now])
+  end
+
+  private
+
+  def update_all(updates)
+    self.class.unscoped.where(id: id).update_all(updates)
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

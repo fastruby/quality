@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2018-05-10 17:22:49 +0100'>2018-05-10 17:22:49 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>features/step_definitions /</small> sponsor_steps.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">158</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">38</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">197.53</span><small> complexity</small></div>
+              <div><span class="metric">48</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                1
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">Given(/^I have been told about a petition that needs sponsoring$/) do
+  @sponsor_petition = FactoryBot.create(:open_petition,
+    action: &#39;Charles to be nominated for sublimation&#39;,
+    closed_at: 1.day.from_now,
+    state: Petition::VALIDATED_STATE)
+end
+
+Given(/^I have created a petition and told people to sponsor it$/) do
+  @sponsor_petition = FactoryBot.create(:pending_petition,
+    action: &#39;Charles to be nominated for sublimation&#39;,
+    closed_at: 1.day.from_now,
+    state: Petition::PENDING_STATE,
+    creator_attributes: { email: &#39;charlie.the.creator@example.com&#39; })
+end
+
+When(/^a sponsor supports my petition$/) do
+  sponsor_email = FactoryBot.generate(:sponsor_email)
+  steps %{
+    When I visit the &quot;sponsor this petition&quot; url I was given
+    And I fill in &quot;Name&quot; with &quot;Anonymous Sponsor&quot;
+    And I fill in &quot;Email&quot; with &quot;#{sponsor_email}&quot;
+    And I check &quot;I am a British citizen or UK resident&quot;
+    And I fill in my postcode with &quot;SW1A 1AA&quot;
+    And I select &quot;United Kingdom&quot; from &quot;Location&quot;
+    And I try to sign
+    And I say I am happy with my email address
+    And &quot;#{sponsor_email}&quot; opens the email with subject &quot;Please confirm your email address&quot;
+    And they click the first link in the email
+  }
+  signature = @sponsor_petition.signatures.for_email(sponsor_email).first
+  expect(signature).to be_present
+  expect(signature).to be_sponsor
+end
+
+Given(/^I only need one more sponsor to support my petition$/) do
+  before_threshold = Site.threshold_for_moderation - 1
+  while (@sponsor_petition.sponsors.validated.count &lt; before_threshold) do
+    step %{a sponsor supports my petition}
+  end
+  step %{&quot;charlie.the.creator@example.com&quot; has read all their email}
+end
+
+Given(/^I have enough support from sponsors for my petition$/) do
+  while (@sponsor_petition.sponsors.validated.count &lt; Site.threshold_for_moderation) do
+    step %{a sponsor supports my petition}
+  end
+  step %{&quot;charlie.the.creator@example.com&quot; has read all their email}
+end
+
+Given(/^the petition I want to sign is (validated|sponsored|open|hidden|rejected)$/) do |state|
+  if state == &quot;rejected&quot;
+    @sponsor_petition = FactoryBot.create(:rejected_petition, rejection_code: &quot;irrelevant&quot;)
+  else
+    @sponsor_petition = FactoryBot.create(:open_petition, state: state)
+  end
+end
+
+Given(/^the petition I want to sign has been closed$/) do
+  @sponsor_petition = FactoryBot.create(:closed_petition, closed_at: 1.day.ago)
+end
+
+Then(/^I am redirected to the petition closed page$/) do
+  expect(current_path).to eq(petition_path(@sponsor_petition))
+end
+
+Then(/^I am redirected to the petition view page$/) do
+  expect(current_path).to eq(petition_path(@sponsor_petition))
+end
+
+Then(/^I will see 404 error page$/) do
+  expect(page.status_code).to eq 404
+end
+
+Given(/^the petition I want to sign has enough sponsors?$/) do
+  @sponsor_petition = FactoryBot.create(:sponsored_petition, sponsor_count: Site.maximum_number_of_sponsors, sponsors_signed: true)
+end
+
+Then(/^I am redirected to the petition moderation info page$/) do
+  expect(current_path).to eq(moderation_info_petition_path(@sponsor_petition))
+end
+
+When(/^I visit the \&quot;sponsor this petition\&quot; url I was given$/) do
+  visit new_petition_sponsor_url(@sponsor_petition, token: @sponsor_petition.sponsor_token)
+end
+
+When(/^I fill in my details as a sponsor(?: with email &quot;(.*?)&quot;)?$/) do |email_address|
+  email_address ||= &#39;laura.the.sponsor@example.com&#39;
+  steps %{
+    When I fill in &quot;Name&quot; with &quot;Laura The Sponsor&quot;
+    And I fill in &quot;Email&quot; with &quot;#{email_address}&quot;
+    And I check &quot;I am a British citizen or UK resident&quot;
+    And I fill in my postcode with &quot;AB10 1AA&quot;
+    And I select &quot;United Kingdom&quot; from &quot;Location&quot;
+    And I check &quot;Email me whenever there’s an update about this petition&quot;
+  }
+end
+
+When(/^I don&#39;t fill in my details correctly as a sponsor$/) do
+  step %{I fill in &quot;Name&quot; with &quot;&quot;}
+end
+
+Then(/^I should have fully signed the petition as a sponsor$/) do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="sponsor_steps.html#L102" class="js-smell-location">0</a>                  <a href="sponsor_steps.html#L109" class="js-smell-location">1</a>                  </div>  </li></ol>
+  sponsor = @sponsor_petition.sponsors.for_email(&#39;laura.the.sponsor@example.com&#39;).first
+  expect(sponsor).to be_present
+  expect(sponsor.petition).to eq @sponsor_petition
+  expect(sponsor).to be_validated
+end
+
+Then(/^I should have a pending signature on the petition as a sponsor$/) do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="sponsor_steps.html#L102" class="js-smell-location">0</a>                  <a href="sponsor_steps.html#L109" class="js-smell-location">1</a>                  </div>  </li></ol>
+  sponsor = @sponsor_petition.sponsors.for_email(&#39;laura.the.sponsor@example.com&#39;).first
+  expect(sponsor).to be_present
+  expect(sponsor.petition).to eq @sponsor_petition
+  expect(sponsor).to be_pending
+end
+
+Then(/^I should not have signed the petition as a sponsor$/) do
+  sponsor = @sponsor_petition.sponsors.for_email(&#39;laura.the.sponsor@example.com&#39;).first
+  expect(sponsor).not_to be_present
+end
+
+Then(/^(?:I|&quot;(.*?)&quot;) should receive an email explaining the petition I am sponsoring$/) do |address|
+  address = address || &#39;laura.the.sponsor@example.com&#39;
+  expect(unread_emails_for(address).size).to eq 1
+  open_last_email_for(address)
+  steps %{
+    Then they should see &quot;Please confirm your email address&quot; in the email subject
+    And they should see &quot;#{@sponsor_petition.action}&quot; in the email body
+    And they should see &quot;#{@sponsor_petition.background}&quot; in the email body
+    And they should see &quot;#{@sponsor_petition.additional_details}&quot; in the email body
+  }
+end
+
+Then(/^(?:I|&quot;(.*?)&quot;) should not have received an email explaining the petition I am sponsoring$/) do |address|
+  address = address.blank? ? address : &quot;I&quot;
+  expect(unread_emails_for(address).select { |m| m.default_part_body.to_s =~ Regexp.new(@sponsor_petition.action) }.size).to eq 0
+end
+
+Then(/^(I|they|&quot;.*?&quot;) should be emailed a link for gathering support from sponsors$/) do |address|
+  steps %{
+    Then #{address} should receive an email with subject &quot;Action required: Petition&quot;
+    When they open the email with subject &quot;Action required: Petition&quot;
+    Then they should see /\/petitions\/\\d+\/sponsors\/[A-Za-z0-9]+/ in the email body
+  }
+end
+
+When(/^I have sponsored a petition$/) do
+  steps %{
+    When I visit the &quot;sponsor this petition&quot; url I was given
+    And I should be connected to the server via an ssl connection
+    When I fill in my details as a sponsor
+    And I try to sign
+    Then I should not have signed the petition as a sponsor
+    And I am asked to review my email address
+    When I say I am happy with my email address
+    Then I should have a pending signature on the petition as a sponsor
+    And I should receive an email explaining the petition I am sponsoring
+  }
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

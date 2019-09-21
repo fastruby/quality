@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../overview.html"><img src="../../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2017-11-24 15:30:14 +0000'>2017-11-24 15:30:14 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/models/constituency /</small> api_query_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">158</span><small> lines of codes</small></div>
+              <div><span class="metric">1</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">229.7</span><small> complexity/method</small></div>
+              <div><span class="metric">3</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">229.65</span><small> complexity</small></div>
+              <div><span class="metric">154</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                4
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Constituency::ApiQuery, type: :model do
+  let(:query) { described_class.new }
+
+  def constituency(external_id, name, ons_code, mp_id = nil, mp_name = nil, mp_date = nil)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Long-Parameter-List.md" target="_blank"><b>LongParameterList</b></a>        </span>      </div>      <span>constituency has 6 parameters</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>constituency doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    if mp_id
+      mp_date = mp_date ? mp_date : &quot;2015-05-07T00:00:00+01:00&quot;
+    end
+
+    FactoryBot.attributes_for(:constituency, {
+      name: name, external_id: external_id, ons_code: ons_code,
+      mp_id: mp_id, mp_name: mp_name, mp_date: mp_date
+    })
+  end
+
+  describe &quot;#fetch&quot; do
+    context &quot;when the request is successful&quot; do
+      context &quot;and an invalid postcode is supplied&quot; do
+        before do
+          stub_api_request_for(&quot;SW149RQ&quot;).to_return(api_response(:ok, &quot;no_results&quot;))
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;SW149RQ&quot;)).to eq([])
+        end
+      end
+
+      context &quot;and there is a single result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L29" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L67" class="js-smell-location">1</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N11TY&quot;).to_return(api_response(:ok, &quot;single&quot;))
+        end
+
+        it &quot;returns an array&quot; do
+          expect(query.fetch(&quot;N11TY&quot;)).to eq([{
+            name: &quot;Islington South and Finsbury&quot;, external_id: &quot;3550&quot;, ons_code: &quot;E14000764&quot;,
+            mp_id: &quot;1536&quot;, mp_name: &quot;Emily Thornberry MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          }])
+        end
+      end
+
+      context &quot;and there are multiple constituencies&quot; do
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_return(api_response(:ok, &quot;multiple&quot;))
+        end
+
+        it &quot;returns an array with multiple entries&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to match([{
+            name: &quot;Hackney North and Stoke Newington&quot;, external_id: &quot;3506&quot;, ons_code: &quot;E14000720&quot;,
+            mp_id: &quot;172&quot;, mp_name: &quot;Ms Diane Abbott MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          },{
+            name: &quot;Hackney South and Shoreditch&quot;, external_id: &quot;3507&quot;, ons_code: &quot;E14000721&quot;,
+            mp_id: &quot;1524&quot;, mp_name: &quot;Meg Hillier MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          },{
+            name: &quot;Holborn and St Pancras&quot;, external_id: &quot;3536&quot;, ons_code: &quot;E14000750&quot;,
+            mp_id: &quot;4514&quot;, mp_name: &quot;Keir Starmer MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          },{
+            name: &quot;Islington North&quot;, external_id: &quot;3549&quot;, ons_code: &quot;E14000763&quot;,
+            mp_id: &quot;185&quot;, mp_name: &quot;Jeremy Corbyn MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          },{
+            name: &quot;Islington South and Finsbury&quot;, external_id: &quot;3550&quot;, ons_code: &quot;E14000764&quot;,
+            mp_id: &quot;1536&quot;, mp_name: &quot;Emily Thornberry MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          }])
+        end
+      end
+
+      context &quot;when the MP has changed&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L29" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L67" class="js-smell-location">1</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N1C4QP&quot;).to_return(api_response(:ok, &quot;changed&quot;))
+        end
+
+        it &quot;returns an array with the last MP&quot; do
+          expect(query.fetch(&quot;N1C4QP&quot;)).to eq([{
+            name: &quot;Holborn and St Pancras&quot;, external_id: &quot;3536&quot;, ons_code: &quot;E14000750&quot;,
+            mp_id: &quot;4514&quot;, mp_name: &quot;Keir Starmer MP&quot;, mp_date: &quot;2015-05-07T00:00:00&quot;
+          }])
+        end
+      end
+
+      context &quot;when there is no sitting MP&quot; do
+        before do
+          stub_api_request_for(&quot;N11TY&quot;).to_return(api_response(:ok, &quot;no_mps&quot;))
+        end
+
+        it &quot;handles a constituency without an MP&quot; do
+          expect(query.fetch(&quot;N11TY&quot;)).to eq([{
+            name: &quot;Islington South and Finsbury&quot;, external_id: &quot;3550&quot;, ons_code: &quot;E14000764&quot;
+          }])
+        end
+      end
+
+      context &quot;when the current MP has passed away&quot; do
+        before do
+          stub_api_request_for(&quot;S48AA&quot;).to_return(api_response(:ok, &quot;vacant&quot;))
+        end
+
+        it &quot;sets the MP details to nil&quot; do
+          expect(query.fetch(&quot;S48AA&quot;)).to eq([{
+            name: &quot;Sheffield, Brightside and Hillsborough&quot;, external_id: &quot;3724&quot;,
+            ons_code: &quot;E14000921&quot;, mp_id: nil, mp_name: nil, mp_date: nil
+          }])
+        end
+      end
+    end
+
+    context &quot;when the request is unsuccessful&quot; do
+      context &quot;when the API is not responding&quot; do
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_timeout
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to eq([])
+        end
+      end
+
+      context &quot;when the API connection is blocked&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L117" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L127" class="js-smell-location">1</a>                  <a href="api_query_spec.html#L137" class="js-smell-location">2</a>                  <a href="api_query_spec.html#L147" class="js-smell-location">3</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_return(api_response(:proxy_authentication_required))
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to eq([])
+        end
+      end
+
+      context &quot;when the API can&#39;t be found&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L117" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L127" class="js-smell-location">1</a>                  <a href="api_query_spec.html#L137" class="js-smell-location">2</a>                  <a href="api_query_spec.html#L147" class="js-smell-location">3</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_return(api_response(:not_found))
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to eq([])
+        end
+      end
+
+      context &quot;when the API can&#39;t find the resource&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L117" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L127" class="js-smell-location">1</a>                  <a href="api_query_spec.html#L137" class="js-smell-location">2</a>                  <a href="api_query_spec.html#L147" class="js-smell-location">3</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_return(api_response(:not_acceptable))
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to eq([])
+        end
+      end
+
+      context &quot;when the API is returning an internal server error&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="api_query_spec.html#L117" class="js-smell-location">0</a>                  <a href="api_query_spec.html#L127" class="js-smell-location">1</a>                  <a href="api_query_spec.html#L137" class="js-smell-location">2</a>                  <a href="api_query_spec.html#L147" class="js-smell-location">3</a>                  </div>  </li></ol>
+        before do
+          stub_api_request_for(&quot;N1&quot;).to_return(api_response(:internal_server_error))
+        end
+
+        it &quot;returns an empty array&quot; do
+          expect(query.fetch(&quot;N1&quot;)).to eq([])
+        end
+      end
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+    <script src='../../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

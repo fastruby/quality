@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../overview.html"><img src="../../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-03-26 04:25:03 +0000'>2019-03-26 04:25:03 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/models/archived /</small> signature_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">796</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">9</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">2130.7</span><small> complexity</small></div>
+              <div><span class="metric">1186</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                40
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Archived::Signature, type: :model do
+  it &quot;has a valid factory&quot; do
+    expect(FactoryBot.build(:archived_signature)).to be_valid
+  end
+
+  describe &quot;schema&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#schema has a flog score of 225</span>          </div>  </li></ol>
+    it { is_expected.to have_db_column(:name).of_type(:string).with_options(limit: 255, null: false) }
+    it { is_expected.to have_db_column(:state).of_type(:string).with_options(limit: 20, default: &quot;pending&quot;, null: false) }
+    it { is_expected.to have_db_column(:perishable_token).of_type(:string).with_options(limit: 255) }
+    it { is_expected.to have_db_column(:postcode).of_type(:string).with_options(limit: 255) }
+    it { is_expected.to have_db_column(:ip_address).of_type(:string).with_options(limit: 20) }
+    it { is_expected.to have_db_column(:petition_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:notify_by_email).of_type(:boolean).with_options(default: false) }
+    it { is_expected.to have_db_column(:email).of_type(:string).with_options(limit: 255) }
+    it { is_expected.to have_db_column(:unsubscribe_token).of_type(:string) }
+    it { is_expected.to have_db_column(:constituency_id).of_type(:string) }
+    it { is_expected.to have_db_column(:validated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:number).of_type(:integer) }
+    it { is_expected.to have_db_column(:location_code).of_type(:string).with_options(limit: 30) }
+    it { is_expected.to have_db_column(:invalidated_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:invalidation_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:government_response_email_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:debate_scheduled_email_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:debate_outcome_email_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:petition_email_at).of_type(:datetime) }
+    it { is_expected.to have_db_column(:uuid).of_type(:uuid) }
+    it { is_expected.to have_db_column(:creator).of_type(:boolean).with_options(default: false, null: false) }
+    it { is_expected.to have_db_column(:sponsor).of_type(:boolean).with_options(default: false, null: false) }
+  end
+
+  describe &quot;associations&quot; do
+    it { is_expected.to belong_to(:constituency).with_primary_key(:external_id) }
+    it { is_expected.to belong_to(:petition) }
+    it { is_expected.to belong_to(:invalidation) }
+  end
+
+  describe &quot;indexes&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#indexes has a flog score of 81</span>          </div>  </li></ol>
+    it { is_expected.to have_db_index([:constituency_id]) }
+    it { is_expected.to have_db_index([:petition_id]) }
+    it { is_expected.to have_db_index([:created_at, :ip_address, :petition_id]) }
+    it { is_expected.to have_db_index([:email, :petition_id, :name]).unique }
+    it { is_expected.to have_db_index([:invalidation_id]) }
+    it { is_expected.to have_db_index([:ip_address, :petition_id]) }
+    it { is_expected.to have_db_index([:petition_id, :location_code]) }
+    it { is_expected.to have_db_index([:petition_id]) }
+    it { is_expected.to have_db_index([:state, :petition_id]) }
+    it { is_expected.to have_db_index([:updated_at]) }
+    it { is_expected.to have_db_index([:uuid]) }
+    it { is_expected.to have_db_index([:validated_at]) }
+  end
+
+  describe &quot;callbacks&quot; do
+    context &quot;when the signature is destroyed&quot; do
+      let(:attributes) { FactoryBot.attributes_for(:archived_petition, signature_count: 6) }
+      let(:creator) { petition.creator }
+      let(:signature) { petition.signatures.last }
+
+      let(:petition) do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L62" class="js-smell-location">0</a>                  <a href="signature_spec.html#L422" class="js-smell-location">1</a>                  </div>  </li></ol>
+        Archived::Petition.create!(attributes) do |petition|
+          petition.creator = FactoryBot.build(:archived_signature, creator: true)
+          petition.parliament = FactoryBot.build(:parliament)
+
+          5.times do
+            petition.signatures &lt;&lt; FactoryBot.build(:archived_signature)
+          end
+        end
+      end
+
+      context &quot;and the signature is the creator&quot; do
+        it &quot;cancels the destroy&quot; do
+          expect(creator.destroy).to eq(false)
+        end
+      end
+
+      context &quot;and the signature is not the creator&quot; do
+        it &quot;destroys the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(callbacks)::context(when the signature is destroyed)::context(and the signature is not the creator)::it#destroys the signature has a flog score of 25</span>          </div>  </li></ol>
+          expect {
+            signature.destroy
+          }.to change {
+            petition.reload.signatures.count
+          }.from(6).to(5)
+        end
+
+        it &quot;doesn&#39;t decrement the signature count&quot; do
+          expect {
+            signature.destroy
+          }.not_to change {
+            petition.reload.signature_count
+          }
+        end
+      end
+    end
+  end
+
+  describe &quot;validations&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#validations has a flog score of 60</span>          </div>  </li></ol>
+    it { is_expected.to validate_presence_of(:name).with_message(/must be completed/) }
+    it { is_expected.to validate_presence_of(:email).with_message(/must be completed/) }
+    it { is_expected.to validate_presence_of(:location_code).with_message(/must be completed/) }
+    it { is_expected.to validate_length_of(:name).is_at_most(255) }
+    it { is_expected.to validate_length_of(:constituency_id).is_at_most(255) }
+    it { is_expected.to allow_values(*Archived::Signature::STATES).for(:state) }
+    it { is_expected.not_to allow_values(&quot;unknown&quot;, &quot;&quot;).for(:state) }
+  end
+
+  describe &quot;read-only attributes&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L109" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L466" class="js-smell-location">1</a>                  </div>  </li></ol>
+    [
+      [:sponsor, true, false],
+      [:creator, true, false]
+    ].each do |attribute, value, new_value|
+
+      describe &quot;##{attribute}&quot; do
+        let(:signature) { FactoryBot.create(:archived_signature, attribute =&gt; value) }
+        let(:exception) { ActiveRecord::ActiveRecordError }
+        let(:message) { &quot;#{attribute} is marked as readonly&quot; }
+
+        it &quot;can&#39;t be updated via update_column&quot; do
+          expect {
+            signature.update_column(attribute, new_value)
+          }.to raise_error(exception, message)
+        end
+
+        it &quot;can&#39;t be updated via update&quot; do
+          expect {
+            signature.update(attribute =&gt; value)
+          }.not_to change {
+            signature.reload.send(attribute)
+          }
+        end
+
+        it &quot;can&#39;t be updated via save&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(read-only attributes)::it#can't be updated via save has a flog score of 30</span>          </div>  </li></ol>
+          expect {
+            signature.send(:&quot;#{attribute}=&quot;, new_value)
+            signature.save
+          }.not_to change {
+            signature.reload.send(attribute)
+          }
+        end
+      end
+
+    end
+  end
+
+  describe &quot;.need_emailing_for&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe#.need_emailing_for has a flog score of 45</span>          </div>  </li></ol>
+    let!(:petition) { FactoryBot.create(:archived_petition) }
+    let!(:creator) { FactoryBot.create(:archived_signature, petition: petition, creator: true) }
+    let!(:pending) { FactoryBot.create(:archived_signature, petition: petition, state: &quot;pending&quot;) }
+    let!(:fraudulent) { FactoryBot.create(:archived_signature, petition: petition, state: &quot;fraudulent&quot;) }
+    let!(:invalidated) { FactoryBot.create(:archived_signature, petition: petition, state: &quot;invalidated&quot;) }
+    let!(:subscribed) { FactoryBot.create(:archived_signature, petition: petition) }
+    let!(:unsubscribed) { FactoryBot.create(:archived_signature, petition: petition, notify_by_email: false) }
+
+    let(:requested_at) { 1.hour.ago }
+
+    Archived::Signature::TIMESTAMPS.each do |timestamp, column|
+      context &quot;when the email sent timestamp for &#39;#{timestamp}&#39; is not set&quot; do
+        subject(:signatures) { described_class.need_emailing_for(timestamp, since: requested_at) }
+
+        it &quot;includes subscribed signatures&quot; do
+          expect(signatures).to match_array([creator, subscribed])
+        end
+
+        it &quot;does not include unsubscribed signatures&quot; do
+          expect(signatures).not_to include(unsubscribed)
+        end
+
+        it &quot;does not include pending signatures&quot; do
+          expect(signatures).not_to include(pending)
+        end
+
+        it &quot;does not include fraudulent signatures&quot; do
+          expect(signatures).not_to include(fraudulent)
+        end
+
+        it &quot;does not include invalidated signatures&quot; do
+          expect(signatures).not_to include(invalidated)
+        end
+      end
+
+      context &quot;when the email sent timestamp for &#39;#{column}&#39; is set to before the requested timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L183" class="js-smell-location">0</a>                  <a href="signature_spec.html#L207" class="js-smell-location">1</a>                  </div>  </li></ol>
+        subject(:signatures) { described_class.need_emailing_for(timestamp, since: requested_at) }
+
+        before do
+          subscribed.update_column(column, requested_at - 1.day)
+        end
+
+        it &quot;includes the signature&quot; do
+          expect(signatures).to include(subscribed)
+        end
+      end
+
+      context &quot;when the email sent timestamp for &#39;#{column}&#39; is set to the same as the requested timestamp&quot; do
+        subject(:signatures) { described_class.need_emailing_for(timestamp, since: requested_at) }
+
+        before do
+          subscribed.update_column(column, requested_at)
+        end
+
+        it &quot;does not include the signature&quot; do
+          expect(signatures).not_to include(subscribed)
+        end
+      end
+
+      context &quot;when the email sent timestamp for &#39;#{column}&#39; is set to after as the requested timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L183" class="js-smell-location">0</a>                  <a href="signature_spec.html#L207" class="js-smell-location">1</a>                  </div>  </li></ol>
+        subject(:signatures) { described_class.need_emailing_for(timestamp, since: requested_at) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.need_emailing_for)::subject#signatures has a flog score of 30</span>          </div>  </li></ol>
+
+        before do
+          subscribed.update_column(column, requested_at + 1.day)
+        end
+
+        it &quot;does not include the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.need_emailing_for)::it#does not include the signature has a flog score of 28</span>          </div>  </li></ol>
+          expect(signatures).not_to include(subscribed)
+        end
+      end
+    end
+  end
+
+  describe &quot;.search&quot; do
+    let(:scope) { double(:scope) }
+
+    context &quot;when searching with an ip address&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L224" class="js-smell-location">0</a>                  <a href="signature_spec.html#L240" class="js-smell-location">1</a>                  <a href="signature_spec.html#L256" class="js-smell-location">2</a>                  <a href="signature_spec.html#L272" class="js-smell-location">3</a>                  </div>  </li></ol>
+      it &quot;calls the for_ip scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with an ip address)::it#calls the for_ip scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+        expect(Archived::Signature).to receive(:for_ip).with(&quot;127.0.0.1&quot;).and_return(scope)
+        expect(scope).to receive(:paginate).with(page: 1, per_page: 50)
+        described_class.search(&quot;127.0.0.1&quot;)
+      end
+
+      context &quot;and passing the page parameter&quot; do
+        it &quot;calls the for_ip scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with an ip address)::context(and passing the page parameter)::it#calls the for_ip scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+          expect(Archived::Signature).to receive(:for_ip).with(&quot;127.0.0.1&quot;).and_return(scope)
+          expect(scope).to receive(:paginate).with(page: 2, per_page: 50)
+          described_class.search(&quot;127.0.0.1&quot;, page: &quot;2&quot;)
+        end
+      end
+    end
+
+    context &quot;when searching with a domain&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L224" class="js-smell-location">0</a>                  <a href="signature_spec.html#L240" class="js-smell-location">1</a>                  <a href="signature_spec.html#L256" class="js-smell-location">2</a>                  <a href="signature_spec.html#L272" class="js-smell-location">3</a>                  </div>  </li></ol>
+      it &quot;calls the for_domain scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with a domain)::it#calls the for_domain scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+        expect(Archived::Signature).to receive(:for_domain).with(&quot;@example.com&quot;).and_return(scope)
+        expect(scope).to receive(:paginate).with(page: 1, per_page: 50)
+        described_class.search(&quot;@example.com&quot;)
+      end
+
+      context &quot;and passing the page parameter&quot; do
+        it &quot;calls the for_ip scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with a domain)::context(and passing the page parameter)::it#calls the for_ip scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+          expect(Archived::Signature).to receive(:for_domain).with(&quot;@example.com&quot;).and_return(scope)
+          expect(scope).to receive(:paginate).with(page: 2, per_page: 50)
+          described_class.search(&quot;@example.com&quot;, page: &quot;2&quot;)
+        end
+      end
+    end
+
+    context &quot;when searching with an email address&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L224" class="js-smell-location">0</a>                  <a href="signature_spec.html#L240" class="js-smell-location">1</a>                  <a href="signature_spec.html#L256" class="js-smell-location">2</a>                  <a href="signature_spec.html#L272" class="js-smell-location">3</a>                  </div>  </li></ol>
+      it &quot;calls the for_email scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with an email address)::it#calls the for_email scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+        expect(Archived::Signature).to receive(:for_email).with(&quot;alice@example.com&quot;).and_return(scope)
+        expect(scope).to receive(:paginate).with(page: 1, per_page: 50)
+        described_class.search(&quot;alice@example.com&quot;)
+      end
+
+      context &quot;and passing the page parameter&quot; do
+        it &quot;calls the for_email scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with an email address)::context(and passing the page parameter)::it#calls the for_email scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+          expect(Archived::Signature).to receive(:for_email).with(&quot;alice@example.com&quot;).and_return(scope)
+          expect(scope).to receive(:paginate).with(page: 2, per_page: 50)
+          described_class.search(&quot;alice@example.com&quot;, page: &quot;2&quot;)
+        end
+      end
+    end
+
+    context &quot;when searching with a name&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L224" class="js-smell-location">0</a>                  <a href="signature_spec.html#L240" class="js-smell-location">1</a>                  <a href="signature_spec.html#L256" class="js-smell-location">2</a>                  <a href="signature_spec.html#L272" class="js-smell-location">3</a>                  </div>  </li></ol>
+      it &quot;calls the for_name scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with a name)::it#calls the for_name scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+        expect(Archived::Signature).to receive(:for_name).with(&quot;Alice&quot;).and_return(scope)
+        expect(scope).to receive(:paginate).with(page: 1, per_page: 50)
+        described_class.search(&quot;Alice&quot;)
+      end
+
+      context &quot;and passing the page parameter&quot; do
+        it &quot;calls the for_name scope and paginates the result&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.search)::context(when searching with a name)::context(and passing the page parameter)::it#calls the for_name scope and paginates the result has a flog score of 27</span>          </div>  </li></ol>
+          expect(Archived::Signature).to receive(:for_name).with(&quot;Alice&quot;).and_return(scope)
+          expect(scope).to receive(:paginate).with(page: 2, per_page: 50)
+          described_class.search(&quot;Alice&quot;, page: &quot;2&quot;)
+        end
+      end
+    end
+  end
+
+  describe &quot;.subscribe!&quot; do
+    let(:attributes) { FactoryBot.attributes_for(:archived_petition) }
+    let(:creator) { FactoryBot.create(:archived_signature, creator: true) }
+    let(:petition) { FactoryBot.create(:archived_petition, creator: creator) }
+
+    before do
+      5.times do
+        petition.signatures &lt;&lt; FactoryBot.create(:archived_signature, notify_by_email: false)
+      end
+    end
+
+    context &quot;when passed a signature id that doesn&#39;t exist&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L300" class="js-smell-location">0</a>                  <a href="signature_spec.html#L370" class="js-smell-location">1</a>                  <a href="signature_spec.html#L433" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L590" class="js-smell-location">3</a>                  <a href="../signature_spec.html#L713" class="js-smell-location">4</a>                  <a href="../signature_spec.html#L762" class="js-smell-location">5</a>                  <a href="../signature_spec.html#L841" class="js-smell-location">6</a>                  <a href="../signature_spec.html#L908" class="js-smell-location">7</a>                  </div>  </li></ol>
+      let(:signature_ids) { [petition.signatures.maximum(:id) + 1] }
+
+      it &quot;raises an ActiveRecord::RecordNotFound error&quot; do
+        expect {
+          described_class.subscribe!(signature_ids)
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context &quot;when trying to subscribe the creator&quot; do
+      it &quot;doesn&#39;t raise an error&quot; do
+        expect {
+          described_class.subscribe!([creator.id])
+        }.not_to raise_error
+      end
+    end
+
+    context &quot;with a pending signature&quot; do
+      let(:signature) { FactoryBot.create(:archived_signature, :pending, petition: petition) }
+
+      it &quot;doesn&#39;t raise an error&quot; do
+        expect {
+          described_class.subscribe!([signature.id])
+        }.not_to raise_error
+      end
+    end
+
+    context &quot;with a pending signature that isn&#39;t subscribed&quot; do
+      let(:signature) { FactoryBot.create(:archived_signature, :pending, petition: petition, notify_by_email: false) }
+
+      it &quot;subscribes the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L331" class="js-smell-location">0</a>                  <a href="signature_spec.html#L349" class="js-smell-location">1</a>                  <a href="../signature_spec.html#L793" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.subscribe!)::context(with a pending signature that isn't subscribed)::it#subscribes the signature has a flog score of 26</span>          </div>  </li></ol>
+        expect {
+          described_class.subscribe!([signature.id])
+        }.to change {
+          signature.reload.unsubscribed?
+        }.from(true).to(false)
+      end
+    end
+
+    context &quot;with a validated signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.subscribe!)::context#with a validated signature has a flog score of 44</span>          </div>  </li></ol>
+      let(:signature) { FactoryBot.create(:archived_signature, :validated, petition: petition, notify_by_email: false) }
+
+      before do
+        allow(described_class).to receive(:find).and_call_original
+        allow(described_class).to receive(:find).with([signature.id]).and_return([signature])
+        expect(signature).to receive(:update!).with(notify_by_email: true).and_call_original
+      end
+
+      it &quot;subscribes the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L331" class="js-smell-location">0</a>                  <a href="signature_spec.html#L349" class="js-smell-location">1</a>                  <a href="../signature_spec.html#L793" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.subscribe!)::context(with a validated signature)::it#subscribes the signature has a flog score of 26</span>          </div>  </li></ol>
+        expect {
+          described_class.subscribe!([signature.id])
+        }.to change {
+          signature.reload.unsubscribed?
+        }.from(true).to(false)
+      end
+    end
+  end
+
+  describe &quot;.unsubscribe!&quot; do
+    let(:attributes) { FactoryBot.attributes_for(:archived_petition) }
+    let(:creator) { FactoryBot.create(:archived_signature, creator: true) }
+    let(:petition) { FactoryBot.create(:archived_petition, creator: creator) }
+
+    before do
+      5.times do
+        petition.signatures &lt;&lt; FactoryBot.create(:archived_signature, notify_by_email: true)
+      end
+    end
+
+    context &quot;when passed a signature id that doesn&#39;t exist&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L300" class="js-smell-location">0</a>                  <a href="signature_spec.html#L370" class="js-smell-location">1</a>                  <a href="signature_spec.html#L433" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L590" class="js-smell-location">3</a>                  <a href="../signature_spec.html#L713" class="js-smell-location">4</a>                  <a href="../signature_spec.html#L762" class="js-smell-location">5</a>                  <a href="../signature_spec.html#L841" class="js-smell-location">6</a>                  <a href="../signature_spec.html#L908" class="js-smell-location">7</a>                  </div>  </li></ol>
+      let(:signature_ids) { [petition.signatures.maximum(:id) + 1] }
+
+      it &quot;raises an ActiveRecord::RecordNotFound error&quot; do
+        expect {
+          described_class.unsubscribe!(signature_ids)
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context &quot;when trying to unsubscribe the creator&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L380" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L851" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;raises an error&quot; do
+        expect {
+          described_class.unsubscribe!([creator.id])
+        }.to raise_error(RuntimeError, &quot;Can&#39;t unsubscribe the creator signature&quot;)
+      end
+    end
+
+    context &quot;with a pending signature&quot; do
+      let(:signature) { FactoryBot.create(:archived_signature, :pending, petition: petition, notify_by_email: true) }
+
+      it &quot;raises an error&quot; do
+        expect {
+          described_class.unsubscribe!([signature.id])
+        }.to raise_error(RuntimeError, &quot;Can&#39;t unsubscribe a pending signature&quot;)
+      end
+    end
+
+    context &quot;with a validated signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.unsubscribe!)::context#with a validated signature has a flog score of 44</span>          </div>  </li></ol>
+      let(:signature) { FactoryBot.create(:archived_signature, :validated, petition: petition, notify_by_email: true) }
+
+      before do
+        allow(described_class).to receive(:find).and_call_original
+        allow(described_class).to receive(:find).with([signature.id]).and_return([signature])
+        expect(signature).to receive(:update!).with(notify_by_email: false).and_call_original
+      end
+
+      it &quot;unsubscribes the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L407" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L609" class="js-smell-location">1</a>                  <a href="../signature_spec.html#L734" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L880" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.unsubscribe!)::context(with a validated signature)::it#unsubscribes the signature has a flog score of 26</span>          </div>  </li></ol>
+        expect {
+          described_class.unsubscribe!([signature.id])
+        }.to change {
+          signature.reload.unsubscribed?
+        }.from(false).to(true)
+      end
+    end
+  end
+
+  describe &quot;.destroy!&quot; do
+    let(:attributes) { FactoryBot.attributes_for(:archived_petition, signature_count: 6) }
+    let(:creator) { petition.creator }
+    let(:signature) { petition.signatures.last }
+
+    let(:petition) do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L62" class="js-smell-location">0</a>                  <a href="signature_spec.html#L422" class="js-smell-location">1</a>                  </div>  </li></ol>
+      Archived::Petition.create!(attributes) do |petition|
+        petition.creator = FactoryBot.build(:archived_signature, creator: true)
+        petition.parliament = FactoryBot.build(:parliament)
+
+        5.times do
+          petition.signatures &lt;&lt; FactoryBot.build(:archived_signature)
+        end
+      end
+    end
+
+    context &quot;when passed a signature id that doesn&#39;t exist&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L300" class="js-smell-location">0</a>                  <a href="signature_spec.html#L370" class="js-smell-location">1</a>                  <a href="signature_spec.html#L433" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L590" class="js-smell-location">3</a>                  <a href="../signature_spec.html#L713" class="js-smell-location">4</a>                  <a href="../signature_spec.html#L762" class="js-smell-location">5</a>                  <a href="../signature_spec.html#L841" class="js-smell-location">6</a>                  <a href="../signature_spec.html#L908" class="js-smell-location">7</a>                  </div>  </li></ol>
+      let(:signature_ids) { [petition.signatures.maximum(:id) + 1] }
+
+      it &quot;raises an ActiveRecord::RecordNotFound error&quot; do
+        expect {
+          described_class.destroy!(signature_ids)
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context &quot;when trying to delete the creator&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L443" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L918" class="js-smell-location">1</a>                  </div>  </li></ol>
+      let(:signature_ids) { [creator.id] }
+
+      it &quot;raises an ActiveRecord::RecordNotDestroyed error&quot; do
+        expect {
+          described_class.destroy!(signature_ids)
+        }.to raise_error(ActiveRecord::RecordNotDestroyed)
+      end
+    end
+
+    context &quot;when the signature is not the creator&quot; do
+      it &quot;destroys the signature&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(.destroy!)::context(when the signature is not the creator)::it#destroys the signature has a flog score of 30</span>          </div>  </li></ol>
+        expect {
+          described_class.destroy!([signature.id])
+        }.to change {
+          petition.reload.signatures.count
+        }.from(6).to(5)
+      end
+
+      it &quot;doesn&#39;t decrement the petition signature count&quot; do
+        expect {
+          described_class.destroy!([signature.id])
+        }.not_to change {
+          petition.reload.signature_count
+        }
+      end
+    end
+
+    context &quot;when one signature fails&quot; do
+      let(:signatures) { [signature, creator] }
+      let(:signature_ids) { signatures.map(&amp;:id) }
+
+      before do
+        allow(described_class).to receive(:find).with(signature_ids).and_return(signatures)
+      end
+
+      it &quot;raises an ActiveRecord::RecordNotDestroyed error&quot; do
+        expect {
+          described_class.destroy!(signature_ids)
+        }.to raise_error(ActiveRecord::RecordNotDestroyed)
+      end
+
+      it &quot;doesn&#39;t destroy any signatures&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L485" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L985" class="js-smell-location">1</a>                  </div>  </li></ol>
+        expect {
+          begin
+            described_class.destroy!(signature_ids)
+          rescue ActiveRecord::RecordNotDestroyed =&gt; e
+            0
+          end
+        }.not_to change {
+          petition.reload.signatures.count
+        }
+      end
+    end
+  end
+
+  describe &#39;#get_email_sent_at_for&#39; do
+    let(:signature) { FactoryBot.create(:archived_signature) }
+    let(:sent_at) { 6.days.ago }
+
+    Archived::Signature::TIMESTAMPS.each do |timestamp, column|
+      context &quot;when the email sent timestamp for &#39;#{timestamp}&#39; is not set&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L504" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L2039" class="js-smell-location">1</a>                  </div>  </li></ol>
+        it &quot;returns nil&quot; do
+          expect(signature.get_email_sent_at_for(timestamp)).to be_nil
+        end
+      end
+
+      context &quot;when the email sent timestamp for &#39;#{timestamp}&#39; is set&quot; do
+        before do
+          signature.update_column(column, sent_at)
+        end
+
+        it &quot;returns the stored timestamp&quot; do
+          expect(signature.get_email_sent_at_for(timestamp)).to be_usec_precise_with(sent_at)
+        end
+      end
+    end
+  end
+
+  describe &#39;#set_email_sent_at_for&#39; do
+    let(:signature) { FactoryBot.create(:archived_signature) }
+    let(:sent_at) { 6.days.ago }
+
+    Archived::Signature::TIMESTAMPS.each do |timestamp, column|
+      context &quot;when a time is supplied for the email sent timestamp &#39;#{timestamp}&#39;&quot; do
+        it &quot;sets the column to the supplied time&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(#set_email_sent_at_for)::it#sets the column to the supplied time has a flog score of 30</span>          </div>  </li></ol>
+          expect {
+            signature.set_email_sent_at_for(timestamp, to: sent_at)
+          }.to change {
+            signature.reload[column]
+          }.from(nil).to(be_usec_precise_with(sent_at))
+        end
+      end
+
+      context &quot;when a time is not supplied for the email sent timestamp &#39;#{timestamp}&#39;&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L537" class="js-smell-location">0</a>                  <a href="../signature_spec.html#L2079" class="js-smell-location">1</a>                  </div>  </li></ol>
+        it &quot;sets the column to the current time&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(#set_email_sent_at_for)::it#sets the column to the current time has a flog score of 34</span>          </div>  </li></ol>
+          expect {
+            signature.set_email_sent_at_for(timestamp)
+          }.to change {
+            signature.reload[column]
+          }.from(nil).to(be_within(1.second).of(Time.current))
+        end
+      end
+    end
+  end
+
+  describe &quot;#pending?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L549" class="js-smell-location">0</a>                  <a href="signature_spec.html#L569" class="js-smell-location">1</a>                  <a href="signature_spec.html#L589" class="js-smell-location">2</a>                  <a href="signature_spec.html#L609" class="js-smell-location">3</a>                  </div>  </li></ol>
+    context &quot;when the signature has a state of &#39;pending&#39;&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, state: &quot;pending&quot;) }
+
+      it &quot;returns true&quot; do
+        expect(signature.pending?).to be_truthy
+      end
+    end
+
+    (Archived::Signature::STATES - [Archived::Signature::PENDING_STATE]).each do |state|
+      context &quot;when the signature has a state of &#39;#{state}&#39;&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, state: state) }
+
+        it &quot;returns false&quot; do
+          expect(signature.pending?).to be_falsey
+        end
+      end
+    end
+  end
+
+  describe &quot;#fraudulent?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L549" class="js-smell-location">0</a>                  <a href="signature_spec.html#L569" class="js-smell-location">1</a>                  <a href="signature_spec.html#L589" class="js-smell-location">2</a>                  <a href="signature_spec.html#L609" class="js-smell-location">3</a>                  </div>  </li></ol>
+    context &quot;when the signature has a state of &#39;fraudulent&#39;&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, state: &quot;fraudulent&quot;) }
+
+      it &quot;returns true&quot; do
+        expect(signature.fraudulent?).to be_truthy
+      end
+    end
+
+    (Archived::Signature::STATES - [Archived::Signature::FRAUDULENT_STATE]).each do |state|
+      context &quot;when the signature has a state of &#39;#{state}&#39;&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, state: state) }
+
+        it &quot;returns false&quot; do
+          expect(signature.fraudulent?).to be_falsey
+        end
+      end
+    end
+  end
+
+  describe &quot;#validated?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L549" class="js-smell-location">0</a>                  <a href="signature_spec.html#L569" class="js-smell-location">1</a>                  <a href="signature_spec.html#L589" class="js-smell-location">2</a>                  <a href="signature_spec.html#L609" class="js-smell-location">3</a>                  </div>  </li></ol>
+    context &quot;when the signature has a state of &#39;validated&#39;&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, state: &quot;validated&quot;) }
+
+      it &quot;returns true&quot; do
+        expect(signature.validated?).to be_truthy
+      end
+    end
+
+    (Archived::Signature::STATES - [Archived::Signature::VALIDATED_STATE]).each do |state|
+      context &quot;when the signature has a state of &#39;#{state}&#39;&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, state: state) }
+
+        it &quot;returns false&quot; do
+          expect(signature.validated?).to be_falsey
+        end
+      end
+    end
+  end
+
+  describe &quot;#invalidated?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L549" class="js-smell-location">0</a>                  <a href="signature_spec.html#L569" class="js-smell-location">1</a>                  <a href="signature_spec.html#L589" class="js-smell-location">2</a>                  <a href="signature_spec.html#L609" class="js-smell-location">3</a>                  </div>  </li></ol>
+    context &quot;when the signature has a state of &#39;invalidated&#39;&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, state: &quot;invalidated&quot;) }
+
+      it &quot;returns true&quot; do
+        expect(signature.invalidated?).to be_truthy
+      end
+    end
+
+    (Archived::Signature::STATES - [Archived::Signature::INVALIDATED_STATE]).each do |state|
+      context &quot;when the signature has a state of &#39;#{state}&#39;&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, state: state) }
+
+        it &quot;returns false&quot; do
+          expect(signature.invalidated?).to be_falsey
+        end
+      end
+    end
+  end
+
+  describe &quot;#subscribed?&quot; do
+    context &quot;when the signature is pending&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L630" class="js-smell-location">0</a>                  <a href="signature_spec.html#L656" class="js-smell-location">1</a>                  <a href="signature_spec.html#L664" class="js-smell-location">2</a>                  </div>  </li></ol>
+      let(:signature) { FactoryBot.build(:archived_signature, :pending, notify_by_email: true) }
+
+      it &quot;returns false&quot; do
+        expect(signature.subscribed?).to eq(false)
+      end
+    end
+
+    context &quot;when the signature is validated&quot; do
+      context &quot;and notify_by_email is true&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, :validated, notify_by_email: true) }
+
+        it &quot;returns true&quot; do
+          expect(signature.subscribed?).to eq(true)
+        end
+      end
+
+      context &quot;and notify_by_email is false&quot; do
+        let(:signature) { FactoryBot.build(:archived_signature, :validated, notify_by_email: false) }
+
+        it &quot;returns false&quot; do
+          expect(signature.subscribed?).to eq(false)
+        end
+      end
+    end
+
+    context &quot;when the signature is fraudulent&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L630" class="js-smell-location">0</a>                  <a href="signature_spec.html#L656" class="js-smell-location">1</a>                  <a href="signature_spec.html#L664" class="js-smell-location">2</a>                  </div>  </li></ol>
+      let(:signature) { FactoryBot.build(:archived_signature, :fraudulent, notify_by_email: true) }
+
+      it &quot;returns false&quot; do
+        expect(signature.subscribed?).to eq(false)
+      end
+    end
+
+    context &quot;when the signature is invalidated&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L630" class="js-smell-location">0</a>                  <a href="signature_spec.html#L656" class="js-smell-location">1</a>                  <a href="signature_spec.html#L664" class="js-smell-location">2</a>                  </div>  </li></ol>
+      let(:signature) { FactoryBot.build(:archived_signature, :invalidated, notify_by_email: true) }
+
+      it &quot;returns false&quot; do
+        expect(signature.subscribed?).to eq(false)
+      end
+    end
+  end
+
+  describe &quot;#unsubscribed?&quot; do
+    context &quot;when notify_by_email is true&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, notify_by_email: true) }
+
+      it &quot;returns false&quot; do
+        expect(signature.unsubscribed?).to be_falsey
+      end
+    end
+
+    context &quot;when notify_by_email is false&quot; do
+      let(:signature) { FactoryBot.build(:archived_signature, notify_by_email: false) }
+
+      it &quot;returns true&quot; do
+        expect(signature.unsubscribed?).to be_truthy
+      end
+    end
+  end
+
+  describe &quot;#unsubscribe!&quot; do
+    let(:signature) { FactoryBot.create(:archived_signature, notify_by_email: subscribed) }
+    let(:unsubscribe_token) { signature.unsubscribe_token }
+
+    context &quot;when subcribed&quot; do
+      let(:subscribed) { true }
+
+      it &quot;changes the subscription status&quot; do
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.to change {
+          signature.notify_by_email
+        }.from(true).to(false)
+      end
+
+      it &quot;doesn&#39;t add an error to the :base attribute&quot; do
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.not_to change {
+          signature.errors[:base]
+        }
+      end
+    end
+
+    context &quot;when already unsubcribed&quot; do
+      let(:subscribed) { false }
+
+      it &quot;doesn&#39;t change the subscription status&quot; do
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.not_to change {
+          signature.notify_by_email
+        }
+      end
+
+      it &quot;adds an error to the :base attribute&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L726" class="js-smell-location">0</a>                  <a href="signature_spec.html#L747" class="js-smell-location">1</a>                  </div>  </li></ol>
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.to change {
+          signature.errors[:base]
+        }.from([]).to([&quot;Already Unsubscribed&quot;])
+      end
+    end
+
+    context &quot;when token is invalid&quot; do
+      let(:subscribed) { true }
+      let(:unsubscribe_token) { &quot;invalid token&quot; }
+
+      it &quot;doesn&#39;t change the subscription status&quot; do
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.not_to change {
+          signature.notify_by_email
+        }
+      end
+
+      it &quot;adds an error to the :base attribute&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L726" class="js-smell-location">0</a>                  <a href="signature_spec.html#L747" class="js-smell-location">1</a>                  </div>  </li></ol>
+        expect {
+          signature.unsubscribe!(unsubscribe_token)
+        }.to change {
+          signature.errors[:base]
+        }.from([]).to([&quot;Invalid Unsubscribe Token&quot;])
+      end
+    end
+  end
+
+  describe &quot;#already_unsubscribed?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L757" class="js-smell-location">0</a>                  <a href="signature_spec.html#L777" class="js-smell-location">1</a>                  <a href="../signature_spec.html#L1823" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L1843" class="js-smell-location">3</a>                  </div>  </li></ol>
+    let(:signature) { FactoryBot.create(:archived_signature) }
+
+    context &quot;when there is no error on the :base attribute&quot; do
+      it &quot;returns false&quot; do
+        expect(signature.already_unsubscribed?).to be_falsey
+      end
+    end
+
+    context &quot;when there is an error on the :base attribute&quot; do
+      before do
+        signature.errors.add(:base, &quot;Already Unsubscribed&quot;)
+      end
+
+      it &quot;returns true&quot; do
+        expect(signature.already_unsubscribed?).to be_truthy
+      end
+    end
+  end
+
+  describe &quot;#invalid_unsubscribe_token?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="signature_spec.html#L757" class="js-smell-location">0</a>                  <a href="signature_spec.html#L777" class="js-smell-location">1</a>                  <a href="../signature_spec.html#L1823" class="js-smell-location">2</a>                  <a href="../signature_spec.html#L1843" class="js-smell-location">3</a>                  </div>  </li></ol>
+    let(:signature) { FactoryBot.create(:archived_signature) }
+
+    context &quot;when there is no error on the :base attribute&quot; do
+      it &quot;returns false&quot; do
+        expect(signature.invalid_unsubscribe_token?).to be_falsey
+      end
+    end
+
+    context &quot;when there is an error on the :base attribute&quot; do
+      before do
+        signature.errors.add(:base, &quot;Invalid Unsubscribe Token&quot;)
+      end
+
+      it &quot;returns true&quot; do
+        expect(signature.invalid_unsubscribe_token?).to be_truthy
+      end
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+    <script src='../../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

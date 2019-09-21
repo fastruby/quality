@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../overview.html"><img src="../../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-04-12 04:44:52 +0100'>2019-04-12 04:44:52 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/controllers/admin /</small> moderation_controller_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">251</span><small> lines of codes</small></div>
+              <div><span class="metric">1</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">625.9</span><small> complexity/method</small></div>
+              <div><span class="metric">19</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">625.91</span><small> complexity</small></div>
+              <div><span class="metric">215</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                2
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Admin::ModerationController, type: :controller, admin: true do
+
+  describe &quot;logged in&quot; do
+    let(:user) { FactoryBot.create(:moderator_user) }
+    before { login_as(user) }
+
+    let(:petition) do
+      FactoryBot.create(:sponsored_petition,
+        creator_attributes: {
+          name: &quot;Barry Butler&quot;,
+          email: &quot;bazbutler@gmail.com&quot;
+        },
+        sponsor_count: 5,
+        moderation_threshold_reached_at: 4.days.ago
+      )
+    end
+
+    context &quot;update&quot; do
+      before { ActionMailer::Base.deliveries.clear }
+      let(:patch_options) { {} }
+
+      def do_patch(options = patch_options)
+        params = { petition_id: petition.id, save_and_email: &quot;Email petition creator&quot; }.merge(petition: options)
+        patch :update, params
+      end
+
+      it &quot;is unsuccessful for a petition that is not validated&quot; do
+        petition.publish
+        expect {
+          do_patch
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      context &quot;when moderation param is &#39;approve&#39;&quot; do
+        let(:now) { Time.current }
+        let(:deliveries) { ActionMailer::Base.deliveries }
+        let(:creator_email) { deliveries.select{ |m| m.to == %w[bazbutler@gmail.com] }.last }
+        let(:sponsor_email) { deliveries.detect{ |m| m.to == %w[laurapalmer@gmail.com] } }
+        let(:pending_email) { deliveries.detect{ |m| m.to == %w[sandyfisher@hotmail.com] } }
+        let(:duration) { Site.petition_duration.months }
+        let(:closing_date) { (now + duration).end_of_day }
+        let!(:sponsor) { FactoryBot.create(:sponsor, :pending, petition: petition, email: &quot;laurapalmer@gmail.com&quot;) }
+        let!(:pending_sponsor) { FactoryBot.create(:sponsor, :pending, petition: petition, email: &quot;sandyfisher@hotmail.com&quot;) }
+
+        before do
+          perform_enqueued_jobs do
+            sponsor.validate!
+            do_patch moderation: &quot;approve&quot;
+            petition.reload
+          end
+        end
+
+        it &quot;opens the petition&quot; do
+          expect(petition.state).to eq(Petition::OPEN_STATE)
+        end
+
+        it &quot;sets the open date to now&quot; do
+          expect(petition.open_at).to be_within(1.second).of(now)
+        end
+
+        it &quot;sets the moderation lag&quot; do
+          expect(petition.moderation_lag).to eq(4)
+        end
+
+        it &quot;redirects to the admin show page for the petition page&quot; do
+          expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/petitions/#{petition.id}&quot;)
+        end
+
+        it &quot;sends an email to the petition creator&quot; do
+          expect(creator_email).to deliver_to(&quot;bazbutler@gmail.com&quot;)
+          expect(creator_email).to have_subject(/We published your petition “[^&quot;]+”/)
+        end
+
+        it &quot;sends an email to validated petition sponsors&quot; do
+          expect(sponsor_email).to deliver_to(&quot;laurapalmer@gmail.com&quot;)
+          expect(sponsor_email).to have_subject(/We published the petition “[^&quot;]+” that you supported/)
+        end
+
+        it &quot;doesn&#39;t send an email to pending petition sponsors&quot; do
+          expect(pending_email).to be_nil
+        end
+      end
+
+      context &quot;when moderation param is &#39;reject&#39;&quot; do
+        let(:rejection_code) { &#39;duplicate&#39; }
+        let(:patch_options) do
+          {
+            moderation: &#39;reject&#39;,
+            rejection: { code: rejection_code }
+          }
+        end
+        let(:deliveries) { ActionMailer::Base.deliveries }
+        let(:creator_email) { deliveries.detect{ |m| m.to == %w[bazbutler@gmail.com] } }
+        let(:sponsor_email) { deliveries.detect{ |m| m.to == %w[laurapalmer@gmail.com] } }
+        let(:pending_email) { deliveries.detect{ |m| m.to == %w[sandyfisher@hotmail.com] } }
+        let!(:sponsor) { FactoryBot.create(:sponsor, :validated, petition: petition, email: &quot;laurapalmer@gmail.com&quot;) }
+        let!(:pending_sponsor) { FactoryBot.create(:sponsor, :pending, petition: petition, email: &quot;sandyfisher@hotmail.com&quot;) }
+
+        before do
+          perform_enqueued_jobs do
+            do_patch
+            petition.reload
+          end
+        end
+
+        shared_examples_for &#39;rejecting a petition&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="moderation_controller_spec.html#L108" class="js-smell-location">0</a>                  <a href="moderation_controller_spec.html#L152" class="js-smell-location">1</a>                  </div>  </li></ol>
+          let(:now) { Time.current }
+
+          it &#39;sets the petition state to &quot;rejected&quot;&#39; do
+            expect(petition.state).to eq(Petition::REJECTED_STATE)
+          end
+
+          it &quot;sets the petition rejected date to now&quot; do
+            expect(petition.rejected_at).to be_within(1.second).of(now)
+          end
+
+          it &quot;sets the moderation lag&quot; do
+            expect(petition.moderation_lag).to eq(4)
+          end
+
+          it &#39;sets the rejection code to the supplied code&#39; do
+            expect(petition.rejection.code).to eq(rejection_code)
+          end
+
+          it &#39;redirects to the admin show page for the petition&#39; do
+            expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/petitions/#{petition.id}&quot;)
+          end
+
+          it &quot;sends an email to the petition creator&quot; do
+            expect(creator_email).to deliver_to(&quot;bazbutler@gmail.com&quot;)
+            expect(creator_email.subject).to match(/We rejected your petition “[^&quot;]+”/)
+          end
+
+          it &quot;sends an email to validated petition sponsors&quot; do
+            expect(sponsor_email).to deliver_to(&quot;laurapalmer@gmail.com&quot;)
+            expect(sponsor_email.subject).to match(/We rejected the petition “[^&quot;]+” that you supported/)
+          end
+
+          it &quot;does not send an email to pending petition sponsors&quot; do
+            expect(pending_email).to be_nil
+          end
+        end
+
+        context &#39;with rejection code of &quot;duplicate&quot;&#39; do
+          let(:rejection_code) { &#39;duplicate&#39; }
+
+          it_behaves_like &#39;rejecting a petition&#39;
+        end
+
+        shared_examples_for &#39;hiding a petition&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="moderation_controller_spec.html#L108" class="js-smell-location">0</a>                  <a href="moderation_controller_spec.html#L152" class="js-smell-location">1</a>                  </div>  </li></ol>
+          let(:now) { Time.current }
+
+          it &#39;sets the petition state to &quot;hidden&quot;&#39; do
+            expect(petition.state).to eq(Petition::HIDDEN_STATE)
+          end
+
+          it &quot;sets the petition rejected date to now&quot; do
+            expect(petition.rejected_at).to be_within(1.second).of(now)
+          end
+
+          it &quot;sets the moderation lag&quot; do
+            expect(petition.moderation_lag).to eq(4)
+          end
+
+          it &#39;sets the rejection code to the supplied code&#39; do
+            expect(petition.rejection.code).to eq(rejection_code)
+          end
+
+          it &#39;redirects to the admin show page for the petition&#39; do
+            expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/petitions/#{petition.id}&quot;)
+          end
+
+          it &quot;sends an email to the petition creator&quot; do
+            expect(creator_email).to deliver_to(&quot;bazbutler@gmail.com&quot;)
+            expect(creator_email.subject).to match(/We rejected your petition “[^&quot;]+”/)
+          end
+
+          it &quot;sends an email to validated petition sponsors&quot; do
+            expect(sponsor_email).to deliver_to(&quot;laurapalmer@gmail.com&quot;)
+            expect(sponsor_email.subject).to match(/We rejected the petition “[^&quot;]+” that you supported/)
+          end
+
+          it &quot;does not send an email to pending petition sponsors&quot; do
+            expect(pending_email).to be_nil
+          end
+        end
+
+        context &#39;with rejection code of &quot;offensive&quot;&#39; do
+          let(:rejection_code) { &#39;offensive&#39; }
+
+          it_behaves_like &#39;hiding a petition&#39;
+        end
+
+        context &#39;with rejection code of &quot;libellous&quot;&#39; do
+          let(:rejection_code) { &#39;libellous&#39; }
+
+          it_behaves_like &#39;hiding a petition&#39;
+        end
+
+        context &#39;with no rejection code&#39; do
+          let(:rejection_code) { &#39;&#39; }
+
+          it &quot;leaves the state alone, in the DB and in-memory&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="moderation_controller_spec.html#L205" class="js-smell-location">0</a>                  <a href="take_down_controller_spec.html#L221" class="js-smell-location">1</a>                  </div>  </li></ol>
+            expect(petition.state).to eq(Petition::SPONSORED_STATE)
+            expect(assigns(:petition).state).to eq(Petition::SPONSORED_STATE)
+          end
+
+          it &quot;renders the admin petitions show template&quot; do
+            expect(response).to be_success
+            expect(response).to render_template &#39;admin/petitions/show&#39;
+          end
+        end
+      end
+
+      context &quot;when moderation param is &#39;flag&#39;&quot; do
+        let(:email) { ActionMailer::Base.deliveries.last }
+
+        before do
+          do_patch moderation: &#39;flag&#39;
+          petition.reload
+        end
+
+        it &quot;flags the petition&quot; do
+          expect(petition.state).to eq(Petition::FLAGGED_STATE)
+        end
+
+        it &quot;does not set the open date&quot; do
+          expect(petition.open_at).to be_nil
+        end
+
+        it &quot;does not set the rejected date&quot; do
+          expect(petition.rejected_at).to be_nil
+        end
+
+        it &quot;does not set the moderation lag&quot; do
+          expect(petition.moderation_lag).to be_nil
+        end
+
+        it &quot;redirects to the admin show page for the petition page&quot; do
+          expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/petitions/#{petition.id}&quot;)
+        end
+
+        it &quot;does not send an email to the petition creator&quot; do
+          expect(email).to be_nil
+        end
+      end
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../../assets/javascripts/application.js'></script>
+    <script src='../../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

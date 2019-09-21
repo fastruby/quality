@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-03-26 15:36:51 +0000'>2019-03-26 15:36:51 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/models /</small> site_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">998</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">28</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">2982.85</span><small> complexity</small></div>
+              <div><span class="metric">2023</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                32
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Site, type: :model do
+  describe &quot;schema&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#schema has a flog score of 247</span>          </div>  </li></ol>
+    it { is_expected.to have_db_column(:title).of_type(:string).with_options(limit: 50, null: false, default: &quot;Petition parliament&quot;) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L5" class="js-smell-location">0</a>                  <a href="site_spec.html#L6" class="js-smell-location">1</a>                  <a href="site_spec.html#L7" class="js-smell-location">2</a>                  </div>  </li></ol>
+    it { is_expected.to have_db_column(:url).of_type(:string).with_options(limit: 50, null: false, default: &quot;https://petition.parliament.uk&quot;) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L5" class="js-smell-location">0</a>                  <a href="site_spec.html#L6" class="js-smell-location">1</a>                  <a href="site_spec.html#L7" class="js-smell-location">2</a>                  </div>  </li></ol>
+    it { is_expected.to have_db_column(:email_from).of_type(:string).with_options(limit: 100, null: false, default: %{&quot;Petitions: UK Government and Parliament&quot; &lt;no-reply@petition.parliament.uk&gt;}) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L5" class="js-smell-location">0</a>                  <a href="site_spec.html#L6" class="js-smell-location">1</a>                  <a href="site_spec.html#L7" class="js-smell-location">2</a>                  </div>  </li></ol>
+    it { is_expected.to have_db_column(:username).of_type(:string).with_options(limit: 30) }
+    it { is_expected.to have_db_column(:password_digest).of_type(:string).with_options(limit: 60) }
+    it { is_expected.to have_db_column(:enabled).of_type(:boolean).with_options(null: false, default: true) }
+    it { is_expected.to have_db_column(:protected).of_type(:boolean).with_options(null: false, default: false) }
+    it { is_expected.to have_db_column(:petition_duration).of_type(:integer).with_options(null: false, default: 6) }
+    it { is_expected.to have_db_column(:minimum_number_of_sponsors).of_type(:integer).with_options(null: false, default: 5) }
+    it { is_expected.to have_db_column(:maximum_number_of_sponsors).of_type(:integer).with_options(null: false, default: 20) }
+    it { is_expected.to have_db_column(:threshold_for_moderation).of_type(:integer).with_options(null: false, default: 5) }
+    it { is_expected.to have_db_column(:threshold_for_moderation_delay).of_type(:integer).with_options(null: false, default: 500) }
+    it { is_expected.to have_db_column(:threshold_for_response).of_type(:integer).with_options(null: false, default: 10000) }
+    it { is_expected.to have_db_column(:threshold_for_debate).of_type(:integer).with_options(null: false, default: 100000) }
+    it { is_expected.to have_db_column(:last_checked_at).of_type(:datetime).with_options(null: true, default: nil) }
+    it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
+    it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+    it { is_expected.to have_db_column(:feedback_email).of_type(:string).with_options(limit: 100, default: &#39;&quot;Petitions: UK Government and Parliament&quot; &lt;petitionscommittee@parliament.uk&gt;&#39;) }
+    it { is_expected.to have_db_column(:last_petition_created_at).of_type(:datetime).with_options(null: true, default: nil) }
+    it { is_expected.to have_db_column(:login_timeout).of_type(:integer).with_options(null: false, default: 1800) }
+    it { is_expected.to have_db_column(:signature_count_updated_at).of_type(:datetime).with_options(null: true, default: nil) }
+    it { is_expected.to have_db_column(:signature_count_interval).of_type(:integer).with_options(null: false, default: 60) }
+    it { is_expected.to have_db_column(:update_signature_counts).of_type(:boolean).with_options(null: false, default: false) }
+  end
+
+  describe &quot;callbacks&quot; do
+    context &quot;when update_signature_counts is changed to true&quot; do
+      subject(:site) { described_class.create(update_signature_counts: false) }
+
+      it &quot;schedules an UpdateSignatureCountsJob&quot; do
+        expect {
+          site.update!(update_signature_counts: true)
+        }.to have_enqueued_job(UpdateSignatureCountsJob)
+      end
+    end
+  end
+
+  describe &quot;validations&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#validations has a flog score of 117</span>          </div>  </li></ol>
+    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:url) }
+    it { is_expected.to validate_presence_of(:email_from) }
+    it { is_expected.to validate_presence_of(:petition_duration) }
+    it { is_expected.to validate_presence_of(:minimum_number_of_sponsors) }
+    it { is_expected.to validate_presence_of(:maximum_number_of_sponsors) }
+    it { is_expected.to validate_presence_of(:threshold_for_moderation) }
+    it { is_expected.to validate_presence_of(:threshold_for_moderation_delay) }
+    it { is_expected.to validate_presence_of(:threshold_for_response) }
+    it { is_expected.to validate_presence_of(:threshold_for_debate) }
+    it { is_expected.to validate_presence_of(:login_timeout) }
+
+    it { is_expected.to validate_length_of(:title).is_at_most(50) }
+    it { is_expected.to validate_length_of(:url).is_at_most(50) }
+    it { is_expected.to validate_length_of(:email_from).is_at_most(100) }
+    it { is_expected.to validate_length_of(:feedback_email).is_at_most(100) }
+
+    %w[
+      petition_duration minimum_number_of_sponsors maximum_number_of_sponsors threshold_for_moderation
+      threshold_for_moderation_delay threshold_for_response threshold_for_debate login_timeout
+    ].each do |attribute|
+      describe attribute do
+        let(:errors) { subject.errors[attribute] }
+        let(:message) { &quot;#{attribute.humanize} must be an integer&quot; }
+
+        before do
+          subject.update(attribute =&gt; &#39;0.1&#39;)
+        end
+
+        it &quot;only accepts integers&quot; do
+          expect(errors).to include(message)
+        end
+      end
+    end
+
+    context &quot;when protected&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(validations)::context#when protected has a flog score of 46</span>          </div>  </li></ol>
+      subject { described_class.new(protected: true) }
+
+      it { is_expected.to validate_presence_of(:username) }
+      it { is_expected.to validate_presence_of(:password) }
+      it { is_expected.to validate_length_of(:username).is_at_most(30) }
+      it { is_expected.to validate_length_of(:password).is_at_most(30) }
+      it { is_expected.to validate_confirmation_of(:password) }
+    end
+  end
+
+  describe &quot;singleton methods&quot; do
+    let(:site) { Site.first_or_create(Site.defaults) }
+    let(:now) { Time.current }
+
+    before do
+      allow(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates title to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:title).and_return(&quot;Petition parliament (Test)&quot;)
+      expect(Site.title).to eq(&quot;Petition parliament (Test)&quot;)
+    end
+
+    it &quot;delegates url to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:url).and_return(&quot;https://petition.parliament.test&quot;)
+      expect(Site.url).to eq(&quot;https://petition.parliament.test&quot;)
+    end
+
+    it &quot;delegates email_from to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:email_from).and_return(&quot;no-reply@petition.parliament.test&quot;)
+      expect(Site.email_from).to eq(&quot;no-reply@petition.parliament.test&quot;)
+    end
+
+    it &quot;delegates username to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:username).and_return(&quot;username&quot;)
+      expect(Site.username).to eq(&quot;username&quot;)
+    end
+
+    it &quot;delegates password_digest to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:password_digest).and_return(&quot;password_digest&quot;)
+      expect(Site.password_digest).to eq(&quot;password_digest&quot;)
+    end
+
+    it &quot;delegates enabled? to the instance&quot; do
+      expect(site).to receive(:enabled?).and_return(false)
+      expect(Site.enabled?).to eq(false)
+    end
+
+    it &quot;delegates constraints_for_public to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L127" class="js-smell-location">0</a>                  <a href="site_spec.html#L137" class="js-smell-location">1</a>                  </div>  </li></ol>
+      expect(site).to receive(:constraints_for_public).and_return(
+        protocol: &quot;https://&quot;, host: &quot;petition.parliament.test&quot;, port: 443
+      )
+
+      expect(Site.constraints_for_public).to eq(
+        protocol: &quot;https://&quot;, host: &quot;petition.parliament.test&quot;, port: 443
+      )
+    end
+
+    it &quot;delegates constraints_for_moderation to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L127" class="js-smell-location">0</a>                  <a href="site_spec.html#L137" class="js-smell-location">1</a>                  </div>  </li></ol>
+      expect(site).to receive(:constraints_for_moderation).and_return(
+        protocol: &quot;https://&quot;, host: &quot;moderate.petition.parliament.test&quot;, port: 443
+      )
+
+      expect(Site.constraints_for_moderation).to eq(
+        protocol: &quot;https://&quot;, host: &quot;moderate.petition.parliament.test&quot;, port: 443
+      )
+    end
+
+    it &quot;delegates host to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:host).and_return(&quot;petition.parliament.test&quot;)
+      expect(Site.host).to eq(&quot;petition.parliament.test&quot;)
+    end
+
+    it &quot;delegates host_with_port to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:host_with_port).and_return(&quot;petition.parliament.test:8443&quot;)
+      expect(Site.host_with_port).to eq(&quot;petition.parliament.test:8443&quot;)
+    end
+
+    it &quot;delegates moderate_host to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:moderate_host).and_return(&quot;moderate.petition.parliament.test&quot;)
+      expect(Site.moderate_host).to eq(&quot;moderate.petition.parliament.test&quot;)
+    end
+
+    it &quot;delegates moderate_host_with_port to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:moderate_host_with_port).and_return(&quot;moderate.petition.parliament.test:8443&quot;)
+      expect(Site.moderate_host_with_port).to eq(&quot;moderate.petition.parliament.test:8443&quot;)
+    end
+
+    it &quot;delegates port to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:port).and_return(443)
+      expect(Site.port).to eq(443)
+    end
+
+    it &quot;delegates protected? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(site).to receive(:protected?).and_return(true)
+      expect(Site.protected?).to eq(true)
+    end
+
+    it &quot;delegates login_timeout to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:login_timeout).and_return(900)
+      expect(Site.login_timeout).to eq(900)
+    end
+
+    it &quot;delegates petition_duration to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:petition_duration).and_return(3)
+      expect(Site.petition_duration).to eq(3)
+    end
+
+    it &quot;delegates minimum_number_of_sponsors to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:minimum_number_of_sponsors).and_return(1)
+      expect(Site.minimum_number_of_sponsors).to eq(1)
+    end
+
+    it &quot;delegates maximum_number_of_sponsors to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:maximum_number_of_sponsors).and_return(5)
+      expect(Site.maximum_number_of_sponsors).to eq(5)
+    end
+
+    it &quot;delegates threshold_for_moderation to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:threshold_for_moderation).and_return(5)
+      expect(Site.threshold_for_moderation).to eq(5)
+    end
+
+    it &quot;delegates formatted_threshold_for_moderation to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:formatted_threshold_for_moderation).and_return(&quot;5,000&quot;)
+      expect(Site.formatted_threshold_for_moderation).to eq(&quot;5,000&quot;)
+    end
+
+    it &quot;delegates threshold_for_response to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:threshold_for_response).and_return(10)
+      expect(Site.threshold_for_response).to eq(10)
+    end
+
+    it &quot;delegates formatted_threshold_for_response to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:formatted_threshold_for_response).and_return(&quot;10,000&quot;)
+      expect(Site.formatted_threshold_for_response).to eq(&quot;10,000&quot;)
+    end
+
+    it &quot;delegates threshold_for_debate to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:threshold_for_debate).and_return(100)
+      expect(Site.threshold_for_debate).to eq(100)
+    end
+
+    it &quot;delegates formatted_threshold_for_debate to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:formatted_threshold_for_debate).and_return(&quot;100,000&quot;)
+      expect(Site.formatted_threshold_for_debate).to eq(&quot;100,000&quot;)
+    end
+
+    it &quot;delegates last_checked_at to the instance&quot; do
+      expect(site).to receive(:last_checked_at).and_return(now)
+      expect(Site.last_checked_at).to eq(now)
+    end
+
+    it &quot;delegates created_at to the instance&quot; do
+      expect(site).to receive(:created_at).and_return(now)
+      expect(Site.created_at).to eq(now)
+    end
+
+    it &quot;delegates updated_at to the instance&quot; do
+      expect(site).to receive(:updated_at).and_return(now)
+      expect(Site.updated_at).to eq(now)
+    end
+
+    it &quot;delegates last_petition_created_at to the instance&quot; do
+      expect(site).to receive(:last_petition_created_at).and_return(now)
+      expect(Site.last_petition_created_at).to eq(now)
+    end
+
+    it &quot;delegates signature_count_updated_at to the instance&quot; do
+      expect(site).to receive(:signature_count_updated_at).and_return(now)
+      expect(Site.signature_count_updated_at).to eq(now)
+    end
+
+    it &quot;delegates signature_count_interval to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 9 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L167" class="js-smell-location">0</a>                  <a href="site_spec.html#L177" class="js-smell-location">1</a>                  <a href="site_spec.html#L182" class="js-smell-location">2</a>                  <a href="site_spec.html#L187" class="js-smell-location">3</a>                  <a href="site_spec.html#L192" class="js-smell-location">4</a>                  <a href="site_spec.html#L197" class="js-smell-location">5</a>                  <a href="site_spec.html#L207" class="js-smell-location">6</a>                  <a href="site_spec.html#L217" class="js-smell-location">7</a>                  <a href="site_spec.html#L252" class="js-smell-location">8</a>                  </div>  </li></ol>
+      expect(site).to receive(:signature_count_interval).and_return(60)
+      expect(Site.signature_count_interval).to eq(60)
+    end
+
+    it &quot;delegates signature_count_interval to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(singleton methods)::it#delegates signature_count_interval to the instance has a flog score of 35</span>          </div>  </li></ol>
+      expect(site).to receive(:update_signature_counts).and_return(true)
+      expect(Site.update_signature_counts).to eq(true)
+    end
+  end
+
+  describe &quot;defaults&quot; do
+    subject(:defaults) { described_class.defaults }
+
+    before do
+      allow(ENV).to receive(:fetch).and_call_original
+    end
+
+    describe &quot;for title&quot; do
+      it &quot;defaults to &#39;Petition parliament&#39;&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_TITLE&quot;, &quot;Petition parliament&quot;).and_return(&quot;Petition parliament&quot;)
+        expect(defaults[:title]).to eq(&quot;Petition parliament&quot;)
+      end
+
+      it &quot;can be overridden with the SITE_TITLE environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_TITLE&quot;, &quot;Petition parliament&quot;).and_return(&quot;Petition parliament (Test)&quot;)
+        expect(defaults[:title]).to eq(&quot;Petition parliament (Test)&quot;)
+      end
+    end
+
+    describe &quot;for url&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L282" class="js-smell-location">0</a>                  <a href="site_spec.html#L300" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to &#39;https://petition.parliament.uk&#39;&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for url)::it#defaults to 'https://petition.parliament.uk' has a flog score of 40</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;https&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;petition.parliament.uk&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(443)
+
+        expect(defaults[:url]).to eq(&quot;https://petition.parliament.uk&quot;)
+      end
+
+      it &quot;allows overriding via environment variables&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for url)::it#allows overriding via environment variables has a flog score of 39</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;http&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;localhost&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(&quot;3000&quot;)
+
+        expect(defaults[:url]).to eq(&quot;http://localhost:3000&quot;)
+      end
+    end
+
+    describe &quot;for moderate_url&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L282" class="js-smell-location">0</a>                  <a href="site_spec.html#L300" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to &#39;https://moderate.petition.parliament.uk&#39;&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for moderate_url)::it#defaults to 'https://moderate.petition.parliament.uk' has a flog score of 40</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;https&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;MODERATE_HOST&quot;, &quot;moderate.petition.parliament.uk&quot;).and_return(&quot;moderate.petition.parliament.uk&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(443)
+
+        expect(defaults[:moderate_url]).to eq(&quot;https://moderate.petition.parliament.uk&quot;)
+      end
+
+      it &quot;allows overriding via environment variables&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for moderate_url)::it#allows overriding via environment variables has a flog score of 39</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;http&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;MODERATE_HOST&quot;, &quot;moderate.petition.parliament.uk&quot;).and_return(&quot;localhost&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(&quot;3000&quot;)
+
+        expect(defaults[:moderate_url]).to eq(&quot;http://localhost:3000&quot;)
+      end
+    end
+
+    describe &quot;for email_from&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L318" class="js-smell-location">0</a>                  <a href="site_spec.html#L341" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to &#39;no-reply@petition.parliament.uk&#39;&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for email_from)::it#defaults to 'no-reply@petition.parliament.uk' has a flog score of 40</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;https&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;petition.parliament.uk&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(443)
+
+        expect(defaults[:email_from]).to eq(%{&quot;Petitions: UK Government and Parliament&quot; &lt;no-reply@petition.parliament.uk&gt;})
+      end
+
+      it &quot;allows overriding via the url environment variables&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for email_from)::it#allows overriding via the url environment variables has a flog score of 39</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;http&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;localhost&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(&quot;3000&quot;)
+
+        expect(defaults[:email_from]).to eq(%{&quot;Petitions: UK Government and Parliament&quot; &lt;no-reply@localhost&gt;})
+      end
+
+      it &quot;allows overriding via the EPETITIONS_FROM environment variables&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_FROM&quot;, %{&quot;Petitions: UK Government and Parliament&quot; &lt;no-reply@petition.parliament.uk&gt;}).and_return(&quot;no-reply@downingstreet.gov.uk&quot;)
+        expect(defaults[:email_from]).to eq(&quot;no-reply@downingstreet.gov.uk&quot;)
+      end
+    end
+
+    describe &quot;for feedback_email&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L318" class="js-smell-location">0</a>                  <a href="site_spec.html#L341" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to &#39;petitionscommittee@parliament.uk&#39;&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for feedback_email)::it#defaults to 'petitionscommittee@parliament.uk' has a flog score of 40</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;https&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;petition.parliament.uk&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(443)
+
+        expect(defaults[:feedback_email]).to eq(%{&quot;Petitions: UK Government and Parliament&quot; &lt;petitionscommittee@parliament.uk&gt;})
+      end
+
+      it &quot;allows overriding via the url environment variables&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(defaults)::describe(for feedback_email)::it#allows overriding via the url environment variables has a flog score of 39</span>          </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PROTOCOL&quot;, &quot;https&quot;).and_return(&quot;http&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_HOST&quot;, &quot;petition.parliament.uk&quot;).and_return(&quot;localhost&quot;)
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_PORT&quot;, &#39;443&#39;).and_return(&quot;3000&quot;)
+
+        expect(defaults[:feedback_email]).to eq(%{&quot;Petitions: UK Government and Parliament&quot; &lt;petitionscommittee@localhost&gt;})
+      end
+
+      it &quot;allows overriding via the EPETITIONS_FEEDBACK environment variables&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;EPETITIONS_FEEDBACK&quot;, %{&quot;Petitions: UK Government and Parliament&quot; &lt;petitionscommittee@parliament.uk&gt;}).and_return(&quot;petitions@downingstreet.gov.uk&quot;)
+        expect(defaults[:feedback_email]).to eq(&quot;petitions@downingstreet.gov.uk&quot;)
+      end
+    end
+
+    describe &quot;for username&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L364" class="js-smell-location">0</a>                  <a href="site_spec.html#L381" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to nil&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_USERNAME&quot;, nil).and_return(nil)
+        expect(defaults[:username]).to be_nil
+      end
+
+      it &quot;can be overridden with the SITE_USERNAME environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_USERNAME&quot;, nil).and_return(&quot;petitions&quot;)
+        expect(defaults[:username]).to eq(&quot;petitions&quot;)
+      end
+
+      it &quot;is nil if the SITE_USERNAME environment variable is set to &#39;&#39;&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_USERNAME&quot;, nil).and_return(&quot;&quot;)
+        expect(defaults[:username]).to be_nil
+      end
+    end
+
+    describe &quot;for password&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L364" class="js-smell-location">0</a>                  <a href="site_spec.html#L381" class="js-smell-location">1</a>                  </div>  </li></ol>
+      it &quot;defaults to nil&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_PASSWORD&quot;, nil).and_return(nil)
+        expect(defaults[:password]).to be_nil
+      end
+
+      it &quot;can be overridden with the SITE_PASSWORD environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_PASSWORD&quot;, nil).and_return(&quot;letmein&quot;)
+        expect(defaults[:password]).to eq(&quot;letmein&quot;)
+      end
+
+      it &quot;is nil if the SITE_PASSWORD environment variable is set to &#39;&#39;&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_PASSWORD&quot;, nil).and_return(&quot;&quot;)
+        expect(defaults[:password]).to be_nil
+      end
+    end
+
+    describe &quot;for enabled&quot; do
+      it &quot;defaults to true&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L399" class="js-smell-location">0</a>                  <a href="site_spec.html#L416" class="js-smell-location">1</a>                  </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;SITE_ENABLED&quot;, &#39;1&#39;).and_return(&quot;1&quot;)
+        expect(defaults[:enabled]).to eq(true)
+      end
+
+      it &quot;can be overridden with the SITE_ENABLED environment variable&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L404" class="js-smell-location">0</a>                  <a href="site_spec.html#L411" class="js-smell-location">1</a>                  </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;SITE_ENABLED&quot;, &#39;1&#39;).and_return(&quot;0&quot;)
+        expect(defaults[:enabled]).to eq(false)
+      end
+    end
+
+    describe &quot;for protected&quot; do
+      it &quot;defaults to false&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L404" class="js-smell-location">0</a>                  <a href="site_spec.html#L411" class="js-smell-location">1</a>                  </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;SITE_PROTECTED&quot;, &#39;0&#39;).and_return(&quot;0&quot;)
+        expect(defaults[:protected]).to eq(false)
+      end
+
+      it &quot;can be overridden with the SITE_PROTECTED environment variable&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L399" class="js-smell-location">0</a>                  <a href="site_spec.html#L416" class="js-smell-location">1</a>                  </div>  </li></ol>
+        allow(ENV).to receive(:fetch).with(&quot;SITE_PROTECTED&quot;, &#39;0&#39;).and_return(&quot;1&quot;)
+        expect(defaults[:protected]).to eq(true)
+      end
+    end
+
+    describe &quot;for login_timeout&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 1800&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_LOGIN_TIMEOUT&quot;, &#39;1800&#39;).and_return(&quot;1800&quot;)
+        expect(defaults[:login_timeout]).to eq(1800)
+      end
+
+      it &quot;can be overridden with the SITE_LOGIN_TIMEOUT environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;SITE_LOGIN_TIMEOUT&quot;, &#39;1800&#39;).and_return(&quot;900&quot;)
+        expect(defaults[:login_timeout]).to eq(900)
+      end
+    end
+
+    describe &quot;for petition_duration&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 6&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;PETITION_DURATION&quot;, &#39;6&#39;).and_return(&quot;6&quot;)
+        expect(defaults[:petition_duration]).to eq(6)
+      end
+
+      it &quot;can be overridden with the PETITION_DURATION environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;PETITION_DURATION&quot;, &#39;6&#39;).and_return(&quot;12&quot;)
+        expect(defaults[:petition_duration]).to eq(12)
+      end
+    end
+
+    describe &quot;for minimum_number_of_sponsors&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 5&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;MINIMUM_NUMBER_OF_SPONSORS&quot;, &#39;5&#39;).and_return(&quot;5&quot;)
+        expect(defaults[:minimum_number_of_sponsors]).to eq(5)
+      end
+
+      it &quot;can be overridden with the MINIMUM_NUMBER_OF_SPONSORS environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;MINIMUM_NUMBER_OF_SPONSORS&quot;, &#39;5&#39;).and_return(&quot;3&quot;)
+        expect(defaults[:minimum_number_of_sponsors]).to eq(3)
+      end
+    end
+
+    describe &quot;for maximum_number_of_sponsors&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 20&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;MAXIMUM_NUMBER_OF_SPONSORS&quot;, &#39;20&#39;).and_return(&quot;20&quot;)
+        expect(defaults[:maximum_number_of_sponsors]).to eq(20)
+      end
+
+      it &quot;can be overridden with the MAXIMUM_NUMBER_OF_SPONSORS environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;MAXIMUM_NUMBER_OF_SPONSORS&quot;, &#39;20&#39;).and_return(&quot;50&quot;)
+        expect(defaults[:maximum_number_of_sponsors]).to eq(50)
+      end
+    end
+
+    describe &quot;for threshold_for_moderation&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 5&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_MODERATION&quot;, &#39;5&#39;).and_return(&quot;5&quot;)
+        expect(defaults[:threshold_for_moderation]).to eq(5)
+      end
+
+      it &quot;can be overridden with the THRESHOLD_FOR_MODERATION environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_MODERATION&quot;, &#39;5&#39;).and_return(&quot;10&quot;)
+        expect(defaults[:threshold_for_moderation]).to eq(10)
+      end
+    end
+
+    describe &quot;for threshold_for_moderation_delay&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 500&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_MODERATION_DELAY&quot;, &#39;500&#39;).and_return(&quot;500&quot;)
+        expect(defaults[:threshold_for_moderation_delay]).to eq(500)
+      end
+
+      it &quot;can be overridden with the THRESHOLD_FOR_MODERATION_DELAY environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_MODERATION_DELAY&quot;, &#39;500&#39;).and_return(&quot;100&quot;)
+        expect(defaults[:threshold_for_moderation_delay]).to eq(100)
+      end
+    end
+
+    describe &quot;for threshold_for_response&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 10000&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_RESPONSE&quot;, &#39;10000&#39;).and_return(&quot;10000&quot;)
+        expect(defaults[:threshold_for_response]).to eq(10000)
+      end
+
+      it &quot;can be overridden with the THRESHOLD_FOR_RESPONSE environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_RESPONSE&quot;, &#39;10000&#39;).and_return(&quot;5000&quot;)
+        expect(defaults[:threshold_for_response]).to eq(5000)
+      end
+    end
+
+    describe &quot;for threshold_for_debate&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 8 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L422" class="js-smell-location">0</a>                  <a href="site_spec.html#L434" class="js-smell-location">1</a>                  <a href="site_spec.html#L446" class="js-smell-location">2</a>                  <a href="site_spec.html#L458" class="js-smell-location">3</a>                  <a href="site_spec.html#L470" class="js-smell-location">4</a>                  <a href="site_spec.html#L482" class="js-smell-location">5</a>                  <a href="site_spec.html#L494" class="js-smell-location">6</a>                  <a href="site_spec.html#L506" class="js-smell-location">7</a>                  </div>  </li></ol>
+      it &quot;defaults to 10000&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_DEBATE&quot;, &#39;100000&#39;).and_return(&quot;100000&quot;)
+        expect(defaults[:threshold_for_debate]).to eq(100000)
+      end
+
+      it &quot;can be overridden with the THRESHOLD_FOR_DEBATE environment variable&quot; do
+        allow(ENV).to receive(:fetch).with(&quot;THRESHOLD_FOR_DEBATE&quot;, &#39;100000&#39;).and_return(&quot;50000&quot;)
+        expect(defaults[:threshold_for_debate]).to eq(50000)
+      end
+    end
+  end
+
+  describe &quot;feature flags&quot; do
+    let(:site) { Site.first_or_create(Site.defaults) }
+    let(:feature_flags) { site.feature_flags }
+
+    let(:true_values) {
+      [true, 1, &#39;1&#39;, &#39;t&#39;, &#39;T&#39;, &#39;true&#39;, &#39;TRUE&#39;, &#39;on&#39;, &#39;ON&#39;]
+    }
+
+    let(:false_values) {
+      [nil, false, 0, &#39;0&#39;, &#39;f&#39;, &#39;F&#39;, &#39;false&#39;, &#39;FALSE&#39;, &#39;off&#39;, &#39;OFF&#39;]
+    }
+
+    Site::FEATURE_FLAGS.each do |feature_flag|
+      context feature_flag do
+        it &quot;has a singleton query method&quot; do
+          expect(Site).to respond_to(:&quot;#{feature_flag}?&quot;)
+        end
+
+        it &quot;has a instance getter&quot; do
+          expect(site).to respond_to(:&quot;#{feature_flag}&quot;)
+        end
+
+        it &quot;has a instance setter&quot; do
+          expect(site).to respond_to(:&quot;#{feature_flag}=&quot;)
+        end
+
+        it &quot;typecasts true values correctly&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(feature flags)::it#typecasts true values correctly has a flog score of 26</span>          </div>  </li></ol>
+          true_values.each do |value|
+            feature_flags.clear
+            site.send(:&quot;#{feature_flag}=&quot;, value)
+
+            expect(feature_flags).to eq(feature_flag =&gt; true)
+          end
+        end
+
+        it &quot;typecasts false values correctly&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(feature flags)::it#typecasts false values correctly has a flog score of 26</span>          </div>  </li></ol>
+          false_values.each do |value|
+            feature_flags.clear
+            site.send(:&quot;#{feature_flag}=&quot;, value)
+
+            expect(feature_flags).to eq(feature_flag =&gt; false)
+          end
+        end
+      end
+    end
+  end
+
+  describe &quot;.authenticate&quot; do
+    let(:site) { Site.first_or_create(Site.defaults) }
+
+    before do
+      expect(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates authenticate to the instance&quot; do
+      expect(site).to receive(:authenticate).with(&quot;username&quot;, &quot;password&quot;).and_return(true)
+      expect(Site.authenticate(&quot;username&quot;, &quot;password&quot;)).to eq(true)
+    end
+  end
+
+  describe &quot;.email_protocol&quot; do
+    let(:site) { Site.first_or_create(Site.defaults) }
+
+    before do
+      expect(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates email_protocol to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(site).to receive(:email_protocol).and_return(&quot;https&quot;)
+      expect(Site.email_protocol).to eq(&quot;https&quot;)
+    end
+  end
+
+  describe &quot;.opened_at_for_closing&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L592" class="js-smell-location">0</a>                  <a href="site_spec.html#L606" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let(:site) { Site.first_or_create(Site.defaults) }
+    let(:opened_at) { 3.months.ago.end_of_day }
+
+    before do
+      expect(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates opened_at_for_closing to the instance&quot; do
+      expect(site).to receive(:opened_at_for_closing).and_return(opened_at)
+      expect(Site.opened_at_for_closing).to eq(opened_at)
+    end
+  end
+
+  describe &quot;.closed_at_for_opening&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L592" class="js-smell-location">0</a>                  <a href="site_spec.html#L606" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let(:site) { Site.first_or_create(Site.defaults) }
+    let(:closed_at) { 3.months.from_now.end_of_day }
+
+    before do
+      expect(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates opened_at_for_closing to the instance&quot; do
+      expect(site).to receive(:closed_at_for_opening).and_return(closed_at)
+      expect(Site.closed_at_for_opening).to eq(closed_at)
+    end
+  end
+
+  describe &quot;.reload&quot; do
+    let(:site) { Site.first_or_create(Site.defaults) }
+
+    context &quot;when it is cached in Thread.current&quot; do
+      before do
+        Thread.current[:__site__] = site
+      end
+
+      it &quot;clears the cached instance in Thread.current&quot; do
+        expect{ Site.reload }.to change {
+          Thread.current[:__site__]
+        }.from(site).to(nil)
+      end
+    end
+  end
+
+  describe &quot;.touch&quot; do
+    let(:site) { described_class.create! }
+
+    before do
+      expect(Site).to receive(:first_or_create).and_return(site)
+    end
+
+    it &quot;delegates to the instance&quot; do
+      expect(site).to receive(:touch).with(:last_checked_at).and_return(true)
+      expect(Site.touch(:last_checked_at)).to eq(true)
+    end
+
+    it &quot;can accept multiple names&quot; do
+      expect(site).to receive(:touch).with(:last_checked_at, :updated_at).and_return(true)
+      expect(Site.touch(:last_checked_at, :updated_at)).to eq(true)
+    end
+  end
+
+  describe &quot;.instance&quot; do
+    let(:site) { described_class.create! }
+
+    context &quot;when it isn&#39;t cached in Thread.current&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L266" class="js-smell-location">0</a>                  <a href="site_spec.html#L657" class="js-smell-location">1</a>                  </div>  </li></ol>
+      before do
+        Thread.current[:__site__] = nil
+      end
+
+      after do
+        Site.reload
+      end
+
+      it &quot;finds the first record or creates it&quot; do
+        expect(Site).to receive(:first_or_create).and_return(site)
+        expect(Site.instance).to equal(site)
+      end
+
+      it &quot;caches it in Thread.current&quot; do
+        expect(Site).to receive(:first_or_create).and_return(site)
+        expect(Site.instance).to equal(Thread.current[:__site__])
+      end
+    end
+
+    context &quot;when it is cached in Thread.current&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L286" class="js-smell-location">0</a>                  <a href="site_spec.html#L677" class="js-smell-location">1</a>                  </div>  </li></ol>
+      before do
+        Thread.current[:__site__] = site
+      end
+
+      after do
+        Site.reload
+      end
+
+      it &quot;returns the cached instance&quot; do
+        expect(Site).not_to receive(:first_or_create)
+        expect(Site.instance).to equal(site)
+      end
+    end
+  end
+
+  describe &quot;.before_remove_const&quot; do
+    let(:site) { described_class.create! }
+
+    context &quot;when it is cached in Thread.current&quot; do
+      before do
+        Thread.current[:__site__] = site
+      end
+
+      it &quot;clears the cached instance in Thread.current&quot; do
+        expect{ Site.before_remove_const }.to change {
+          Thread.current[:__site__]
+        }.from(site).to(nil)
+      end
+    end
+  end
+
+  describe &quot;#authenticate&quot; do
+    subject :site do
+      described_class.create!(username: &quot;petitions&quot;, password: &quot;letmein&quot;)
+    end
+
+    context &quot;when the username and password are correct&quot; do
+      it &quot;returns true&quot; do
+        expect(site.authenticate(&quot;petitions&quot;, &quot;letmein&quot;)).to eq(true)
+      end
+    end
+
+    context &quot;when the username and password are incorrect&quot; do
+      it &quot;returns false&quot; do
+        expect(site.authenticate(&quot;petitions&quot;, &quot;!letmein&quot;)).to eq(false)
+      end
+    end
+  end
+
+  describe &quot;#email_protocol&quot; do
+    subject :site do
+      described_class.create!(url: &quot;https://petition.parliament.test&quot;)
+    end
+
+    it &quot;the protocol of the url&quot; do
+      expect(site.email_protocol).to eq(&quot;https&quot;)
+    end
+  end
+
+  describe &quot;#formatted_threshold_for_moderation&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L737" class="js-smell-location">0</a>                  <a href="site_spec.html#L747" class="js-smell-location">1</a>                  <a href="site_spec.html#L757" class="js-smell-location">2</a>                  </div>  </li></ol>
+    subject :site do
+      described_class.create!(threshold_for_moderation: 5000)
+    end
+
+    it &quot;returns a formatted number&quot; do
+      expect(site.formatted_threshold_for_moderation).to eq(&quot;5,000&quot;)
+    end
+  end
+
+  describe &quot;#formatted_threshold_for_response&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L737" class="js-smell-location">0</a>                  <a href="site_spec.html#L747" class="js-smell-location">1</a>                  <a href="site_spec.html#L757" class="js-smell-location">2</a>                  </div>  </li></ol>
+    subject :site do
+      described_class.create!(threshold_for_response: 10000)
+    end
+
+    it &quot;returns a formatted number&quot; do
+      expect(site.formatted_threshold_for_response).to eq(&quot;10,000&quot;)
+    end
+  end
+
+  describe &quot;#formatted_threshold_for_debate&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L737" class="js-smell-location">0</a>                  <a href="site_spec.html#L747" class="js-smell-location">1</a>                  <a href="site_spec.html#L757" class="js-smell-location">2</a>                  </div>  </li></ol>
+    subject :site do
+      described_class.create!(threshold_for_debate: 100000)
+    end
+
+    it &quot;returns a formatted number&quot; do
+      expect(site.formatted_threshold_for_debate).to eq(&quot;100,000&quot;)
+    end
+  end
+
+  describe &quot;#constraints_for_public&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L767" class="js-smell-location">0</a>                  <a href="site_spec.html#L779" class="js-smell-location">1</a>                  </div>  </li></ol>
+    subject :site do
+      described_class.create!(url: &quot;https://petition.parliament.test&quot;)
+    end
+
+    it &quot;a hash of routing constraints&quot; do
+      expect(site.constraints_for_public).to eq(
+        protocol: &quot;https://&quot;, host: &quot;petition.parliament.test&quot;, port: 443
+      )
+    end
+  end
+
+  describe &quot;#constraints_for_moderation&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L767" class="js-smell-location">0</a>                  <a href="site_spec.html#L779" class="js-smell-location">1</a>                  </div>  </li></ol>
+    subject :site do
+      described_class.create!(moderate_url: &quot;https://moderate.petition.parliament.test&quot;)
+    end
+
+    it &quot;a hash of routing constraints&quot; do
+      expect(site.constraints_for_moderation).to eq(
+        protocol: &quot;https://&quot;, host: &quot;moderate.petition.parliament.test&quot;, port: 443
+      )
+    end
+  end
+
+  describe &quot;#host&quot; do
+    subject :site do
+      described_class.create!(url: &quot;https://petition.parliament.test&quot;)
+    end
+
+    it &quot;the host of the url&quot; do
+      expect(site.host).to eq(&quot;petition.parliament.test&quot;)
+    end
+  end
+
+  describe &quot;#host_with_port&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L801" class="js-smell-location">0</a>                  <a href="site_spec.html#L833" class="js-smell-location">1</a>                  </div>  </li></ol>
+    context &quot;when the port is the default port&quot; do
+      subject :site do
+        described_class.create!(url: &quot;https://petition.parliament.test&quot;)
+      end
+
+      it &quot;the host without the port of the url&quot; do
+        expect(site.host_with_port).to eq(&quot;petition.parliament.test&quot;)
+      end
+    end
+
+    context &quot;when the port is not the default port&quot; do
+      subject :site do
+        described_class.create!(url: &quot;https://petition.parliament.test:8443&quot;)
+      end
+
+      it &quot;the host with the port of the url&quot; do
+        expect(site.host_with_port).to eq(&quot;petition.parliament.test:8443&quot;)
+      end
+    end
+  end
+
+  describe &quot;#moderate_host&quot; do
+    subject :site do
+      described_class.create!(moderate_url: &quot;https://moderate.petition.parliament.test&quot;)
+    end
+
+    it &quot;the moderation host of the url&quot; do
+      expect(site.moderate_host).to eq(&quot;moderate.petition.parliament.test&quot;)
+    end
+  end
+
+  describe &quot;#moderate_host_with_port&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L801" class="js-smell-location">0</a>                  <a href="site_spec.html#L833" class="js-smell-location">1</a>                  </div>  </li></ol>
+    context &quot;when the port is the default port&quot; do
+      subject :site do
+        described_class.create!(moderate_url: &quot;https://moderate.petition.parliament.test&quot;)
+      end
+
+      it &quot;the moderation host without the port of the url&quot; do
+        expect(site.moderate_host_with_port).to eq(&quot;moderate.petition.parliament.test&quot;)
+      end
+    end
+
+    context &quot;when the port is not the default port&quot; do
+      subject :site do
+        described_class.create!(moderate_url: &quot;https://moderate.petition.parliament.test:8443&quot;)
+      end
+
+      it &quot;the moderation host with the port of the url&quot; do
+        expect(site.moderate_host_with_port).to eq(&quot;moderate.petition.parliament.test:8443&quot;)
+      end
+    end
+  end
+
+  describe &quot;#port&quot; do
+    subject :site do
+      described_class.create!(url: &quot;https://petition.parliament.test&quot;)
+    end
+
+    it &quot;the port of the url&quot; do
+      expect(site.port).to eq(443)
+    end
+  end
+
+  describe &quot;#opened_at_for_closing&quot; do
+    subject :site do
+      described_class.create!(petition_duration: 3)
+    end
+
+    it &quot;returns the opening date at petition_duration months ago&quot; do
+      travel_to &quot;2018-05-15&quot; do
+        expect(site.opened_at_for_closing).to eq(3.months.ago.beginning_of_day)
+      end
+    end
+
+    describe &quot;special cases&quot; do
+      subject :site do
+        described_class.create!(petition_duration: 6)
+      end
+
+      around do |example|
+        travel_to(now) { example.run }
+      end
+
+      context &quot;when the date is 31st January&quot; do
+        let(:now) { Time.utc(2016, 1, 31, 12, 0, 0) }
+
+        it &quot;returns the 31st July&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2015-07-31T00:00:00&quot;.in_time_zone)
+        end
+      end
+
+      context &quot;when the date is 31st March&quot; do
+        let(:now) { Time.utc(2016, 3, 31, 12, 0, 0) }
+
+        it &quot;returns the 1st October&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2015-10-01T00:00:00&quot;.in_time_zone)
+        end
+      end
+
+      context &quot;when the date is 31st May&quot; do
+        let(:now) { Time.utc(2016, 5, 31, 12, 0, 0) }
+
+        it &quot;returns the 1st December&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2015-12-01T00:00:00&quot;.in_time_zone)
+        end
+      end
+
+      context &quot;when the date is 31st July&quot; do
+        let(:now) { Time.utc(2016, 7, 31, 12, 0, 0) }
+
+        it &quot;returns the 31st January&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2016-01-31T00:00:00&quot;.in_time_zone)
+        end
+      end
+
+      context &quot;when the date is 29th August&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L917" class="js-smell-location">0</a>                  <a href="site_spec.html#L935" class="js-smell-location">1</a>                  <a href="site_spec.html#L953" class="js-smell-location">2</a>                  </div>  </li></ol>
+        context &quot;and it&#39;s a leap year&quot; do
+          let(:now) { Time.utc(2016, 8, 29, 12, 0, 0) }
+
+          it &quot;returns the 29th February&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2016-02-29T00:00:00&quot;.in_time_zone)
+          end
+        end
+
+        context &quot;and it&#39;s not a leap year&quot; do
+          let(:now) { Time.utc(2017, 8, 29, 12, 0, 0) }
+
+          it &quot;returns the 1st March&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2017-03-01T00:00:00&quot;.in_time_zone)
+          end
+        end
+      end
+
+      context &quot;when the date is 30th August&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L917" class="js-smell-location">0</a>                  <a href="site_spec.html#L935" class="js-smell-location">1</a>                  <a href="site_spec.html#L953" class="js-smell-location">2</a>                  </div>  </li></ol>
+        context &quot;and it&#39;s a leap year&quot; do
+          let(:now) { Time.utc(2016, 8, 30, 12, 0, 0) }
+
+          it &quot;returns the 1st March&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2016-03-01T00:00:00&quot;.in_time_zone)
+          end
+        end
+
+        context &quot;and it&#39;s not a leap year&quot; do
+          let(:now) { Time.utc(2017, 8, 30, 12, 0, 0) }
+
+          it &quot;returns the 1st March&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2017-03-01T00:00:00&quot;.in_time_zone)
+          end
+        end
+      end
+
+      context &quot;when the date is 31st August&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="site_spec.html#L917" class="js-smell-location">0</a>                  <a href="site_spec.html#L935" class="js-smell-location">1</a>                  <a href="site_spec.html#L953" class="js-smell-location">2</a>                  </div>  </li></ol>
+        context &quot;and it&#39;s a leap year&quot; do
+          let(:now) { Time.utc(2016, 8, 31, 12, 0, 0) }
+
+          it &quot;returns the 1st March&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2016-03-01T00:00:00&quot;.in_time_zone)
+          end
+        end
+
+        context &quot;and it&#39;s not a leap year&quot; do
+          let(:now) { Time.utc(2017, 8, 31, 12, 0, 0) }
+
+          it &quot;returns the 1st March&quot; do
+            expect(site.opened_at_for_closing).to eq(&quot;2017-03-01T00:00:00&quot;.in_time_zone)
+          end
+        end
+      end
+
+      context &quot;when the date is 31st October&quot; do
+        let(:now) { Time.utc(2016, 10, 31, 12, 0, 0) }
+
+        it &quot;returns the 1st May&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2016-05-01T00:00:00&quot;.in_time_zone)
+        end
+      end
+
+      context &quot;when the date is 31st December&quot; do
+        let(:now) { Time.utc(2016, 12, 31, 12, 0, 0) }
+
+        it &quot;returns the 1st July&quot; do
+          expect(site.opened_at_for_closing).to eq(&quot;2016-07-01T00:00:00&quot;.in_time_zone)
+        end
+      end
+    end
+  end
+
+  describe &quot;#closed_at_for_opening&quot; do
+    subject :site do
+      described_class.create!(petition_duration: 3)
+    end
+
+    it &quot;returns the closing date at petition_duration months in the future&quot; do
+      expect(site.closed_at_for_opening).to eq(3.months.from_now.end_of_day)
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

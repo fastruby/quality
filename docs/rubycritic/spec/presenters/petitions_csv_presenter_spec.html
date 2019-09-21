@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2015-08-12 12:26:49 +0100'>2015-08-12 12:26:49 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/presenters /</small> petitions_csv_presenter_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating b big">
+              B
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">54</span><small> lines of codes</small></div>
+              <div><span class="metric">3</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">30.3</span><small> complexity/method</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">91.03</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                3
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe PetitionsCSVPresenter do
+  class DummyPresenterClass<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>DummyPresenterClass has no descriptive comment</span>          </div>  </li></ol>
+    def self.fields
+      [:id, :name]
+    end
+
+    def initialize(petition)
+      @petition = petition
+    end
+
+    def to_csv
+      self.class.fields.map {|f| @petition[f] }.join(&quot;,&quot;) + &quot;\n&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>DummyPresenterClass#to_csv has the variable name 'f'</span>          </div>  </li></ol>
+    end
+  end
+
+  # Use an array that quacks like the expected Browseable::Search instance
+  class BatchifiedArray &lt; Array<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Subclassed-From-Core-Class.md" target="_blank"><b>SubclassedFromCoreClass</b></a>        </span>      </div>      <span>BatchifiedArray inherits from core class 'Array'</span>          </div>  </li></ol>
+    alias :in_batches :each
+  end
+
+  subject { described_class.new(BatchifiedArray.new([{id: 321, name: &quot;Slim Jim&quot;}]), presenter_class: DummyPresenterClass) }
+
+  describe &quot;#initialize&quot; do
+    it &quot;initializes the presenter with default&quot; do
+      presenter = described_class.new([1,2,3])
+      expect(presenter.petitions).to eq([1,2,3])
+      expect(presenter.presenter_class).to eq(PetitionCSVPresenter)
+    end
+
+    it &quot;initializes the presenter with custom options&quot; do
+      presenter = described_class.new([1,2,3], presenter_class: DummyPresenterClass)
+      expect(presenter.petitions).to eq([1,2,3])
+      expect(presenter.presenter_class).to eq(DummyPresenterClass)
+    end
+  end
+
+  describe &quot;#render&quot; do
+    it &quot;returns an enumerator&quot; do
+      expect(subject.render).to be_a Enumerator
+    end
+
+    it &quot;renders a header row as the first enumerator call&quot; do
+      expect(subject.render.next).to eq(&quot;id,name\n&quot;)
+    end
+
+    it &quot;renders the fields for each petition after the header&quot; do
+      enumerator = subject.render
+      enumerator.next
+      expect(enumerator.next).to eq(&quot;321,Slim Jim\n&quot;)
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

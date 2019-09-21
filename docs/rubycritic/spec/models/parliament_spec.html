@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2017-11-24 15:30:14 +0000'>2017-11-24 15:30:14 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/models /</small> parliament_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">1113</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">19</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">2455.41</span><small> complexity</small></div>
+              <div><span class="metric">1452</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                26
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Parliament, type: :model do
+  describe &quot;schema&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe#schema has a flog score of 149</span>          </div>  </li></ol>
+    it { is_expected.to have_db_column(:government).of_type(:string).with_options(limit: 100, null: true) }
+    it { is_expected.to have_db_column(:opening_at).of_type(:datetime).with_options(null: true) }
+    it { is_expected.to have_db_column(:petition_duration).of_type(:integer).with_options(default: 6) }
+    it { is_expected.to have_db_column(:dissolution_at).of_type(:datetime).with_options(null: true) }
+    it { is_expected.to have_db_column(:dissolution_heading).of_type(:string).with_options(limit: 100, null: true) }
+    it { is_expected.to have_db_column(:dissolution_message).of_type(:text).with_options(null: true) }
+    it { is_expected.to have_db_column(:dissolution_faq_url).of_type(:string).with_options(limit: 500, null: true) }
+    it { is_expected.to have_db_column(:dissolved_heading).of_type(:string).with_options(limit: 100, null: true) }
+    it { is_expected.to have_db_column(:dissolved_message).of_type(:text).with_options(null: true) }
+    it { is_expected.to have_db_column(:notification_cutoff_at).of_type(:datetime).with_options(null: true) }
+    it { is_expected.to have_db_column(:registration_closed_at).of_type(:datetime).with_options(null: true) }
+    it { is_expected.to have_db_column(:archived_at).of_type(:datetime).with_options(null: true) }
+    it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
+    it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+  end
+
+  describe &quot;associations&quot; do
+    it { is_expected.to have_many(:petitions).inverse_of(:parliament).class_name(&quot;Archived::Petition&quot;) }
+  end
+
+  describe &quot;callbacks&quot; do
+    describe &quot;when the parliament is updated&quot; do
+      let(:parliament) { FactoryBot.create(:parliament, :dissolving, dissolution_at: 3.weeks.from_now) }
+      let(:site) { Site.instance }
+
+      before do
+        travel_to 2.days.ago do
+          site.touch
+        end
+      end
+
+      it &quot;updates the site timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="../jobs/backfill_constituencies_job_spec.html#L61" class="js-smell-location">0</a>                  <a href="../jobs/backfill_constituencies_job_spec.html#L83" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L36" class="js-smell-location">2</a>                  </div>  </li></ol>
+        expect {
+          parliament.update!(dissolution_at: 2.weeks.from_now)
+        }.to change {
+          site.reload.updated_at
+        }
+      end
+    end
+  end
+
+  describe &quot;validations&quot; do
+    context &quot;when dissolution_at is nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe(validations)::context#when dissolution_at is nil has a flog score of 143</span>          </div>  </li></ol>
+      subject { Parliament.new }
+
+      it { is_expected.to validate_presence_of(:government) }
+      it { is_expected.to validate_presence_of(:opening_at) }
+      it { is_expected.not_to validate_presence_of(:petition_duration) }
+      it { is_expected.not_to validate_presence_of(:dissolution_heading) }
+      it { is_expected.not_to validate_presence_of(:dissolution_message) }
+      it { is_expected.not_to validate_presence_of(:dissolved_heading) }
+      it { is_expected.not_to validate_presence_of(:dissolved_message) }
+      it { is_expected.not_to validate_presence_of(:dissolution_faq_url) }
+      it { is_expected.to validate_length_of(:government).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolved_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolved_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolution_faq_url).is_at_most(500) }
+      it { is_expected.to validate_numericality_of(:petition_duration).only_integer }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_greater_than_or_equal_to(1) }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_less_than_or_equal_to(12) }
+    end
+
+    context &quot;when dissolution_at is not nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L69" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L91" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe(validations)::context#when dissolution_at is not nil has a flog score of 147</span>          </div>  </li></ol>
+      subject { Parliament.new(dissolution_at: 2.weeks.from_now) }
+
+      it { is_expected.to validate_presence_of(:government) }
+      it { is_expected.to validate_presence_of(:opening_at) }
+      it { is_expected.not_to validate_presence_of(:petition_duration) }
+      it { is_expected.to validate_presence_of(:dissolution_heading) }
+      it { is_expected.to validate_presence_of(:dissolution_message) }
+      it { is_expected.not_to validate_presence_of(:dissolved_heading) }
+      it { is_expected.not_to validate_presence_of(:dissolved_message) }
+      it { is_expected.not_to validate_presence_of(:dissolution_faq_url) }
+      it { is_expected.to validate_length_of(:government).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolved_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolved_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolution_faq_url).is_at_most(500) }
+      it { is_expected.to validate_numericality_of(:petition_duration).only_integer }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_greater_than_or_equal_to(1) }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_less_than_or_equal_to(12) }
+    end
+
+    context &quot;when dissolution_at is in the past&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L69" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L91" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe(validations)::context#when dissolution_at is in the past has a flog score of 147</span>          </div>  </li></ol>
+      subject { Parliament.new(dissolution_at: 1.day.ago) }
+
+      it { is_expected.to validate_presence_of(:government) }
+      it { is_expected.to validate_presence_of(:opening_at) }
+      it { is_expected.not_to validate_presence_of(:petition_duration) }
+      it { is_expected.to validate_presence_of(:dissolution_heading) }
+      it { is_expected.to validate_presence_of(:dissolution_message) }
+      it { is_expected.to validate_presence_of(:dissolved_heading) }
+      it { is_expected.to validate_presence_of(:dissolved_message) }
+      it { is_expected.not_to validate_presence_of(:dissolution_faq_url) }
+      it { is_expected.to validate_length_of(:government).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolution_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolved_heading).is_at_most(100) }
+      it { is_expected.to validate_length_of(:dissolved_message).is_at_most(600) }
+      it { is_expected.to validate_length_of(:dissolution_faq_url).is_at_most(500) }
+      it { is_expected.to validate_numericality_of(:petition_duration).only_integer }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_greater_than_or_equal_to(1) }
+      it { is_expected.to validate_numericality_of(:petition_duration).is_less_than_or_equal_to(12) }
+    end
+  end
+
+  describe &quot;scopes&quot; do
+    describe &quot;archived&quot; do
+      let!(:coalition) { FactoryBot.create(:parliament, :coalition) }
+      let!(:conservatives) { FactoryBot.create(:parliament, :conservatives) }
+      let!(:new_government) { FactoryBot.create(:parliament, :new_government) }
+
+      context &quot;when the archive_at timestamp is in the future&quot; do
+        let(:now) { &quot;2017-05-31T00:00:00&quot;.in_time_zone }
+
+        it &quot;returns archived parliaments in descending order&quot; do
+          expect(described_class.archived(now)).to eq([coalition])
+        end
+      end
+
+      context &quot;when the archive_at timestamp is in the past&quot; do
+        let(:now) { &quot;2017-06-18T00:00:00&quot;.in_time_zone }
+
+        it &quot;returns archived parliaments in descending order&quot; do
+          expect(described_class.archived(now)).to eq([conservatives, coalition])
+        end
+      end
+    end
+
+    describe &quot;current&quot; do
+      let!(:coalition) { FactoryBot.create(:parliament, :coalition) }
+      let!(:conservatives) { FactoryBot.create(:parliament, :conservatives) }
+      let!(:new_government) { FactoryBot.create(:parliament, :new_government) }
+
+      let(:now) { &quot;2017-05-31T00:00:00&quot;.in_time_zone }
+
+      around do |example|
+        travel_to(now) { example.run }
+      end
+
+      it &quot;excludes archived parliaments&quot; do
+        expect(described_class.current).not_to include(coalition)
+      end
+
+      it &quot;excludes parliaments scheduled to be archived&quot; do
+        expect(described_class.current).not_to include(conservatives)
+      end
+
+      it &quot;includes the new parliament&quot; do
+        expect(described_class.current).to include(new_government)
+      end
+    end
+  end
+
+  describe &quot;singleton methods&quot; do
+    let(:parliament) { FactoryBot.create(:parliament) }
+    let(:now) { Time.current }
+
+    before do
+      allow(Parliament).to receive(:current_or_create).and_return(parliament)
+    end
+
+    around do |example|
+      Parliament.reload
+      example.run
+      Parliament.reload
+    end
+
+    it &quot;delegates government to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:government).and_return(&quot;Conservative – Liberal Democrat coalition&quot;)
+      expect(Parliament.government).to eq(&quot;Conservative – Liberal Democrat coalition&quot;)
+    end
+
+    it &quot;delegates opening_at to the instance&quot; do
+      expect(parliament).to receive(:opening_at).and_return(now)
+      expect(Parliament.opening_at).to eq(now)
+    end
+
+    it &quot;delegates opened? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:opened?).and_return(true)
+      expect(Parliament.opened?).to eq(true)
+    end
+
+    it &quot;delegates dissolution_at to the instance&quot; do
+      expect(parliament).to receive(:dissolution_at).and_return(now)
+      expect(Parliament.dissolution_at).to eq(now)
+    end
+
+    it &quot;delegates notification_cutoff_at to the instance&quot; do
+      expect(parliament).to receive(:notification_cutoff_at).and_return(now)
+      expect(Parliament.notification_cutoff_at).to eq(now)
+    end
+
+    it &quot;delegates dissolution_heading to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolution_heading).and_return(&quot;Parliament is dissolving&quot;)
+      expect(Parliament.dissolution_heading).to eq(&quot;Parliament is dissolving&quot;)
+    end
+
+    it &quot;delegates dissolution_message to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolution_message).and_return(&quot;Parliament is dissolving&quot;)
+      expect(Parliament.dissolution_message).to eq(&quot;Parliament is dissolving&quot;)
+    end
+
+    it &quot;delegates dissolved_heading to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolved_heading).and_return(&quot;Parliament is dissolved&quot;)
+      expect(Parliament.dissolved_heading).to eq(&quot;Parliament is dissolved&quot;)
+    end
+
+    it &quot;delegates dissolved_message to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolved_message).and_return(&quot;Parliament is dissolved&quot;)
+      expect(Parliament.dissolved_message).to eq(&quot;Parliament is dissolved&quot;)
+    end
+
+    it &quot;delegates dissolution_faq_url to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 19 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L176" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L201" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L206" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L211" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L216" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L221" class="js-smell-location">5</a>                  <a href="site_spec.html#L97" class="js-smell-location">6</a>                  <a href="site_spec.html#L102" class="js-smell-location">7</a>                  <a href="site_spec.html#L107" class="js-smell-location">8</a>                  <a href="site_spec.html#L112" class="js-smell-location">9</a>                  <a href="site_spec.html#L117" class="js-smell-location">10</a>                  <a href="site_spec.html#L147" class="js-smell-location">11</a>                  <a href="site_spec.html#L152" class="js-smell-location">12</a>                  <a href="site_spec.html#L157" class="js-smell-location">13</a>                  <a href="site_spec.html#L162" class="js-smell-location">14</a>                  <a href="site_spec.html#L202" class="js-smell-location">15</a>                  <a href="site_spec.html#L212" class="js-smell-location">16</a>                  <a href="site_spec.html#L222" class="js-smell-location">17</a>                  <a href="site_spec.html#L586" class="js-smell-location">18</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolution_faq_url).and_return(&quot;https://parliament.example.com/parliament-is-closing&quot;)
+      expect(Parliament.dissolution_faq_url).to eq(&quot;https://parliament.example.com/parliament-is-closing&quot;)
+    end
+
+    it &quot;delegates dissolution_faq_url? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolution_faq_url?).and_return(true)
+      expect(Parliament.dissolution_faq_url?).to eq(true)
+    end
+
+    it &quot;delegates dissolution_announced? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolution_announced?).and_return(true)
+      expect(Parliament.dissolution_announced?).to eq(true)
+    end
+
+    it &quot;delegates dissolved? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:dissolved?).and_return(true)
+      expect(Parliament.dissolved?).to eq(true)
+    end
+
+    it &quot;delegates registration_closed? to the instance&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L186" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L226" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L231" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L236" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L241" class="js-smell-location">4</a>                  <a href="site_spec.html#L172" class="js-smell-location">5</a>                  <a href="site_spec.html#L257" class="js-smell-location">6</a>                  </div>  </li></ol>
+      expect(parliament).to receive(:registration_closed?).and_return(true)
+      expect(Parliament.registration_closed?).to eq(true)
+    end
+  end
+
+  describe &quot;.reload&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L247" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L302" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let(:parliament) { FactoryBot.create(:parliament) }
+
+    context &quot;when it is cached in Thread.current&quot; do
+      before do
+        Thread.current[:__parliament__] = parliament
+      end
+
+      it &quot;clears the cached instance in Thread.current&quot; do
+        expect{ Parliament.reload }.to change {
+          Thread.current[:__parliament__]
+        }.from(parliament).to(nil)
+      end
+    end
+  end
+
+  describe &quot;.instance&quot; do
+    let(:parliament) { FactoryBot.create(:parliament) }
+
+    context &quot;when it isn&#39;t cached in Thread.current&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L266" class="js-smell-location">0</a>                  <a href="site_spec.html#L657" class="js-smell-location">1</a>                  </div>  </li></ol>
+      before do
+        Thread.current[:__parliament__] = nil
+      end
+
+      after do
+        Parliament.reload
+      end
+
+      it &quot;finds the last record&quot; do
+        expect(Parliament).to receive(:current_or_create).and_return(parliament)
+        expect(Parliament.instance).to equal(parliament)
+      end
+
+      it &quot;caches it in Thread.current&quot; do
+        expect(Parliament).to receive(:current_or_create).and_return(parliament)
+        expect(Parliament.instance).to equal(Thread.current[:__parliament__])
+      end
+    end
+
+    context &quot;when it is cached in Thread.current&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L286" class="js-smell-location">0</a>                  <a href="site_spec.html#L677" class="js-smell-location">1</a>                  </div>  </li></ol>
+      before do
+        Thread.current[:__parliament__] = parliament
+      end
+
+      after do
+        Parliament.reload
+      end
+
+      it &quot;returns the cached instance&quot; do
+        expect(Parliament).not_to receive(:current_or_create)
+        expect(Parliament.instance).to equal(parliament)
+      end
+    end
+  end
+
+  describe &quot;.before_remove_const&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L247" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L302" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let(:parliament) { FactoryBot.create(:parliament) }
+
+    context &quot;when it is cached in Thread.current&quot; do
+      before do
+        Thread.current[:__parliament__] = parliament
+      end
+
+      it &quot;clears the cached instance in Thread.current&quot; do
+        expect{ Parliament.before_remove_const }.to change {
+          Thread.current[:__parliament__]
+        }.from(parliament).to(nil)
+      end
+    end
+  end
+
+  describe &quot;#period&quot; do
+    context &quot;when opening_at and dissolution_at are nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: nil, dissolution_at: nil)
+      end
+
+      it &quot;returns nil&quot; do
+        expect(parliament.period).to be_nil
+      end
+    end
+
+    context &quot;when opening_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: nil, dissolution_at: 1.year.from_now)
+      end
+
+      it &quot;returns nil&quot; do
+        expect(parliament.period).to be_nil
+      end
+    end
+
+    context &quot;when dissolution_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: 1.year.ago, dissolution_at: nil)
+      end
+
+      it &quot;returns nil&quot; do
+        expect(parliament.period).to be_nil
+      end
+    end
+
+    context &quot;when opening_at and dissolution_at are not nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: &quot;2010-05-18 00:00:00&quot;, dissolution_at: &quot;2015-03-30 00:01:00&quot;)
+      end
+
+      it &quot;returns the years of operation&quot; do
+        expect(parliament.period).to eq(&quot;2010–2015&quot;)
+      end
+    end
+  end
+
+  describe &quot;#period?&quot; do
+    context &quot;when opening_at and dissolution_at are nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="constituency_spec.html#L267" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L361" class="js-smell-location">1</a>                  <a href="petition_spec.html#L2621" class="js-smell-location">2</a>                  <a href="petition_spec.html#L2665" class="js-smell-location">3</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: nil, dissolution_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.period?).to eq(false)
+      end
+    end
+
+    context &quot;when opening_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: nil, dissolution_at: 1.year.from_now)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.period?).to eq(false)
+      end
+    end
+
+    context &quot;when dissolution_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: 1.year.ago, dissolution_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.period?).to eq(false)
+      end
+    end
+
+    context &quot;when opening_at and dissolution_at are not nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="constituency_spec.html#L259" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L391" class="js-smell-location">1</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: &quot;2010-05-18 00:00:00&quot;, dissolution_at: &quot;2015-03-30 00:01:00&quot;)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.period?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#opened?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L402" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L520" class="js-smell-location">1</a>                  </div>  </li></ol>
+    context &quot;when opening_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, opening_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.opened?).to eq(false)
+      end
+    end
+
+    context &quot;when opening_at is in the future&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, opening_at: 4.weeks.from_now)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.opened?).to eq(false)
+      end
+    end
+
+    context &quot;when opening_at is in the past&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, opening_at: 2.years.ago)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.opened?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#dissolution_announced?&quot; do
+    context &quot;when dissolution_at is nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L435" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L457" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L489" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L959" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L1027" class="js-smell-location">4</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.dissolution_announced?).to eq(false)
+      end
+    end
+
+    context &quot;when dissolution_at is not nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="archived/petition_spec.html#L362" class="js-smell-location">0</a>                  <a href="archived/petition_spec.html#L404" class="js-smell-location">1</a>                  <a href="archived/petition_spec.html#L446" class="js-smell-location">2</a>                  <a href="archived/petition_spec.html#L488" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L445" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L477" class="js-smell-location">5</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament, :dissolving)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.dissolution_announced?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#dissolved?&quot; do
+    context &quot;when dissolution_at is nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L435" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L457" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L489" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L959" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L1027" class="js-smell-location">4</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.dissolved?).to eq(false)
+      end
+    end
+
+    context &quot;when dissolution_at is in the future&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 15 nodes</span>              <span>Locations:</span>                  <a href="archived/petition_spec.html#L370" class="js-smell-location">0</a>                  <a href="archived/petition_spec.html#L378" class="js-smell-location">1</a>                  <a href="archived/petition_spec.html#L386" class="js-smell-location">2</a>                  <a href="archived/petition_spec.html#L396" class="js-smell-location">3</a>                  <a href="archived/petition_spec.html#L412" class="js-smell-location">4</a>                  <a href="archived/petition_spec.html#L420" class="js-smell-location">5</a>                  <a href="archived/petition_spec.html#L430" class="js-smell-location">6</a>                  <a href="archived/petition_spec.html#L438" class="js-smell-location">7</a>                  <a href="archived/petition_spec.html#L454" class="js-smell-location">8</a>                  <a href="archived/petition_spec.html#L464" class="js-smell-location">9</a>                  <a href="archived/petition_spec.html#L472" class="js-smell-location">10</a>                  <a href="archived/petition_spec.html#L480" class="js-smell-location">11</a>                  <a href="parliament_spec.html#L467" class="js-smell-location">12</a>                  <a href="parliament_spec.html#L970" class="js-smell-location">13</a>                  <a href="parliament_spec.html#L1038" class="js-smell-location">14</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament, :dissolving)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.dissolved?).to eq(false)
+      end
+    end
+
+    context &quot;when dissolution_at is in the past&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="archived/petition_spec.html#L362" class="js-smell-location">0</a>                  <a href="archived/petition_spec.html#L404" class="js-smell-location">1</a>                  <a href="archived/petition_spec.html#L446" class="js-smell-location">2</a>                  <a href="archived/petition_spec.html#L488" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L445" class="js-smell-location">4</a>                  <a href="parliament_spec.html#L477" class="js-smell-location">5</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament, :dissolved)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.dissolved?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#registration_closed?&quot; do
+    context &quot;when registration_closed_at is nil&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L435" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L457" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L489" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L959" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L1027" class="js-smell-location">4</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.registration_closed?).to eq(false)
+      end
+    end
+
+    context &quot;when registration_closed_at is in the future&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, :dissolving, registration_closed_at: 2.weeks.from_now)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.registration_closed?).to eq(false)
+      end
+    end
+
+    context &quot;when registration_closed_at is in the past&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, :dissolved, registration_closed_at: 2.weeks.ago)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.registration_closed?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#archived?&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L402" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L520" class="js-smell-location">1</a>                  </div>  </li></ol>
+    context &quot;when archived_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archived_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.archived?).to eq(false)
+      end
+    end
+
+    context &quot;when archived_at is in the future&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archived_at: 2.weeks.from_now)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.archived?).to eq(false)
+      end
+    end
+
+    context &quot;when archived_at is in the past&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archived_at: 2.weeks.ago)
+      end
+
+      it &quot;returns true&quot; do
+        expect(parliament.archived?).to eq(true)
+      end
+    end
+  end
+
+  describe &quot;#archiving?&quot; do
+    context &quot;when archiving_started_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archiving_started_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.archiving?).to eq(false)
+      end
+    end
+
+    context &quot;when archiving_started_at is not nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archiving_started_at: 1.day.ago)
+      end
+
+      context &quot;and all petitions are unarchived&quot; do
+        before do
+          FactoryBot.create(:closed_petition, archived_at: nil)
+          FactoryBot.create(:closed_petition, archived_at: nil)
+        end
+
+        it &quot;returns true&quot; do
+          expect(parliament.archiving?).to eq(true)
+        end
+      end
+
+      context &quot;and there is a mix of archived and unarchived petitions&quot; do
+        before do
+          FactoryBot.create(:closed_petition, archived_at: 12.hours.ago)
+          FactoryBot.create(:closed_petition, archived_at: nil)
+        end
+
+        it &quot;returns true&quot; do
+          expect(parliament.archiving?).to eq(true)
+        end
+      end
+
+      context &quot;and all the petitions are archived&quot; do
+        before do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L591" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L642" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L722" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li></ol>
+          FactoryBot.create(:closed_petition, archived_at: 12.hours.ago)
+          FactoryBot.create(:closed_petition, archived_at: 6.hours.ago)
+        end
+
+        it &quot;returns false&quot; do
+          expect(parliament.archiving?).to eq(false)
+        end
+      end
+    end
+  end
+
+  describe &quot;#archiving_finished?&quot; do
+    context &quot;when archiving_started_at is nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archiving_started_at: nil)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.archiving_finished?).to eq(false)
+      end
+    end
+
+    context &quot;when archiving_started_at is not nil&quot; do
+      subject :parliament do
+        FactoryBot.build(:parliament, archiving_started_at: 1.day.ago)
+      end
+
+      context &quot;and all petitions are unarchived&quot; do
+        before do
+          FactoryBot.create(:closed_petition, archived_at: nil)
+          FactoryBot.create(:closed_petition, archived_at: nil)
+        end
+
+        it &quot;returns false&quot; do
+          expect(parliament.archiving_finished?).to eq(false)
+        end
+      end
+
+      context &quot;and there is a mix of archived and unarchived petitions&quot; do
+        before do
+          FactoryBot.create(:closed_petition, archived_at: 12.hours.ago)
+          FactoryBot.create(:closed_petition, archived_at: nil)
+        end
+
+        it &quot;returns false&quot; do
+          expect(parliament.archiving_finished?).to eq(false)
+        end
+      end
+
+      context &quot;and all the petitions are archived&quot; do
+        before do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L591" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L642" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L722" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li></ol>
+          FactoryBot.create(:closed_petition, archived_at: 12.hours.ago)
+          FactoryBot.create(:closed_petition, archived_at: 6.hours.ago)
+        end
+
+        it &quot;returns true&quot; do
+          expect(parliament.archiving_finished?).to eq(true)
+        end
+      end
+    end
+  end
+
+  describe &quot;#start_archiving!&quot; do
+    let :archive_petitions_job do
+      {
+        job: ArchivePetitionsJob,
+        args: [],
+        queue: &quot;high_priority&quot;
+      }
+    end
+
+    context &quot;when petitions have not been archived&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: nil)
+      end
+
+      before do
+        FactoryBot.create(:closed_petition, archived_at: nil)
+        FactoryBot.create(:closed_petition, archived_at: nil)
+      end
+
+      it &quot;schedules an ArchivedPetitionsJob&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="../jobs/notify_creators_that_parliament_is_dissolving_job_spec.html#L19" class="js-smell-location">0</a>                  <a href="invalidation_spec.html#L349" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L673" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L818" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L865" class="js-smell-location">4</a>                  </div>  </li></ol>
+        expect {
+          subject.start_archiving!
+        }.to change {
+          enqueued_jobs
+        }.from([]).to([archive_petitions_job])
+      end
+
+      it &quot;updates the archiving_started_at timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="invalidation_spec.html#L959" class="js-smell-location">0</a>                  <a href="invalidation_spec.html#L967" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L681" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L826" class="js-smell-location">3</a>                  <a href="petition/statistics_spec.html#L60" class="js-smell-location">4</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(#start_archiving!)::context(when petitions have not been archived)::it#updates the archiving_started_at timestamp has a flog score of 31</span>          </div>  </li></ol>
+        expect {
+          subject.start_archiving!
+        }.to change {
+          subject.reload.archiving_started_at
+        }.from(nil).to(be_within(1.second).of(Time.current))
+      end
+    end
+
+    context &quot;when archiving has already started&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L690" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L781" class="js-smell-location">1</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: 2.hours.ago)
+      end
+
+      before do
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+        FactoryBot.create(:closed_petition, archived_at: nil)
+      end
+
+      it &quot;doesn&#39;t schedule an ArchivedPetitionsJob&quot; do
+        expect {
+          subject.start_archiving!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+
+      it &quot;doesn&#39;t update the archiving_started_at timestamp&quot; do
+        expect {
+          subject.start_archiving!
+        }.not_to change {
+          subject.reload.archiving_started_at
+        }
+      end
+    end
+
+    context &quot;when archiving has finished&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: 2.hours.ago)
+      end
+
+      before do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L591" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L642" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L722" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li></ol>
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+      end
+
+      it &quot;doesn&#39;t schedule an ArchivedPetitionsJob&quot; do
+        expect {
+          subject.start_archiving!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+
+      it &quot;doesn&#39;t update the archiving_started_at timestamp&quot; do
+        expect {
+          subject.start_archiving!
+        }.not_to change {
+          subject.reload.archiving_started_at
+        }
+      end
+    end
+  end
+
+  describe &quot;#archive!&quot; do
+    let :delete_petitions_job do
+      {
+        job: DeletePetitionsJob,
+        args: [],
+        queue: &quot;high_priority&quot;
+      }
+    end
+
+    context &quot;when archiving has not started&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: nil)
+      end
+
+      before do
+        FactoryBot.create(:closed_petition, archived_at: nil)
+        FactoryBot.create(:closed_petition, archived_at: nil)
+      end
+
+      it &quot;doesn&#39;t schedule an DeletePetitionsJob&quot; do
+        expect {
+          subject.archive!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+
+      it &quot;doesn&#39;t update the archived_at timestamp&quot; do
+        expect {
+          subject.archive!
+        }.not_to change {
+          subject.reload.archived_at
+        }
+      end
+    end
+
+    context &quot;when archiving has started&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L690" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L781" class="js-smell-location">1</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: 2.hours.ago)
+      end
+
+      before do
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+        FactoryBot.create(:closed_petition, archived_at: nil)
+      end
+
+      it &quot;doesn&#39;t schedule an DeletePetitionsJob&quot; do
+        expect {
+          subject.archive!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+
+      it &quot;doesn&#39;t update the archived_at timestamp&quot; do
+        expect {
+          subject.archive!
+        }.not_to change {
+          subject.reload.archived_at
+        }
+      end
+    end
+
+    context &quot;when archiving has finished&quot; do
+      subject :parliament do
+        FactoryBot.create(:parliament, archiving_started_at: 2.hours.ago)
+      end
+
+      before do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L591" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L642" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L722" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L813" class="js-smell-location">3</a>                  </div>  </li></ol>
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+        FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+      end
+
+      it &quot;schedules an DeletePetitionsJob&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="../jobs/notify_creators_that_parliament_is_dissolving_job_spec.html#L19" class="js-smell-location">0</a>                  <a href="invalidation_spec.html#L349" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L673" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L818" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L865" class="js-smell-location">4</a>                  </div>  </li></ol>
+        expect {
+          subject.archive!
+        }.to change {
+          enqueued_jobs
+        }.from([]).to([delete_petitions_job])
+      end
+
+      it &quot;updates the archived_at timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="invalidation_spec.html#L959" class="js-smell-location">0</a>                  <a href="invalidation_spec.html#L967" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L681" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L826" class="js-smell-location">3</a>                  <a href="petition/statistics_spec.html#L60" class="js-smell-location">4</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(#archive!)::context(when archiving has finished)::it#updates the archived_at timestamp has a flog score of 31</span>          </div>  </li></ol>
+        expect {
+          subject.archive!
+        }.to change {
+          subject.reload.archived_at
+        }.from(nil).to(be_within(1.second).of(Time.current))
+      end
+    end
+  end
+
+  describe &quot;#notify_creators!&quot; do
+    let :notify_creators_job do
+      {
+        job: NotifyCreatorsThatParliamentIsDissolvingJob,
+        args: [],
+        queue: &quot;high_priority&quot;
+      }
+    end
+
+    context &quot;when parliament has not announced dissolution&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L845" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L909" class="js-smell-location">1</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;does not schedule a job&quot; do
+        expect {
+          subject.notify_creators!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+    end
+
+    context &quot;when parliament has announced dissolution&quot; do
+      context &quot;and the dissolution date has not passed&quot; do
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolving)
+        end
+
+        it &quot;schedules a job&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="../jobs/notify_creators_that_parliament_is_dissolving_job_spec.html#L19" class="js-smell-location">0</a>                  <a href="invalidation_spec.html#L349" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L673" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L818" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L865" class="js-smell-location">4</a>                  </div>  </li></ol>
+          expect {
+            subject.notify_creators!
+          }.to change {
+            enqueued_jobs
+          }.from([]).to([notify_creators_job])
+        end
+      end
+
+      context &quot;and the dissolution date has passsed&quot; do
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolved)
+        end
+
+        it &quot;does not schedule a job&quot; do
+          expect {
+            subject.notify_creators!
+          }.not_to change {
+            enqueued_jobs
+          }
+        end
+      end
+    end
+  end
+
+  describe &quot;#schedule_closure!&quot; do
+    let :close_petitions_job do
+      {
+        job: ClosePetitionsEarlyJob,
+        args: [dissolution_at.iso8601],
+        queue: &quot;high_priority&quot;,
+        at: dissolution_at.to_f
+      }
+    end
+
+    let :stop_petitions_job do
+      {
+        job: StopPetitionsEarlyJob,
+        args: [dissolution_at.iso8601],
+        queue: &quot;high_priority&quot;,
+        at: dissolution_at.to_f
+      }
+    end
+
+    context &quot;when parliament has not announced dissolution&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L845" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L909" class="js-smell-location">1</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;does not schedule a job&quot; do
+        expect {
+          subject.schedule_closure!
+        }.not_to change {
+          enqueued_jobs
+        }
+      end
+    end
+
+    context &quot;when parliament has announced dissolution&quot; do
+      context &quot;and the dissolution date has not passed&quot; do
+        let(:dissolution_at) { 2.weeks.from_now }
+
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolving, dissolution_at: dissolution_at)
+        end
+
+        it &quot;schedules a job&quot; do
+          expect {
+            subject.schedule_closure!
+          }.to change {
+            enqueued_jobs
+          }.from([]).to([close_petitions_job, stop_petitions_job])
+        end
+      end
+
+      context &quot;and the dissolution date has passsed&quot; do
+        let(:dissolution_at) { 2.weeks.ago }
+
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolved, dissolution_at: dissolution_at)
+        end
+
+        it &quot;does not schedule a job&quot; do
+          expect {
+            subject.schedule_closure!
+          }.not_to change {
+            enqueued_jobs
+          }
+        end
+      end
+    end
+  end
+
+  describe &quot;#can_archive_petitions?&quot; do
+    context &quot;when parliament has not announced dissolution&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L435" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L457" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L489" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L959" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L1027" class="js-smell-location">4</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.can_archive_petitions?).to eq(false)
+      end
+    end
+
+    context &quot;when parliament has announced dissolution&quot; do
+      context &quot;and the dissolution date has not passed&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 15 nodes</span>              <span>Locations:</span>                  <a href="archived/petition_spec.html#L370" class="js-smell-location">0</a>                  <a href="archived/petition_spec.html#L378" class="js-smell-location">1</a>                  <a href="archived/petition_spec.html#L386" class="js-smell-location">2</a>                  <a href="archived/petition_spec.html#L396" class="js-smell-location">3</a>                  <a href="archived/petition_spec.html#L412" class="js-smell-location">4</a>                  <a href="archived/petition_spec.html#L420" class="js-smell-location">5</a>                  <a href="archived/petition_spec.html#L430" class="js-smell-location">6</a>                  <a href="archived/petition_spec.html#L438" class="js-smell-location">7</a>                  <a href="archived/petition_spec.html#L454" class="js-smell-location">8</a>                  <a href="archived/petition_spec.html#L464" class="js-smell-location">9</a>                  <a href="archived/petition_spec.html#L472" class="js-smell-location">10</a>                  <a href="archived/petition_spec.html#L480" class="js-smell-location">11</a>                  <a href="parliament_spec.html#L467" class="js-smell-location">12</a>                  <a href="parliament_spec.html#L970" class="js-smell-location">13</a>                  <a href="parliament_spec.html#L1038" class="js-smell-location">14</a>                  </div>  </li></ol>
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolving)
+        end
+
+        it &quot;returns false&quot; do
+          expect(parliament.can_archive_petitions?).to eq(false)
+        end
+      end
+
+      context &quot;and the dissolution date has passed&quot; do
+        context &quot;and the petitions have not been archived&quot; do
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: nil)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: nil)
+          end
+
+          it &quot;returns true&quot; do
+            expect(parliament.can_archive_petitions?).to eq(true)
+          end
+        end
+
+        context &quot;and the petitions are being archived&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L995" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L1063" class="js-smell-location">1</a>                  </div>  </li></ol>
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: 2.hours.ago)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: nil)
+          end
+
+          it &quot;returns false&quot; do
+            expect(parliament.can_archive_petitions?).to eq(false)
+          end
+        end
+
+        context &quot;and the petitions have been archived&quot; do
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: 2.hours.ago)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+          end
+
+          it &quot;returns false&quot; do
+            expect(parliament.can_archive_petitions?).to eq(false)
+          end
+        end
+      end
+    end
+  end
+
+  describe &quot;#can_archive?&quot; do
+    context &quot;when parliament has not announced dissolution&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L435" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L457" class="js-smell-location">1</a>                  <a href="parliament_spec.html#L489" class="js-smell-location">2</a>                  <a href="parliament_spec.html#L959" class="js-smell-location">3</a>                  <a href="parliament_spec.html#L1027" class="js-smell-location">4</a>                  </div>  </li></ol>
+      subject :parliament do
+        FactoryBot.create(:parliament)
+      end
+
+      it &quot;returns false&quot; do
+        expect(parliament.can_archive?).to eq(false)
+      end
+    end
+
+    context &quot;when parliament has announced dissolution&quot; do
+      context &quot;and the dissolution date has not passed&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 15 nodes</span>              <span>Locations:</span>                  <a href="archived/petition_spec.html#L370" class="js-smell-location">0</a>                  <a href="archived/petition_spec.html#L378" class="js-smell-location">1</a>                  <a href="archived/petition_spec.html#L386" class="js-smell-location">2</a>                  <a href="archived/petition_spec.html#L396" class="js-smell-location">3</a>                  <a href="archived/petition_spec.html#L412" class="js-smell-location">4</a>                  <a href="archived/petition_spec.html#L420" class="js-smell-location">5</a>                  <a href="archived/petition_spec.html#L430" class="js-smell-location">6</a>                  <a href="archived/petition_spec.html#L438" class="js-smell-location">7</a>                  <a href="archived/petition_spec.html#L454" class="js-smell-location">8</a>                  <a href="archived/petition_spec.html#L464" class="js-smell-location">9</a>                  <a href="archived/petition_spec.html#L472" class="js-smell-location">10</a>                  <a href="archived/petition_spec.html#L480" class="js-smell-location">11</a>                  <a href="parliament_spec.html#L467" class="js-smell-location">12</a>                  <a href="parliament_spec.html#L970" class="js-smell-location">13</a>                  <a href="parliament_spec.html#L1038" class="js-smell-location">14</a>                  </div>  </li></ol>
+        subject :parliament do
+          FactoryBot.create(:parliament, :dissolving)
+        end
+
+        it &quot;returns false&quot; do
+          expect(parliament.can_archive?).to eq(false)
+        end
+      end
+
+      context &quot;and the dissolution date has passed&quot; do
+        context &quot;and the petitions have not been archived&quot; do
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: nil)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: nil)
+          end
+
+          it &quot;returns false&quot; do
+            expect(parliament.can_archive?).to eq(false)
+          end
+        end
+
+        context &quot;and the petitions are being archived&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L995" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L1063" class="js-smell-location">1</a>                  </div>  </li></ol>
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: 2.hours.ago)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: nil)
+          end
+
+          it &quot;returns false&quot; do
+            expect(parliament.can_archive?).to eq(false)
+          end
+        end
+
+        context &quot;and the petitions have been archived&quot; do
+          subject :parliament do
+            FactoryBot.create(:parliament, :dissolved, archiving_started_at: 2.hours.ago)
+          end
+
+          before do
+            FactoryBot.create(:closed_petition, archived_at: 1.hour.ago)
+          end
+
+          it &quot;returns true&quot; do
+            expect(parliament.can_archive?).to eq(true)
+          end
+        end
+      end
+    end
+  end
+
+  describe &quot;#formatted_threshold_for_response&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L1094" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L1104" class="js-smell-location">1</a>                  </div>  </li></ol>
+    subject :parliament do
+      FactoryBot.build(:parliament, threshold_for_response: 10000)
+    end
+
+    it &quot;returns a formatted number&quot; do
+      expect(parliament.formatted_threshold_for_response).to eq(&quot;10,000&quot;)
+    end
+  end
+
+  describe &quot;#formatted_threshold_for_debate&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="parliament_spec.html#L1094" class="js-smell-location">0</a>                  <a href="parliament_spec.html#L1104" class="js-smell-location">1</a>                  </div>  </li></ol>
+    subject :parliament do
+      FactoryBot.build(:parliament, threshold_for_debate: 100000)
+    end
+
+    it &quot;returns a formatted number&quot; do
+      expect(parliament.formatted_threshold_for_debate).to eq(&quot;100,000&quot;)
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

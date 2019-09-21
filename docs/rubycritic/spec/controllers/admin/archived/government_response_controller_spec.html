@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../../overview.html"><img src="../../../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2018-06-23 16:32:54 +0100'>2018-06-23 16:32:54 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/controllers/admin/archived /</small> government_response_controller_spec.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">593</span><small> lines of codes</small></div>
+              <div><span class="metric">2</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">718.5</span><small> complexity/method</small></div>
+              <div><span class="metric">23</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">1437.09</span><small> complexity</small></div>
+              <div><span class="metric">986</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                30
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;rails_helper&#39;
+
+RSpec.describe Admin::Archived::GovernmentResponseController, type: :controller, admin: true do
+  let!(:petition) { FactoryBot.create(:archived_petition) }
+  let!(:creator) { FactoryBot.create(:archived_signature, :validated, creator: true, petition: petition) }
+  let(:government_response) { petition.government_response }
+
+  describe &#39;not logged in&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 13 nodes</span>              <span>Locations:</span>                  <a href="debate_outcomes_controller_spec.html#L7" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L8" class="js-smell-location">1</a>                  <a href="notes_controller_spec.html#L7" class="js-smell-location">2</a>                  <a href="petition_details_controller_spec.html#L7" class="js-smell-location">3</a>                  <a href="petition_tags_controller_spec.html#L7" class="js-smell-location">4</a>                  <a href="schedule_debate_controller_spec.html#L7" class="js-smell-location">5</a>                  <a href="../debate_outcomes_controller_spec.html#L7" class="js-smell-location">6</a>                  <a href="../government_response_controller_spec.html#L7" class="js-smell-location">7</a>                  <a href="../notes_controller_spec.html#L7" class="js-smell-location">8</a>                  <a href="../petition_details_controller_spec.html#L7" class="js-smell-location">9</a>                  <a href="../petition_tags_controller_spec.html#L6" class="js-smell-location">10</a>                  <a href="../schedule_debate_controller_spec.html#L7" class="js-smell-location">11</a>                  <a href="../take_down_controller_spec.html#L14" class="js-smell-location">12</a>                  </div>  </li></ol>
+    describe &#39;GET /show&#39; do
+      it &#39;redirects to the login page&#39; do
+        get :show, petition_id: petition.id
+        expect(response).to redirect_to(&#39;https://moderate.petition.parliament.uk/admin/login&#39;)
+      end
+    end
+
+    describe &#39;PATCH /update&#39; do
+      it &#39;redirects to the login page&#39; do
+        patch :update, petition_id: petition.id
+        expect(response).to redirect_to(&#39;https://moderate.petition.parliament.uk/admin/login&#39;)
+      end
+    end
+  end
+
+  context &#39;logged in as moderator user but need to reset password&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 13 nodes</span>              <span>Locations:</span>                  <a href="debate_outcomes_controller_spec.html#L23" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L24" class="js-smell-location">1</a>                  <a href="notes_controller_spec.html#L23" class="js-smell-location">2</a>                  <a href="petition_details_controller_spec.html#L23" class="js-smell-location">3</a>                  <a href="petition_tags_controller_spec.html#L23" class="js-smell-location">4</a>                  <a href="schedule_debate_controller_spec.html#L23" class="js-smell-location">5</a>                  <a href="../debate_outcomes_controller_spec.html#L23" class="js-smell-location">6</a>                  <a href="../government_response_controller_spec.html#L23" class="js-smell-location">7</a>                  <a href="../notes_controller_spec.html#L23" class="js-smell-location">8</a>                  <a href="../petition_details_controller_spec.html#L23" class="js-smell-location">9</a>                  <a href="../petition_tags_controller_spec.html#L22" class="js-smell-location">10</a>                  <a href="../schedule_debate_controller_spec.html#L23" class="js-smell-location">11</a>                  <a href="../take_down_controller_spec.html#L30" class="js-smell-location">12</a>                  </div>  </li></ol>
+    let(:user) { FactoryBot.create(:moderator_user, force_password_reset: true) }
+    before { login_as(user) }
+
+    describe &#39;GET /show&#39; do
+      it &#39;redirects to edit profile page&#39; do
+        get :show, petition_id: petition.id
+        expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/profile/#{user.id}/edit&quot;)
+      end
+    end
+
+    describe &#39;PATCH /update&#39; do
+      it &#39;redirects to edit profile page&#39; do
+        patch :update, petition_id: petition.id
+        expect(response).to redirect_to(&quot;https://moderate.petition.parliament.uk/admin/profile/#{user.id}/edit&quot;)
+      end
+    end
+  end
+
+  describe &quot;logged in as moderator user&quot; do
+    let(:user) { FactoryBot.create(:moderator_user) }
+    before { login_as(user) }
+
+    describe &#39;GET /show&#39; do
+      shared_examples_for &#39;viewing government response for a petition&#39; do
+        it &#39;fetches the requested petition&#39; do
+          get :show, petition_id: petition.id
+          expect(assigns(:petition)).to eq petition
+        end
+
+        it &#39;responds successfully and renders the petitions/show template&#39; do
+          get :show, petition_id: petition.id
+          expect(response).to be_success
+          expect(response).to render_template(&#39;petitions/show&#39;)
+        end
+      end
+
+      shared_examples_for &#39;viewing government response for a petition in the wrong state&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 6 nodes</span>              <span>Locations:</span>                  <a href="debate_outcomes_controller_spec.html#L78" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L61" class="js-smell-location">1</a>                  <a href="petition_emails_controller_spec.html#L106" class="js-smell-location">2</a>                  <a href="../debate_outcomes_controller_spec.html#L78" class="js-smell-location">3</a>                  <a href="../government_response_controller_spec.html#L60" class="js-smell-location">4</a>                  <a href="../petition_emails_controller_spec.html#L105" class="js-smell-location">5</a>                  </div>  </li></ol>
+        it &#39;throws a 404&#39; do
+          expect {
+            get :show, petition_id: petition.id
+          }.to raise_error(ActiveRecord::RecordNotFound)
+        end
+      end
+
+      describe &#39;for a published petition&#39; do
+        it_behaves_like &#39;viewing government response for a petition&#39;
+      end
+
+      describe &#39;for a rejected petition&#39; do
+        let!(:petition) { FactoryBot.create(:archived_petition, :rejected) }
+
+        it_behaves_like &#39;viewing government response for a petition&#39;
+      end
+
+      describe &#39;for a hidden petition&#39; do
+        let!(:petition) { FactoryBot.create(:archived_petition, :hidden) }
+
+        it_behaves_like &#39;viewing government response for a petition&#39;
+      end
+    end
+
+    describe &#39;PATCH /update&#39; do
+      let(:government_response_attributes) do
+        {
+          responded_on: Date.civil(2018, 6, 23),
+          summary: &#39;The government agrees&#39;,
+          details: &#39;Your petition is brilliant and we will do our utmost to make it law.&#39;
+        }
+      end
+
+      context &#39;when clicking the Email button&#39; do
+        def do_patch(overrides = {})<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L96" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L340" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L108" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L362" class="js-smell-location">3</a>                  </div>  </li></ol>
+          login_as(user)
+
+          params = {
+            petition_id: petition.id,
+            archived_government_response: government_response_attributes,
+            save_and_email: &quot;Email&quot;
+          }
+
+          patch :update, params.merge(overrides)
+        end
+
+        describe &#39;using valid params to add a government response&#39; do
+          it &#39;redirects to the show page&#39; do
+            do_patch
+            expect(response).to redirect_to &quot;https://moderate.petition.parliament.uk/admin/archived/petitions/#{petition.id}&quot;
+          end
+
+          it &#39;tells the moderator that their email will be sent overnight&#39; do
+            do_patch
+            expect(flash[:notice]).to eq &#39;Email will be sent overnight&#39;
+          end
+
+          it &#39;stores the supplied government response in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::it#stores the supplied government response in the db has a flog score of 52</span>          </div>  </li></ol>
+            do_patch
+            petition.reload
+            expect(government_response.responded_on).to eq government_response_attributes[:responded_on]
+            expect(government_response.summary).to eq government_response_attributes[:summary]
+            expect(government_response.details).to eq government_response_attributes[:details]
+          end
+
+          it &#39;stamps the current time on the government_response_at timestamp in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L127" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L371" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L139" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L393" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::it#stamps the current time on the government_response_at timestamp in the db has a flog score of 31</span>          </div>  </li></ol>
+            time = 6.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.government_response_at).to be_within(1.second).of time
+            end
+          end
+
+          it &quot;sets the &#39;government_response&#39; email requested receipt timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L136" class="js-smell-location">0</a>                  <a href="../government_response_controller_spec.html#L148" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::it#sets the 'government_response' email requested receipt timestamp has a flog score of 31</span>          </div>  </li></ol>
+            time = 5.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_within(1.second).of time
+            end
+          end
+
+          describe &quot;emails out debate outcomes response&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::describe#emails out debate outcomes response has a flog score of 30</span>          </div>  </li></ol>
+            before do
+              3.times do |i|
+                attributes = {
+                  name: &quot;Laura #{i}&quot;,
+                  email: &quot;laura_#{i}@example.com&quot;,
+                  notify_by_email: true,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :validated, attributes)
+              end
+
+              2.times do |i|
+                attributes = {
+                  name: &quot;Sarah #{i}&quot;,
+                  email: &quot;sarah_#{i}@example.com&quot;,
+                  notify_by_email: false,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :validated, attributes)
+              end
+
+              2.times do |i|
+                attributes = {
+                  name: &quot;Brian #{i}&quot;,
+                  email: &quot;brian_#{i}@example.com&quot;,
+                  notify_by_email: true,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :pending, attributes)
+              end
+
+              petition.reload
+            end
+
+            it &quot;queues a job to process the emails&quot; do
+              assert_enqueued_jobs 1 do
+                do_patch
+              end
+            end
+
+            it &quot;stamps the &#39;government_response&#39; email sent timestamp on each signature when the job runs&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::describe(emails out debate outcomes response)::it#stamps the 'government_response' email sent timestamp on each signature when the job runs has a flog score of 42</span>          </div>  </li></ol>
+              perform_enqueued_jobs do
+                do_patch
+                petition.reload
+                petition_timestamp = petition.get_email_requested_at_for(&#39;government_response&#39;)
+                expect(petition_timestamp).not_to be_nil
+                petition.signatures.validated.subscribed.each do |signature|
+                  expect(signature.get_email_sent_at_for(&#39;government_response&#39;)).to eq(petition_timestamp)
+                end
+              end
+            end
+
+            it &quot;should email out to the validated signees who have opted in when the delayed job runs&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L201" class="js-smell-location">0</a>                  <a href="../government_response_controller_spec.html#L210" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using valid params to add a government response)::describe(emails out debate outcomes response)::it#should email out to the validated signees who have opted in when the delayed job runs has a flog score of 130</span>          </div>  </li></ol>
+              ActionMailer::Base.deliveries.clear
+              perform_enqueued_jobs do
+                do_patch
+                expect(ActionMailer::Base.deliveries.length).to eq 4
+                expect(ActionMailer::Base.deliveries.map(&amp;:to)).to eq([
+                  [petition.creator.email],
+                  [&#39;laura_0@example.com&#39;],
+                  [&#39;laura_1@example.com&#39;],
+                  [&#39;laura_2@example.com&#39;]
+                ])
+                expect(ActionMailer::Base.deliveries[0].subject).to match(/Government responded to “#{petition.action}”/)
+                expect(ActionMailer::Base.deliveries[1].subject).to match(/Government responded to “#{petition.action}”/)
+                expect(ActionMailer::Base.deliveries[2].subject).to match(/Government responded to “#{petition.action}”/)
+                expect(ActionMailer::Base.deliveries[3].subject).to match(/Government responded to “#{petition.action}”/)
+              end
+            end
+          end
+        end
+
+        describe &#39;using no params to add a government response&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L221" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L435" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L230" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L454" class="js-smell-location">3</a>                  </div>  </li></ol>
+          before do
+            government_response_attributes[:responded_on] = nil
+            government_response_attributes[:summary] = nil
+            government_response_attributes[:details] = nil
+          end
+
+          it &#39;does not tell the moderator that their email will be sent overnight&#39; do
+            do_patch
+            expect(flash[:notice]).to be_blank
+          end
+
+          it &quot;does not set the &#39;government_response&#39; email requested receipt timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::describe(using no params to add a government response)::it#does not set the 'government_response' email requested receipt timestamp has a flog score of 26</span>          </div>  </li></ol>
+            time = 5.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_nil
+            end
+          end
+
+          it &quot;does not queue a job to process the emails&quot; do
+            assert_enqueued_jobs 0 do
+              do_patch
+            end
+          end
+
+          it &#39;re-renders the admin/archived/petitions/show template&#39; do
+            do_patch
+            expect(response).to be_success
+            expect(response).to render_template(&#39;admin/archived/petitions/show&#39;)
+          end
+        end
+
+        describe &#39;using invalid params to add a government response&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L255" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L469" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L264" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L488" class="js-smell-location">3</a>                  </div>  </li></ol>
+          before { government_response_attributes[:summary] = &#39;a&#39; * 501 }
+
+          it &#39;re-renders the petitions/show template&#39; do
+            do_patch
+            expect(response).to be_success
+            expect(response).to render_template(&#39;petitions/show&#39;)
+          end
+
+          it &#39;leaves the in-memory instance with errors&#39; do
+            do_patch
+            expect(assigns(:government_response).errors).not_to be_empty
+          end
+
+          it &#39;does not store the supplied government response in the db&#39; do
+            do_patch
+            petition.reload
+            expect(government_response).to be_nil
+          end
+
+          it &#39;does not stamp the government_response_at timestamp in the db&#39; do
+            do_patch
+            petition.reload
+            expect(petition.government_response_at).to be_nil
+          end
+
+          it &quot;does not stamp the &#39;government_response&#39; email requested receipt timestamp&quot; do
+            do_patch
+            petition.reload
+            expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_nil
+          end
+
+          it &quot;doest not queue up a job to send the &#39;government_response&#39; emails&quot; do
+            do_patch
+            assert_enqueued_jobs 0
+          end
+        end
+
+        shared_examples_for &#39;adding a government response to a petition&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L293" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L507" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L302" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L526" class="js-smell-location">3</a>                  </div>  </li></ol>
+          it &#39;fetches the requested petition&#39; do
+            do_patch
+            expect(assigns(:petition)).to eq petition
+          end
+
+          it &#39;stores the supplied response on the petition in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Email button)::shared_examples_for(adding a government response to a petition)::it#stores the supplied response on the petition in the db has a flog score of 52</span>          </div>  </li></ol>
+            do_patch
+            petition.reload
+            expect(government_response.responded_on).to eq government_response_attributes[:responded_on]
+            expect(government_response.summary).to eq government_response_attributes[:summary]
+            expect(government_response.details).to eq government_response_attributes[:details]
+          end
+        end
+
+        shared_examples_for &#39;adding a government response to a petition in the wrong state&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L308" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L522" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L317" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L541" class="js-smell-location">3</a>                  </div>  </li></ol>
+          it &#39;throws a 404&#39; do
+            expect {
+              do_patch
+            }.to raise_error ActiveRecord::RecordNotFound
+          end
+
+          it &#39;does not store the supplied response on the petition in the db&#39; do
+            suppress(ActiveRecord::RecordNotFound) { do_patch }
+            petition.reload
+            expect(government_response).to be_nil
+          end
+        end
+
+        describe &#39;for a published petition&#39; do
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+
+        describe &#39;for a rejected petition&#39; do
+          let!(:petition) { FactoryBot.create(:archived_petition, :rejected) }
+
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+
+        describe &#39;for a hidden petition&#39; do
+          let!(:petition) { FactoryBot.create(:archived_petition, :hidden) }
+
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+      end
+
+      context &#39;when clicking the Save button&#39; do
+        def do_patch(overrides = {})<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L96" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L340" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L108" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L362" class="js-smell-location">3</a>                  </div>  </li></ol>
+          login_as(user)
+
+          params = {
+            petition_id: petition.id,
+            archived_government_response: government_response_attributes,
+            save: &quot;Save&quot;
+          }
+
+          patch :update, params.merge(overrides)
+        end
+
+        describe &#39;using valid params to add a government response&#39; do
+          it &#39;redirects to the show page&#39; do
+            do_patch
+            expect(response).to redirect_to &quot;https://moderate.petition.parliament.uk/admin/archived/petitions/#{petition.id}&quot;
+          end
+
+          it &#39;tells the moderator that their changes were saved&#39; do
+            do_patch
+            expect(flash[:notice]).to eq &#39;Updated government response successfully&#39;
+          end
+
+          it &#39;stores the supplied government response in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::describe(using valid params to add a government response)::it#stores the supplied government response in the db has a flog score of 52</span>          </div>  </li></ol>
+            do_patch
+            petition.reload
+            expect(government_response.responded_on).to eq government_response_attributes[:responded_on]
+            expect(government_response.summary).to eq government_response_attributes[:summary]
+            expect(government_response.details).to eq government_response_attributes[:details]
+          end
+
+          it &#39;stamps the current time on the government_response_at timestamp in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L127" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L371" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L139" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L393" class="js-smell-location">3</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::describe(using valid params to add a government response)::it#stamps the current time on the government_response_at timestamp in the db has a flog score of 31</span>          </div>  </li></ol>
+            time = 6.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.government_response_at).to be_within(1.second).of time
+            end
+          end
+
+          it &quot;does not set the &#39;government_response&#39; email requested receipt timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::describe(using valid params to add a government response)::it#does not set the 'government_response' email requested receipt timestamp has a flog score of 26</span>          </div>  </li></ol>
+            time = 5.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_nil
+            end
+          end
+
+          describe &quot;does not email out debate outcomes response&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="debate_outcomes_controller_spec.html#L347" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L389" class="js-smell-location">1</a>                  <a href="petition_emails_controller_spec.html#L335" class="js-smell-location">2</a>                  <a href="petition_emails_controller_spec.html#L471" class="js-smell-location">3</a>                  <a href="petition_emails_controller_spec.html#L861" class="js-smell-location">4</a>                  <a href="petition_emails_controller_spec.html#L1007" class="js-smell-location">5</a>                  <a href="schedule_debate_controller_spec.html#L282" class="js-smell-location">6</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::describe(using valid params to add a government response)::describe#does not email out debate outcomes response has a flog score of 30</span>          </div>  </li></ol>
+            before do
+              3.times do |i|
+                attributes = {
+                  name: &quot;Laura #{i}&quot;,
+                  email: &quot;laura_#{i}@example.com&quot;,
+                  notify_by_email: true,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :validated, attributes)
+              end
+
+              2.times do |i|
+                attributes = {
+                  name: &quot;Sarah #{i}&quot;,
+                  email: &quot;sarah_#{i}@example.com&quot;,
+                  notify_by_email: false,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :validated, attributes)
+              end
+
+              2.times do |i|
+                attributes = {
+                  name: &quot;Brian #{i}&quot;,
+                  email: &quot;brian_#{i}@example.com&quot;,
+                  notify_by_email: true,
+                  petition: petition
+                }
+
+                FactoryBot.create(:archived_signature, :pending, attributes)
+              end
+
+              petition.reload
+            end
+
+            it &quot;does not queue a job to process the emails&quot; do
+              assert_enqueued_jobs 0 do
+                do_patch
+              end
+            end
+          end
+        end
+
+        describe &#39;using no params to add a government response&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L221" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L435" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L230" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L454" class="js-smell-location">3</a>                  </div>  </li></ol>
+          before do
+            government_response_attributes[:responded_on] = nil
+            government_response_attributes[:summary] = nil
+            government_response_attributes[:details] = nil
+          end
+
+          it &#39;does not tell the moderator that their changes were saved&#39; do
+            do_patch
+            expect(flash[:notice]).to be_blank
+          end
+
+          it &quot;does not set the &#39;government_response&#39; email requested receipt timestamp&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::describe(using no params to add a government response)::it#does not set the 'government_response' email requested receipt timestamp has a flog score of 26</span>          </div>  </li></ol>
+            time = 5.days.from_now
+            travel_to time do
+              do_patch
+              petition.reload
+              expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_nil
+            end
+          end
+
+          it &quot;does not queue a job to process the emails&quot; do
+            assert_enqueued_jobs 0 do
+              do_patch
+            end
+          end
+
+          it &#39;re-renders the admin/archived/petitions/show template&#39; do
+            do_patch
+            expect(response).to be_success
+            expect(response).to render_template(&#39;admin/archived/petitions/show&#39;)
+          end
+        end
+
+        describe &#39;using invalid params to add a government response&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L255" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L469" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L264" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L488" class="js-smell-location">3</a>                  </div>  </li></ol>
+          before { government_response_attributes[:summary] = &#39;a&#39; * 501 }
+
+          it &#39;re-renders the petitions/show template&#39; do
+            do_patch
+            expect(response).to be_success
+            expect(response).to render_template(&#39;petitions/show&#39;)
+          end
+
+          it &#39;leaves the in-memory instance with errors&#39; do
+            do_patch
+            expect(assigns(:government_response).errors).not_to be_empty
+          end
+
+          it &#39;does not store the supplied government response in the db&#39; do
+            do_patch
+            petition.reload
+            expect(government_response).to be_nil
+          end
+
+          it &#39;does not stamp the government_response_at timestamp in the db&#39; do
+            do_patch
+            petition.reload
+            expect(petition.government_response_at).to be_nil
+          end
+
+          it &quot;does not stamp the &#39;government_response&#39; email requested receipt timestamp&quot; do
+            do_patch
+            petition.reload
+            expect(petition.get_email_requested_at_for(&#39;government_response&#39;)).to be_nil
+          end
+
+          it &quot;doest not queue up a job to send the &#39;government_response&#39; emails&quot; do
+            do_patch
+            assert_enqueued_jobs 0
+          end
+        end
+
+        shared_examples_for &#39;adding a government response to a petition&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L293" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L507" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L302" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L526" class="js-smell-location">3</a>                  </div>  </li></ol>
+          it &#39;fetches the requested petition&#39; do
+            do_patch
+            expect(assigns(:petition)).to eq petition
+          end
+
+          it &#39;stores the supplied response on the petition in the db&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when clicking the Save button)::shared_examples_for(adding a government response to a petition)::it#stores the supplied response on the petition in the db has a flog score of 52</span>          </div>  </li></ol>
+            do_patch
+            petition.reload
+            expect(government_response.responded_on).to eq government_response_attributes[:responded_on]
+            expect(government_response.summary).to eq government_response_attributes[:summary]
+            expect(government_response.details).to eq government_response_attributes[:details]
+          end
+        end
+
+        shared_examples_for &#39;adding a government response to a petition in the wrong state&#39; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 4 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L308" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L522" class="js-smell-location">1</a>                  <a href="../government_response_controller_spec.html#L317" class="js-smell-location">2</a>                  <a href="../government_response_controller_spec.html#L541" class="js-smell-location">3</a>                  </div>  </li></ol>
+          it &#39;throws a 404&#39; do
+            expect {
+              do_patch
+            }.to raise_error ActiveRecord::RecordNotFound
+          end
+
+          it &#39;does not store the supplied response on the petition in the db&#39; do
+            suppress(ActiveRecord::RecordNotFound) { do_patch }
+            petition.reload
+            expect(government_response).to be_nil
+          end
+        end
+
+        describe &#39;for a published petition&#39; do
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+
+        describe &#39;for a rejected petition&#39; do
+          let!(:petition) { FactoryBot.create(:archived_petition, :rejected) }
+
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+
+        describe &#39;for a hidden petition&#39; do
+          let!(:petition) { FactoryBot.create(:archived_petition, :hidden) }
+
+          it_behaves_like &#39;adding a government response to a petition&#39;
+        end
+      end
+
+      context &quot;when two moderators update the response for the first time simultaneously&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context#when two moderators update the response for the first time simultaneously has a flog score of 33</span>          </div>  </li></ol>
+        let(:government_response) do
+          FactoryBot.build(:archived_government_response, responded_on: &quot;&quot;, summary: &quot;&quot;, details: &quot;&quot;, petition: petition)
+        end
+
+        before do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="debate_outcomes_controller_spec.html#L447" class="js-smell-location">0</a>                  <a href="government_response_controller_spec.html#L558" class="js-smell-location">1</a>                  </div>  </li></ol>
+          moderated = double(:scope)
+          allow(Archived::Petition).to receive(:moderated).and_return(moderated)
+          allow(moderated).to receive(:find).with(petition.id.to_s).and_return(petition)
+        end
+
+        it &quot;doesn&#39;t raise an ActiveRecord::RecordNotUnique error&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="government_response_controller_spec.html#L564" class="js-smell-location">0</a>                  <a href="../government_response_controller_spec.html#L596" class="js-smell-location">1</a>                  </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>describe(logged in as moderator user)::describe(PATCH /update)::context(when two moderators update the response for the first time simultaneously)::itdoesn't raise an ActiveRecord::RecordNotUnique error has a flog score of 97</span>          </div>  </li></ol>
+          expect {
+            expect(petition.government_response).to be_nil
+
+            response_attributes = {
+              responded_on: Date.civil(2018, 6, 23),
+              summary: &quot;summmary 1&quot;,
+              details: &quot;details 1&quot;
+            }
+
+            patch :update, petition_id: petition.id, archived_government_response: response_attributes, save: &quot;Save&quot;
+            expect(petition.government_response.summary).to eq(&quot;summmary 1&quot;)
+
+            allow(petition).to receive(:government_response).and_return(nil, petition.government_response)
+            allow(petition).to receive(:build_government_response).and_return(government_response)
+
+            response_attributes = {
+              responded_on: Date.civil(2018, 6, 23),
+              summary: &quot;summmary 2&quot;,
+              details: &quot;details 2&quot;
+            }
+
+            patch :update, petition_id: petition.id, archived_government_response: response_attributes, save: &quot;Save&quot;
+            expect(petition.government_response(true).summary).to eq(&quot;summmary 2&quot;)
+          }.not_to raise_error
+        end
+      end
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../../../assets/javascripts/application.js'></script>
+    <script src='../../../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

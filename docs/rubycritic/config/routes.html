@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../overview.html"><img src="../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-05-31 15:48:59 +0100'>2019-05-31 15:48:59 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>config /</small> routes.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">223</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">92</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">209.04</span><small> complexity</small></div>
+              <div><span class="metric">56</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                1
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">Rails.application.routes.draw do
+  constraints Site.constraints_for_public do
+    controller &#39;constituencies&#39; do
+      get &#39;/constituencies&#39;, action: &#39;index&#39;, as: :constituencies
+    end
+
+    controller &#39;pages&#39; do
+      get &#39;/&#39;,        action: &#39;index&#39;, as: :home
+      get &#39;/help&#39;,    action: &#39;help&#39;
+      get &#39;/privacy&#39;, action: &#39;privacy&#39;
+
+      scope format: true do
+        get &#39;/browserconfig&#39;, action: &#39;browserconfig&#39;, constraints: { format: &#39;xml&#39;  }
+        get &#39;/manifest&#39;,      action: &#39;manifest&#39;,      constraints: { format: &#39;json&#39; }
+      end
+    end
+
+    controller &#39;feedback&#39; do
+      scope &#39;/feedback&#39; do
+        get  &#39;/&#39;,       action: &#39;new&#39;,    as: :feedback
+        post &#39;/&#39;,       action: &#39;create&#39;, as: nil
+        get  &#39;/thanks&#39;, action: &#39;thanks&#39;, as: :thanks_feedback
+      end
+    end
+
+    controller &#39;local_petitions&#39; do
+      scope &#39;/petitions/local&#39; do
+        get &#39;/&#39;,        action: &#39;index&#39;, as: :local_petitions
+        get &#39;/:id&#39;,     action: &#39;show&#39;,  as: :local_petition
+        get &#39;/:id/all&#39;, action: &#39;all&#39;,   as: :all_local_petition
+      end
+    end
+
+    resources :petitions, only: %i[new show index] do
+      collection do
+        get  &#39;check&#39;
+        get  &#39;check_results&#39;
+        post &#39;new&#39;, action: &#39;create&#39;, as: nil
+      end
+
+      member do
+        get &#39;count&#39;
+        get &#39;thank-you&#39;
+        get &#39;gathering-support&#39;
+        get &#39;moderation-info&#39;
+      end
+
+      resources :sponsors, only: %i[new create], shallow: true do
+        collection do
+          post &#39;new&#39;, action: &#39;confirm&#39;, as: :confirm
+          get  &#39;thank-you&#39;
+        end
+
+        member do
+          get &#39;verify&#39;
+          get &#39;signed&#39;, path: &#39;sponsored&#39;
+        end
+      end
+
+      resources :signatures, only: %i[new create], shallow: true do
+        collection do
+          post &#39;new&#39;, action: &#39;confirm&#39;, as: :confirm
+          get  &#39;thank-you&#39;
+        end
+
+        member do
+          get &#39;verify&#39;
+          get &#39;unsubscribe&#39;
+          get &#39;signed&#39;
+        end
+      end
+
+      resources :trackers, only: %i[show], format: true, constraints: { id: /[0-9a-zA-Z]{10,20}/, format: &#39;gif&#39; }
+    end
+
+    namespace :archived do
+      resources :petitions, only: %i[index show]
+
+      resources :signatures, only: [] do
+        get &#39;unsubscribe&#39;, on: :member
+      end
+    end
+
+    # REDIRECTS OLD PAGES
+    get &#39;/accessibility&#39;,         to: redirect(&#39;/help&#39;)
+    get &#39;/api/petitions&#39;,         to: redirect(&#39;/&#39;)
+    get &#39;/api/petitions/:id&#39;,     to: redirect(&#39;/&#39;)
+    get &#39;/crown-copyright&#39;,       to: redirect(&#39;https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm&#39;)
+    get &#39;/departments&#39;,           to: redirect(&#39;/&#39;)
+    get &#39;/departments/:id&#39;,       to: redirect(&#39;/&#39;)
+    get &#39;/how-it-works&#39;,          to: redirect(&#39;/help&#39;)
+    get &#39;/privacy-policy&#39;,        to: redirect(&#39;/privacy&#39;)
+    get &#39;/faq&#39;,                   to: redirect(&#39;/help&#39;)
+    get &#39;/terms-and-conditions&#39;,  to: redirect(&#39;/help&#39;)
+  end
+
+  constraints Site.constraints_for_moderation do
+    get &#39;/&#39;, to: redirect(&#39;/admin&#39;)
+
+    namespace :admin do
+      mount Delayed::Web::Engine, at: &#39;/delayed&#39;
+
+      root to: &#39;admin#index&#39;
+
+      resource :parliament, only: %i[show update]
+      resource :search, only: %i[show]
+
+      resources :admin_users
+      resources :profile, only: %i[edit update]
+      resources :user_sessions, only: %i[create]
+
+      resources :invalidations, except: %i[show] do
+        post :cancel, :count, :start, on: :member
+      end
+
+      resource :moderation_delay, only: %i[new create], path: &#39;moderation-delay&#39;
+
+      resources :petitions, only: %i[show index] do
+        post :resend, on: :member
+
+        resources :emails, controller: &#39;petition_emails&#39;, except: %i[index show]
+        resource  :lock, only: %i[show create update destroy]
+        resource  :moderation, controller: &#39;moderation&#39;, only: %i[update]
+        resource  :statistics, controller: &#39;petition_statistics&#39;, only: %i[update]
+        resources :trending_ips, path: &#39;trending-ips&#39;, only: %i[index]
+        resources :trending_domains, path: &#39;trending-domains&#39;, only: %i[index]
+
+        scope only: %i[show update] do
+          resource :debate_outcome, path: &#39;debate-outcome&#39;
+          resource :government_response, path: &#39;government-response&#39;, controller: &#39;government_response&#39;
+          resource :notes
+          resource :details, controller: &#39;petition_details&#39;
+          resource :schedule_debate, path: &#39;schedule-debate&#39;, controller: &#39;schedule_debate&#39;
+          resource :tags, controller: &#39;petition_tags&#39;
+          resource :take_down, path: &#39;take-down&#39;, controller: &#39;take_down&#39;
+        end
+
+        resources :signatures, only: %i[index destroy] do
+          post :validate, :invalidate, on: :member
+          post :subscribe, :unsubscribe, on: :member
+
+          collection do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="routes.html#L142" class="js-smell-location">0</a>                  <a href="routes.html#L163" class="js-smell-location">1</a>                  </div>  </li></ol>
+            delete :destroy, action: :bulk_destroy
+            post   :validate, action: :bulk_validate
+            post   :invalidate, action: :bulk_invalidate
+            post   :subscribe, action: :bulk_subscribe
+            post   :unsubscribe, action: :bulk_unsubscribe
+          end
+        end
+      end
+
+      resources :domains, except: %i[show]
+
+      resource :rate_limits, path: &#39;rate-limits&#39;, only: %i[edit update]
+      resource :site, only: %i[edit update]
+      resource :holidays, only: %i[edit update]
+      resource :tasks, only: %i[create]
+
+      resources :signatures, only: %i[index destroy] do
+        post :validate, :invalidate, on: :member
+        post :subscribe, :unsubscribe, on: :member
+
+        collection do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 2 nodes</span>              <span>Locations:</span>                  <a href="routes.html#L142" class="js-smell-location">0</a>                  <a href="routes.html#L163" class="js-smell-location">1</a>                  </div>  </li></ol>
+          delete :destroy, action: :bulk_destroy
+          post   :validate, action: :bulk_validate
+          post   :invalidate, action: :bulk_invalidate
+          post   :subscribe, action: :bulk_subscribe
+          post   :unsubscribe, action: :bulk_unsubscribe
+        end
+
+        resource :logs, only: :show
+      end
+
+      resources :tags, except: %i[show]
+
+      namespace :archived do
+        root to: redirect(&#39;/admin/archived/petitions&#39;)
+
+        resources :petitions, only: %i[show index] do
+          resources :emails, controller: &#39;petition_emails&#39;, except: %i[index show]
+          resource  :lock, only: %i[show create update destroy]
+
+          scope only: %i[show update] do
+            resource :debate_outcome, path: &#39;debate-outcome&#39;
+            resource :government_response, path: &#39;government-response&#39;, controller: &#39;government_response&#39;
+            resource :notes
+            resource :details, controller: &#39;petition_details&#39;
+            resource :schedule_debate, path: &#39;schedule-debate&#39;, controller: &#39;schedule_debate&#39;
+            resource :tags, controller: &#39;petition_tags&#39;
+          end
+        end
+
+        resources :signatures, only: %i[index destroy] do
+          post :subscribe, :unsubscribe, on: :member
+
+          collection do
+            delete :destroy, action: :bulk_destroy
+            post   :subscribe, action: :bulk_subscribe
+            post   :unsubscribe, action: :bulk_unsubscribe
+          end
+        end
+      end
+
+      scope &#39;stats&#39;, controller: &#39;statistics&#39; do
+        get &#39;/&#39;, action: &#39;index&#39;, as: :stats
+        get &#39;/moderation/:period&#39;, action: &#39;moderation&#39;, as: :moderation_stats, period: /week|month/
+      end
+
+      controller &#39;user_sessions&#39; do
+        get &#39;/logout&#39;,   action: &#39;destroy&#39;
+        get &#39;/login&#39;,    action: &#39;new&#39;
+        get &#39;/continue&#39;, action: &#39;continue&#39;
+        get &#39;/status&#39;,   action: &#39;status&#39;
+      end
+    end
+  end
+
+  get &#39;ping&#39;, to: &#39;ping#ping&#39;
+
+  if defined?(JasmineRails)
+    mount JasmineRails::Engine, at: &#39;/specs&#39;
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../assets/javascripts/jquery.min.js'></script>
+    <script src='../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../assets/javascripts/prettify.js'></script>
+    <script src='../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../assets/javascripts/application.js'></script>
+    <script src='../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

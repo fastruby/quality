@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2016-05-19 12:46:28 +0100'>2016-05-19 12:46:28 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>features/step_definitions /</small> email_steps.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">212</span><small> lines of codes</small></div>
+              <div><span class="metric">3</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">94.6</span><small> complexity/method</small></div>
+              <div><span class="metric">8</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">283.9</span><small> complexity</small></div>
+              <div><span class="metric">36</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                2
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># Commonly used email steps
+#
+# To add your own steps make a custom_email_steps.rb
+# The provided methods are:
+#
+# last_email_address
+# reset_mailer
+# open_last_email
+# visit_in_email
+# unread_emails_for
+# mailbox_for
+# current_email
+# open_email
+# read_emails_for
+# find_email
+#
+# General form for email scenarios are:
+#   - clear the email queue (done automatically by email_spec)
+#   - execute steps that sends an email
+#   - check the user received an/no/[0-9] emails
+#   - open the email
+#   - inspect the email contents
+#   - interact with the email (e.g. click links)
+#
+# The Cucumber steps below are setup in this order.
+
+module EmailHelpers
+  def current_email_address
+    # Replace with your a way to find your current email. e.g @current_user.email
+    # last_email_address will return the last email address used by email spec to find an email.
+    # Note that last_email_address will be reset after each Scenario.
+    last_email_address || &quot;example@example.com&quot;
+  end
+
+  def text_and_links_in_email(email)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>EmailHelpers#text_and_links_in_email doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    html = Nokogiri::HTML(email.default_part_body.to_s)
+    html.xpath(&quot;//a&quot;).map{ |node| [node[&quot;href&quot;], node.text] }
+  end
+
+  def links_in_email(email)
+    text_and_links_in_email(email).map(&amp;:first)
+  end
+end
+
+World(EmailHelpers)
+
+#
+# Reset the e-mail queue within a scenario.
+# This is done automatically before each scenario.
+#
+
+Given /^(?:a clear email queue|no emails have been sent)$/ do
+  reset_mailer
+end
+
+#
+# Check how many emails have been sent/received
+#
+
+Then /^(?:I|they|&quot;([^&quot;]*?)&quot;) should receive (an|no|\d+) emails?$/ do |address, amount|
+  expect(unread_emails_for(address).size).to eq parse_email_count(amount)
+end
+
+Then /^(?:I|they|&quot;([^&quot;]*?)&quot;) should have (an|no|\d+) emails?$/ do |address, amount|
+  expect(mailbox_for(address).size).to eq parse_email_count(amount)
+end
+
+Then /^(?:I|they|&quot;([^&quot;]*?)&quot;) should receive (an|no|\d+) emails? with subject &quot;([^&quot;]*?)&quot;$/ do |address, amount, subject|
+  expect(unread_emails_for(address).select { |m| m.subject =~ Regexp.new(subject) }.size).to eq parse_email_count(amount)
+end
+
+Then /^(?:I|they|&quot;([^&quot;]*?)&quot;) should receive an email with the following body:$/ do |address, expected_body|
+  open_email(address, :with_text =&gt; expected_body)
+end
+
+#
+# Accessing emails
+#
+
+# Opens the most recently received email
+When /^(?:I|they|&quot;([^&quot;]*?)&quot;) opens? the email$/ do |address|
+  open_email(address)
+end
+
+When /^(?:I|they|&quot;([^&quot;]*?)&quot;) opens? the email with subject &quot;([^&quot;]*?)&quot;$/ do |address, subject|
+  open_email(address, :with_subject =&gt; subject)
+end
+
+When /^(?:I|they|&quot;([^&quot;]*?)&quot;) opens? the email with text &quot;([^&quot;]*?)&quot;$/ do |address, text|
+  open_email(address, :with_text =&gt; text)
+end
+
+#
+# Inspect the Email Contents
+#
+
+Then /^(?:I|they) should see &quot;([^&quot;]*?)&quot; in the email subject$/ do |text|
+  expect(current_email).to have_subject(text)
+end
+
+Then /^(?:I|they) should see \/([^&quot;]*?)\/ in the email subject$/ do |text|
+  expect(current_email).to have_subject(Regexp.new(text))
+end
+
+Then /^(?:I|they) should see &quot;([^&quot;]*?)&quot; in the email body$/ do |text|
+  expect(current_email.default_part_body.to_s).to include(text)
+end
+
+Then /^(?:I|they) should see \/([^&quot;]*?)\/ in the email body$/ do |text|
+  expect(current_email.default_part_body.to_s).to match(Regexp.new(text))
+end
+
+Then /^(?:I|they) should not see &quot;([^&quot;]*?)&quot; in the email body$/ do |text|
+  expect(current_email.default_part_body.to_s).not_to match(Regexp.new(text))
+end
+
+Then /^(?:I|they) should see the email delivered from &quot;([^&quot;]*?)&quot;$/ do |text|
+  expect(current_email).to be_delivered_from(text)
+end
+
+Then /^(?:I|they) should see &quot;([^\&quot;]*)&quot; in the email &quot;([^&quot;]*?)&quot; header$/ do |text, name|
+  expect(current_email).to have_header(name, text)
+end
+
+Then /^(?:I|they) should see \/([^\&quot;]*)\/ in the email &quot;([^&quot;]*?)&quot; header$/ do |text, name|
+  expect(current_email).to have_header(name, Regexp.new(text))
+end
+
+Then /^I should see it is a multi\-part email$/ do
+  expect(current_email).to be_multipart
+end
+
+Then /^(?:I|they) should see &quot;([^&quot;]*?)&quot; in the email html part body$/ do |text|
+  expect(current_email.html_part.body.to_s).to include(text)
+end
+
+Then /^(?:I|they) should see &quot;([^&quot;]*?)&quot; in the email text part body$/ do |text|
+  expect(current_email.text_part.body.to_s).to include(text)
+end
+
+#
+# Inspect the Email Attachments
+#
+
+Then /^(?:I|they) should see (an|no|\d+) attachments? with the email$/ do |amount|
+  expect(current_email_attachments.size).to eq parse_email_count(amount)
+end
+
+Then /^there should be (an|no|\d+) attachments? named &quot;([^&quot;]*?)&quot;$/ do |amount, filename|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="email_steps.html#L149" class="js-smell-location">0</a>                  <a href="email_steps.html#L157" class="js-smell-location">1</a>                  </div>  </li></ol>
+  expect(current_email_attachments.select { |a| a.filename == filename }.size).to eq parse_email_count(amount)
+end
+
+Then /^attachment (\d+) should be named &quot;([^&quot;]*?)&quot;$/ do |index, filename|
+  expect(current_email_attachments[(index.to_i - 1)].filename).to eq filename
+end
+
+Then /^there should be (an|no|\d+) attachments? of type &quot;([^&quot;]*?)&quot;$/ do |amount, content_type|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="email_steps.html#L149" class="js-smell-location">0</a>                  <a href="email_steps.html#L157" class="js-smell-location">1</a>                  </div>  </li></ol>
+  expect(current_email_attachments.select { |a| a.content_type.include?(content_type) }.size).to eq parse_email_count(amount)
+end
+
+Then /^attachment (\d+) should be of type &quot;([^&quot;]*?)&quot;$/ do |index, content_type|
+  expect(current_email_attachments[(index.to_i - 1)].content_type).to include(content_type)
+end
+
+Then /^all attachments should not be blank$/ do
+  current_email_attachments.each do |attachment|
+    expect(attachment.read.size).not_to eq 0
+  end
+end
+
+Then /^show me a list of email attachments$/ do
+  EmailSpec::EmailViewer::save_and_open_email_attachments_list(current_email)
+end
+
+#
+# Interact with Email Contents
+#
+
+When /^(?:I|they) follow &quot;([^&quot;]*?)&quot; in the email$/ do |link|
+  url = text_and_links_in_email(current_email).detect{ |u, l| l == link }.first
+  url ? visit(url) : visit_in_email(link)
+end
+
+When /^(?:I|they) click the first link in the email$/ do
+  visit links_in_email(current_email).first
+end
+
+When /^(?:I|they) click the second link in the email$/ do
+  visit links_in_email(current_email).second
+end
+
+#
+# Debugging
+# These only work with Rails and OSx ATM since EmailViewer uses RAILS_ROOT and OSx&#39;s &#39;open&#39; command.
+# Patches accepted. ;)
+#
+
+Then /^save and open current email$/ do
+  EmailSpec::EmailViewer::save_and_open_email(current_email)
+end
+
+Then /^save and open all text emails$/ do
+  EmailSpec::EmailViewer::save_and_open_all_text_emails
+end
+
+Then /^save and open all html emails$/ do
+  EmailSpec::EmailViewer::save_and_open_all_html_emails
+end
+
+Then /^save and open all raw emails$/ do
+  EmailSpec::EmailViewer::save_and_open_all_raw_emails
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

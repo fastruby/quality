@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-05-10 20:21:50 +0100'>2019-05-10 20:21:50 +0100</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app/models /</small> rate_limit.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">312</span><small> lines of codes</small></div>
+              <div><span class="metric">43</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">4.5</span><small> complexity/method</small></div>
+              <div><span class="metric">16</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">193.97</span><small> complexity</small></div>
+              <div><span class="metric">68</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                28
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;ipaddr&#39;
+
+class RateLimit &lt; ActiveRecord::Base<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>RateLimit has no descriptive comment</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Constants.md" target="_blank"><b>TooManyConstants</b></a>        </span>      </div>      <span>RateLimit has 6 constants</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Instance-Variables.md" target="_blank"><b>TooManyInstanceVariables</b></a>        </span>      </div>      <span>RateLimit has at least 6 instance variables</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank"><b>TooManyMethods</b></a>        </span>      </div>      <span>RateLimit has at least 43 methods</span>          </div>  </li></ol>
+  GLOB_PATTERN = /^(\*\*\.|\*\.)/
+  RECURSIVE_GLOB = &quot;**.&quot;
+  RECURSIVE_PATTERN = &quot;(?:[-a-z0-9]+\\.)+&quot;
+  SINGLE_GLOB = &quot;*.&quot;
+  SINGLE_PATTERN = &quot;(?:[-a-z0-9]+\\.)&quot;
+  DOMAIN_PATTERN = /^(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.)+[a-z]{2,}$/
+
+  validates :burst_rate, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :burst_period, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :sustained_rate, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :sustained_period, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :allowed_domains, length: { maximum: 10000, allow_blank: true }
+  validates :allowed_ips, length: { maximum: 10000, allow_blank: true }
+  validates :blocked_domains, length: { maximum: 50000, allow_blank: true }
+  validates :blocked_ips, length: { maximum: 50000, allow_blank: true }
+  validates :countries, length: { maximum: 2000, allow_blank: true }
+  validates :country_burst_rate, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :country_sustained_rate, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :threshold_for_form_entry, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :threshold_for_logging_trending_items, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :threshold_for_notifying_trending_items, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :trending_items_notification_url, length: { maximum: 100, allow_blank: true }
+  validates :ignored_domains, length: { maximum: 10000, allow_blank: true }
+
+  validate do
+    unless sustained_rate.nil? || burst_rate.nil?
+      if sustained_rate &lt;= burst_rate
+        errors.add :sustained_rate, &quot;Sustained rate must be greater than burst rate&quot;
+      end
+    end
+
+    unless sustained_period.nil? || burst_period.nil?
+      if sustained_period &lt;= burst_period
+        errors.add :sustained_period, &quot;Sustained period must be greater than burst period&quot;
+      end
+    end
+
+    unless country_sustained_rate.nil? || country_burst_rate.nil?
+      if country_sustained_rate &lt;= country_burst_rate
+        errors.add :country_sustained_rate, &quot;Country sustained rate must be greater than country burst rate&quot;
+      end
+    end
+
+    begin
+      allowed_domains_list
+    rescue StandardError =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit has the variable name 'e'</span>              <span>Locations:</span>                  <a href="rate_limit.html#L49" class="js-smell-location">0</a>                  <a href="rate_limit.html#L55" class="js-smell-location">1</a>                  <a href="rate_limit.html#L61" class="js-smell-location">2</a>                  <a href="rate_limit.html#L67" class="js-smell-location">3</a>                  <a href="rate_limit.html#L73" class="js-smell-location">4</a>                  </div>  </li></ol>
+      errors.add :allowed_domains, :invalid
+    end
+
+    begin
+      allowed_ips_list
+    rescue StandardError =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit has the variable name 'e'</span>              <span>Locations:</span>                  <a href="rate_limit.html#L49" class="js-smell-location">0</a>                  <a href="rate_limit.html#L55" class="js-smell-location">1</a>                  <a href="rate_limit.html#L61" class="js-smell-location">2</a>                  <a href="rate_limit.html#L67" class="js-smell-location">3</a>                  <a href="rate_limit.html#L73" class="js-smell-location">4</a>                  </div>  </li></ol>
+      errors.add :allowed_ips, :invalid
+    end
+
+    begin
+      blocked_domains_list
+    rescue StandardError =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit has the variable name 'e'</span>              <span>Locations:</span>                  <a href="rate_limit.html#L49" class="js-smell-location">0</a>                  <a href="rate_limit.html#L55" class="js-smell-location">1</a>                  <a href="rate_limit.html#L61" class="js-smell-location">2</a>                  <a href="rate_limit.html#L67" class="js-smell-location">3</a>                  <a href="rate_limit.html#L73" class="js-smell-location">4</a>                  </div>  </li></ol>
+      errors.add :blocked_domains, :invalid
+    end
+
+    begin
+      blocked_ips_list
+    rescue StandardError =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit has the variable name 'e'</span>              <span>Locations:</span>                  <a href="rate_limit.html#L49" class="js-smell-location">0</a>                  <a href="rate_limit.html#L55" class="js-smell-location">1</a>                  <a href="rate_limit.html#L61" class="js-smell-location">2</a>                  <a href="rate_limit.html#L67" class="js-smell-location">3</a>                  <a href="rate_limit.html#L73" class="js-smell-location">4</a>                  </div>  </li></ol>
+      errors.add :blocked_ips, :invalid
+    end
+
+    begin
+      ignored_domains_list
+    rescue StandardError =&gt; e<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit has the variable name 'e'</span>              <span>Locations:</span>                  <a href="rate_limit.html#L49" class="js-smell-location">0</a>                  <a href="rate_limit.html#L55" class="js-smell-location">1</a>                  <a href="rate_limit.html#L61" class="js-smell-location">2</a>                  <a href="rate_limit.html#L67" class="js-smell-location">3</a>                  <a href="rate_limit.html#L73" class="js-smell-location">4</a>                  </div>  </li></ol>
+      errors.add :ignored_domains, :invalid
+    end
+  end
+
+  def reload<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>RateLimit#reload has approx 7 statements</span>          </div>  </li></ol>
+    @allowed_domains_list = nil
+    @blocked_domains_list = nil
+    @allowed_ips_list = nil
+    @blocked_ips_list = nil
+    @allowed_countries = nil
+    @ignored_domains_list = nil
+
+    super
+  end
+
+  def exceeded?(signature)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>RateLimit#exceeded? has approx 8 statements</span>          </div>  </li></ol>
+    return true unless threshold_reached?(signature)
+    return true if ip_blocked?(signature.ip_address)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.ip_address' 4 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L91" class="js-smell-location">0</a>                  <a href="rate_limit.html#L92" class="js-smell-location">1</a>                  <a href="rate_limit.html#L94" class="js-smell-location">2</a>                  <a href="rate_limit.html#L97" class="js-smell-location">3</a>                  </div>  </li></ol>
+    return true if ip_geoblocked?(signature.ip_address)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.ip_address' 4 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L91" class="js-smell-location">0</a>                  <a href="rate_limit.html#L92" class="js-smell-location">1</a>                  <a href="rate_limit.html#L94" class="js-smell-location">2</a>                  <a href="rate_limit.html#L97" class="js-smell-location">3</a>                  </div>  </li></ol>
+    return true if domain_blocked?(signature.domain)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.domain' 2 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L93" class="js-smell-location">0</a>                  <a href="rate_limit.html#L95" class="js-smell-location">1</a>                  </div>  </li></ol>
+    return false if ip_allowed?(signature.ip_address)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.ip_address' 4 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L91" class="js-smell-location">0</a>                  <a href="rate_limit.html#L92" class="js-smell-location">1</a>                  <a href="rate_limit.html#L94" class="js-smell-location">2</a>                  <a href="rate_limit.html#L97" class="js-smell-location">3</a>                  </div>  </li></ol>
+    return false if domain_allowed?(signature.domain)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.domain' 2 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L93" class="js-smell-location">0</a>                  <a href="rate_limit.html#L95" class="js-smell-location">1</a>                  </div>  </li></ol>
+
+    if use_country_rate?(signature.ip_address)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>RateLimit#exceeded? calls 'signature.ip_address' 4 times</span>              <span>Locations:</span>                  <a href="rate_limit.html#L91" class="js-smell-location">0</a>                  <a href="rate_limit.html#L92" class="js-smell-location">1</a>                  <a href="rate_limit.html#L94" class="js-smell-location">2</a>                  <a href="rate_limit.html#L97" class="js-smell-location">3</a>                  </div>  </li></ol>
+      country_rate_exceeded?(signature)
+    else
+      rate_exceeded?(signature)
+    end
+  end
+
+  def ignore_domain?(domain)
+    domain_blocked?(domain) || domain_allowed?(domain)
+  end
+
+  def ignore_ip?(ip)
+    ip_blocked?(ip) || ip_allowed?(ip) || ip_geoblocked?(ip)
+  end
+
+  def allowed_domains=(value)
+    @allowed_domains_list = nil
+    super(normalize_lines(value))
+  end
+
+  def allowed_domains_list
+    @allowed_domains_list ||= build_allowed_domains
+  end
+
+  def blocked_domains=(value)
+    @blocked_domains_list = nil
+    super(normalize_lines(value))
+  end
+
+  def blocked_domains_list
+    @blocked_domains_list ||= build_blocked_domains
+  end
+
+  def allowed_ips=(value)
+    @allowed_ips_list = nil
+    super(normalize_lines(value))
+  end
+
+  def allowed_ips_list
+    @allowed_ips_list ||= build_allowed_ips
+  end
+
+  def blocked_ips=(value)
+    @blocked_ips_list = nil
+    super(normalize_lines(value))
+  end
+
+  def blocked_ips_list
+    @blocked_ips_list ||= build_blocked_ips
+  end
+
+  def allowed_countries
+    @allowed_countries ||= build_allowed_countries
+  end
+
+  def countries=(value)
+    @allowed_countries = nil
+    super(normalize_lines(value))
+  end
+
+  def ignored_domains=(value)
+    @ignored_domains_list = nil
+    super(normalize_lines(value))
+  end
+
+  def ignored_domains_list
+    @ignored_domains_list ||= build_ignored_domains
+  end
+
+  private
+
+  def strip_comments(list)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>RateLimit#strip_comments doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    list.gsub(/#.*$/, &#39;&#39;)
+  end
+
+  def strip_blank_lines(list)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>RateLimit#strip_blank_lines doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    list.each_line.reject(&amp;:blank?)
+  end
+
+  def build_allowed_domains<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="rate_limit.html#L176" class="js-smell-location">0</a>                  <a href="rate_limit.html#L187" class="js-smell-location">1</a>                  </div>  </li></ol>
+    domains = strip_comments(allowed_domains)
+    domains = strip_blank_lines(domains)
+
+    domains.map{ |l| %r[\A#{convert_glob(l.strip)}\z] }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#build_allowed_domains has the variable name 'l'</span>          </div>  </li></ol>
+  end
+
+  def domain_allowed?(domain)
+    allowed_domains_list.any?{ |d| d === domain }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#domain_allowed? has the variable name 'd'</span>          </div>  </li></ol>
+  end
+
+  def build_blocked_domains<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="rate_limit.html#L176" class="js-smell-location">0</a>                  <a href="rate_limit.html#L187" class="js-smell-location">1</a>                  </div>  </li></ol>
+    domains = strip_comments(blocked_domains)
+    domains = strip_blank_lines(domains)
+
+    domains.map{ |l| %r[\A#{convert_glob(l.strip)}\z] }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#build_blocked_domains has the variable name 'l'</span>          </div>  </li></ol>
+  end
+
+  def domain_blocked?(domain)
+    blocked_domains_list.any?{ |d| d === domain }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#domain_blocked? has the variable name 'd'</span>          </div>  </li></ol>
+  end
+
+  def build_allowed_ips<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="rate_limit.html#L198" class="js-smell-location">0</a>                  <a href="rate_limit.html#L209" class="js-smell-location">1</a>                  </div>  </li></ol>
+    ips = strip_comments(allowed_ips)
+    ips = strip_blank_lines(ips)
+
+    ips.map{ |l| IPAddr.new(l.strip) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#build_allowed_ips has the variable name 'l'</span>          </div>  </li></ol>
+  end
+
+  def ip_allowed?(ip)
+    allowed_ips_list.any?{ |i| i.include?(ip) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#ip_allowed? has the variable name 'i'</span>          </div>  </li></ol>
+  end
+
+  def build_blocked_ips<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="rate_limit.html#L198" class="js-smell-location">0</a>                  <a href="rate_limit.html#L209" class="js-smell-location">1</a>                  </div>  </li></ol>
+    ips = strip_comments(blocked_ips)
+    ips = strip_blank_lines(ips)
+
+    ips.map{ |l| IPAddr.new(l.strip) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#build_blocked_ips has the variable name 'l'</span>          </div>  </li></ol>
+  end
+
+  def ip_blocked?(ip)
+    blocked_ips_list.any?{ |i| i.include?(ip) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#ip_blocked? has the variable name 'i'</span>          </div>  </li></ol>
+  end
+
+  def build_ignored_domains
+    strip_blank_lines(strip_comments(ignored_domains)).map { |d| validate_domain!(d.strip) }<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>RateLimit#build_ignored_domains has the variable name 'd'</span>          </div>  </li></ol>
+  end
+
+  def build_allowed_countries
+    strip_blank_lines(strip_comments(countries)).map(&amp;:strip)
+  end
+
+  def ip_geoblocked?(ip)
+    geoblocking_enabled? &amp;&amp; country_blocked?(ip)
+  end
+
+  def country_blocked?(ip)
+    allowed_countries.exclude?(country_for_ip(ip))
+  end
+
+  def country_for_ip(ip)
+    result = geoip_db.lookup(ip)
+
+    if result.found?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#country_for_ip refers to 'result' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L239" class="js-smell-location">0</a>                  <a href="rate_limit.html#L240" class="js-smell-location">1</a>                  </div>  </li></ol>
+      result.country.name<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#country_for_ip refers to 'result' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L239" class="js-smell-location">0</a>                  <a href="rate_limit.html#L240" class="js-smell-location">1</a>                  </div>  </li></ol>
+    else
+      &quot;UNKNOWN&quot;
+    end
+  end
+
+  def geoip_db
+    @geoip_db ||= MaxMindDB.new(ENV.fetch(&#39;GEOIP_DB_PATH&#39;))
+  end
+
+  def convert_glob(pattern)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>RateLimit#convert_glob doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    pattern.gsub(GLOB_PATTERN) do |match|
+      if match == RECURSIVE_GLOB
+        RECURSIVE_PATTERN
+      elsif match == SINGLE_GLOB
+        SINGLE_PATTERN
+      end
+    end
+  end
+
+  def validate_domain!(domain)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Missing-Safe-Method.md" target="_blank"><b>MissingSafeMethod</b></a>        </span>      </div>      <span>RateLimit has missing safe method 'validate_domain!'</span>          </div>  </li></ol>
+    if domain =~ DOMAIN_PATTERN<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#validate_domain! refers to 'domain' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L261" class="js-smell-location">0</a>                  <a href="rate_limit.html#L264" class="js-smell-location">1</a>                  </div>  </li></ol>
+      domain
+    else
+      raise ArgumentError, &quot;Invalid domain: #{domain.inspect}&quot;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#validate_domain! refers to 'domain' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L261" class="js-smell-location">0</a>                  <a href="rate_limit.html#L264" class="js-smell-location">1</a>                  </div>  </li></ol>
+    end
+  end
+
+  def normalize_lines(value)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>RateLimit#normalize_lines doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    value.to_s.strip.gsub(/\r\n|\r/, &quot;\n&quot;)
+  end
+
+  def use_country_rate?(ip)
+    if country_rate_limits_enabled?
+      allowed_countries.include?(country_for_ip(ip))
+    else
+      false
+    end
+  end
+
+  def country_rate_exceeded?(signature)
+    country_burst_rate_exceeded?(signature) || country_sustained_rate_exceeded?(signature)
+  end
+
+  def country_burst_rate_exceeded?(signature)
+    country_burst_rate &lt; signature.rate(burst_period)
+  end
+
+  def country_sustained_rate_exceeded?(signature)
+    country_sustained_rate &lt; signature.rate(sustained_period)
+  end
+
+  def rate_exceeded?(signature)
+    burst_rate_exceeded?(signature) || sustained_rate_exceeded?(signature)
+  end
+
+  def burst_rate_exceeded?(signature)
+    burst_rate &lt; signature.rate(burst_period)
+  end
+
+  def sustained_rate_exceeded?(signature)
+    sustained_rate &lt; signature.rate(sustained_period)
+  end
+
+  def threshold_reached?(signature)
+    return true unless threshold_for_form_entry?
+    return false unless signature.image_loaded_at?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#threshold_reached? refers to 'signature' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L306" class="js-smell-location">0</a>                  <a href="rate_limit.html#L307" class="js-smell-location">1</a>                  <a href="rate_limit.html#L308" class="js-smell-location">2</a>                  <a href="rate_limit.html#L310" class="js-smell-location">3</a>                  </div>  </li></ol>
+    return false unless signature.form_requested_at?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#threshold_reached? refers to 'signature' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L306" class="js-smell-location">0</a>                  <a href="rate_limit.html#L307" class="js-smell-location">1</a>                  <a href="rate_limit.html#L308" class="js-smell-location">2</a>                  <a href="rate_limit.html#L310" class="js-smell-location">3</a>                  </div>  </li></ol>
+    return false if signature.form_token_reused?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#threshold_reached? refers to 'signature' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L306" class="js-smell-location">0</a>                  <a href="rate_limit.html#L307" class="js-smell-location">1</a>                  <a href="rate_limit.html#L308" class="js-smell-location">2</a>                  <a href="rate_limit.html#L310" class="js-smell-location">3</a>                  </div>  </li></ol>
+
+    signature.form_duration &gt; threshold_for_form_entry<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Feature-Envy.md" target="_blank"><b>FeatureEnvy</b></a>        </span>      </div>      <span>RateLimit#threshold_reached? refers to 'signature' more than self (maybe move it to another class?)</span>              <span>Locations:</span>                  <a href="rate_limit.html#L306" class="js-smell-location">0</a>                  <a href="rate_limit.html#L307" class="js-smell-location">1</a>                  <a href="rate_limit.html#L308" class="js-smell-location">2</a>                  <a href="rate_limit.html#L310" class="js-smell-location">3</a>                  </div>  </li></ol>
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

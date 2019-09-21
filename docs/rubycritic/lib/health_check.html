@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../overview.html"><img src="../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-03-25 13:01:43 +0000'>2019-03-25 13:01:43 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>lib /</small> health_check.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating a big">
+              A
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">73</span><small> lines of codes</small></div>
+              <div><span class="metric">12</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">3.0</span><small> complexity/method</small></div>
+              <div><span class="metric">7</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">35.76</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                9
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">class HealthCheck<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>HealthCheck has no descriptive comment</span>          </div>  </li></ol>
+  CUSTOM_ITEMS = %w(hostname url client_ip localtime utctime)
+  BOOLEAN_ITEMS = %w(database_connection database_persistence database_integrity)
+
+  TEST_SETTINGS_KEY = &#39;healthcheck_test_key&#39;
+
+  def self.checkup(env)
+    new(env).checkup
+  end
+
+  def initialize(env)
+    @env = env
+  end
+
+  def checkup<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>HealthCheck#checkup has approx 6 statements</span>          </div>  </li></ol>
+    diagnosis = {}
+    CUSTOM_ITEMS.each do |symptom|
+      diagnosis[symptom] = self.send(symptom)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>HealthCheck#checkup calls 'self.send(symptom)' 2 times</span>              <span>Locations:</span>                  <a href="health_check.html#L18" class="js-smell-location">0</a>                  <a href="health_check.html#L21" class="js-smell-location">1</a>                  </div>  </li></ol>
+    end
+    BOOLEAN_ITEMS.each do |symptom|
+      diagnosis[symptom] = stringify(self.send(symptom))<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>HealthCheck#checkup calls 'self.send(symptom)' 2 times</span>              <span>Locations:</span>                  <a href="health_check.html#L18" class="js-smell-location">0</a>                  <a href="health_check.html#L21" class="js-smell-location">1</a>                  </div>  </li></ol>
+    end
+    diagnosis
+  end
+
+  private
+
+  def hostname<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>HealthCheck#hostname doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    Socket.gethostname
+  end
+
+  def url
+    @env.fetch(&#39;REQUEST_URI&#39;, &#39;FAILED: no REQUEST_URI present in env&#39;)
+  end
+
+  def client_ip
+    @env.fetch(&#39;REMOTE_ADDR&#39;, &#39;FAILED: no REMOTE_ADDR present in env&#39;)
+  end
+
+  def localtime<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>HealthCheck#localtime doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    Time.current.rfc2822
+  end
+
+  def utctime<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>HealthCheck#utctime doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    Time.current.getutc.rfc2822
+  end
+
+  def stringify(b)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Parameter-Name.md" target="_blank"><b>UncommunicativeParameterName</b></a>        </span>      </div>      <span>HealthCheck#stringify has the parameter name 'b'</span>          </div>  </li></ol>
+    b ? &#39;OK&#39; : &#39;FAILED&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Control-Parameter.md" target="_blank"><b>ControlParameter</b></a>        </span>      </div>      <span>HealthCheck#stringify is controlled by argument 'b'</span>          </div>  </li></ol>
+  end
+
+  def database_connection<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>HealthCheck#database_connection doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    ActiveRecord::Base.establish_connection
+    ActiveRecord::Base.connection
+    true
+  rescue
+    false
+  end
+
+  def database_persistence
+    return false unless database_connection
+    return false unless Site.first_or_create
+    return false unless Site.last_checked_at!
+    true
+  rescue
+    false
+  end
+
+  def database_integrity
+    return false unless database_connection
+    !ActiveRecord::Migrator.needs_migration?
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../assets/javascripts/jquery.min.js'></script>
+    <script src='../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../assets/javascripts/prettify.js'></script>
+    <script src='../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../assets/javascripts/application.js'></script>
+    <script src='../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

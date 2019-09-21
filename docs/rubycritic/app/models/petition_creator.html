@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2019-01-27 21:42:39 +0000'>2019-01-27 21:42:39 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app/models /</small> petition_creator.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">236</span><small> lines of codes</small></div>
+              <div><span class="metric">36</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">7.3</span><small> complexity/method</small></div>
+              <div><span class="metric">3</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">262.63</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                18
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;postcode_sanitizer&#39;
+
+class PetitionCreator<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Instance-Variable-Assumption.md" target="_blank"><b>InstanceVariableAssumption</b></a>        </span>      </div>      <span>PetitionCreator assumes too much for instance variable '@petition'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>PetitionCreator has no descriptive comment</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Instance-Variables.md" target="_blank"><b>TooManyInstanceVariables</b></a>        </span>      </div>      <span>PetitionCreator has at least 5 instance variables</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Methods.md" target="_blank"><b>TooManyMethods</b></a>        </span>      </div>      <span>PetitionCreator has at least 36 methods</span>          </div>  </li></ol>
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Conversion
+
+  STAGES = %w[petition replay_petition creator replay_email]
+
+  PETITION_PARAMS  = [:action, :background, :additional_details]
+  SIGNATURE_PARAMS = [:name, :email, :postcode, :location_code, :uk_citizenship, :notify_by_email]
+  PERMITTED_PARAMS = [:q, :stage, :move_back, :move_next, petition_creator: PETITION_PARAMS + SIGNATURE_PARAMS]
+
+  attr_reader :params, :errors, :request
+
+  def initialize(params, request)
+    @params = params.permit(*PERMITTED_PARAMS)
+    @errors = ActiveModel::Errors.new(self)
+    @request = request
+  end
+
+  def read_attribute_for_validation(attribute)
+    public_send(attribute)
+  end
+
+  def to_partial_path
+    &quot;petitions/create/#{stage}_stage&quot;
+  end
+
+  def duplicates
+    Petition.current.search(q: action, count: 3).presence
+  end
+
+  def stage
+    @stage ||= stage_param.in?(STAGES) ? stage_param : STAGES.first
+  end
+
+  def save<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>PetitionCreator#save has a flog score of 39</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>PetitionCreator#save has approx 19 statements</span>          </div>  </li></ol>
+    if moving_backwards?
+      @stage = previous_stage and return false
+    end
+
+    unless valid?
+      return false
+    end
+
+    if done?
+      @petition = Petition.new do |p|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>PetitionCreator#save has the variable name 'p'</span>          </div>  </li></ol>
+        p.action = action
+        p.background = background
+        p.additional_details = additional_details
+
+        p.build_creator do |c|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Nested-Iterators.md" target="_blank"><b>NestedIterators</b></a>        </span>      </div>      <span>PetitionCreator#save contains iterators nested 2 deep</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>PetitionCreator#save has the variable name 'c'</span>          </div>  </li></ol>
+          c.name = name
+          c.email = email
+          c.postcode = postcode
+          c.location_code = location_code
+          c.uk_citizenship = uk_citizenship
+          c.constituency_id = constituency_id
+          c.notify_by_email = notify_by_email
+          c.ip_address = request.remote_ip
+        end
+      end
+
+      @petition.save!
+      send_email_to_gather_sponsors(@petition)
+
+      return true
+    else
+      @stage = next_stage and return false
+    end
+  end
+
+  def to_param
+    if @petition &amp;&amp; @petition.persisted?
+      @petition.to_param
+    else
+      raise RuntimeError, &quot;PetitionCreator#to_param called before petition was created&quot;
+    end
+  end
+
+  def action
+    (petition_creator_params[:action] || query_param).to_s.strip
+  end
+
+  def action?
+    action.present?
+  end
+
+  def background
+    petition_creator_params[:background].to_s.strip
+  end
+
+  def background?
+    background.present?
+  end
+
+  def additional_details
+    petition_creator_params[:additional_details].to_s.strip
+  end
+
+  def name
+    petition_creator_params[:name].to_s.strip
+  end
+
+  def email
+    petition_creator_params[:email].to_s.strip
+  end
+
+  def postcode
+    PostcodeSanitizer.call(petition_creator_params[:postcode])
+  end
+
+  def location_code
+    petition_creator_params[:location_code] || &quot;GB&quot;
+  end
+
+  def uk_citizenship
+    petition_creator_params[:uk_citizenship] || &quot;0&quot;
+  end
+
+  def notify_by_email
+    petition_creator_params[:notify_by_email] || &quot;0&quot;
+  end
+
+  private
+
+  def query_param
+    @query_param ||= params[:q].to_s.first(255)
+  end
+
+  def stage_param
+    @stage_param ||= params[:stage].to_s
+  end
+
+  def petition_creator_params
+    params[:petition_creator] || {}
+  end
+
+  def moving_backwards?
+    params.key?(:move_back)
+  end
+
+  def stage_index
+    STAGES.index(stage)
+  end
+
+  def previous_stage
+    STAGES[[stage_index - 1, 0].max]
+  end
+
+  def next_stage
+    STAGES[[stage_index + 1, 3].min]
+  end
+
+  def validate_petition<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>PetitionCreator#validate_petition has a flog score of 35</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>PetitionCreator#validate_petition has approx 6 statements</span>          </div>  </li></ol>
+    errors.add(:action, :blank) unless action.present?
+    errors.add(:action, :too_long, count: 80) if action.length &gt; 80
+    errors.add(:background, :blank) unless background.present?
+    errors.add(:background, :too_long, count: 300) if background.length &gt; 300
+    errors.add(:additional_details, :too_long, count: 800) if additional_details.length &gt; 800
+
+    if errors.any?
+      @stage = &quot;petition&quot;
+    end
+  end
+
+  def validate_creator<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator has a flog score of 59</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator has approx 11 statements</span>          </div>  </li></ol>
+    errors.add(:name, :blank) unless name.present?
+    errors.add(:name, :too_long, count: 255) if action.length &gt; 255
+    errors.add(:email, :blank) unless email.present?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator calls 'email.present?' 2 times</span>              <span>Locations:</span>                  <a href="petition_creator.html#L171" class="js-smell-location">0</a>                  <a href="petition_creator.html#L176" class="js-smell-location">1</a>                  </div>  </li></ol>
+    errors.add(:location_code, :blank) unless location_code.present?
+    errors.add(:uk_citizenship, :accepted) unless uk_citizenship == &quot;1&quot;
+    errors.add(:postcode, :too_long, count: 255) if postcode.length &gt; 255
+
+    if email.present?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator calls 'email.present?' 2 times</span>              <span>Locations:</span>                  <a href="petition_creator.html#L171" class="js-smell-location">0</a>                  <a href="petition_creator.html#L176" class="js-smell-location">1</a>                  </div>  </li></ol>
+      email_validator.validate(self)
+    end
+
+    if location_code == &quot;GB&quot;
+      errors.add(:postcode, :blank) unless postcode.present?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator calls 'postcode.present?' 2 times</span>              <span>Locations:</span>                  <a href="petition_creator.html#L181" class="js-smell-location">0</a>                  <a href="petition_creator.html#L183" class="js-smell-location">1</a>                  </div>  </li></ol>
+
+      if postcode.present?<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>PetitionCreator#validate_creator calls 'postcode.present?' 2 times</span>              <span>Locations:</span>                  <a href="petition_creator.html#L181" class="js-smell-location">0</a>                  <a href="petition_creator.html#L183" class="js-smell-location">1</a>                  </div>  </li></ol>
+        postcode_validator.validate(self)
+      end
+    end
+
+    if replay_email?
+      @stage = &quot;replay_email&quot;
+    elsif errors.any?
+      @stage = &quot;creator&quot;
+    end
+  end
+
+  def validate
+    validate_petition
+
+    if errors.empty? &amp;&amp; stage_index &gt; 1
+      validate_creator
+    end
+  end
+
+  def valid?
+    errors.clear
+    validate
+    errors.empty?
+  end
+
+  def replay_email?
+    stage == &quot;replay_email&quot; &amp;&amp; errors.keys == [:email]
+  end
+
+  def done?
+    stage == &quot;replay_email&quot;
+  end
+
+  def email_validator<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>PetitionCreator#email_validator doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    EmailValidator.new(attributes: [:email])
+  end
+
+  def postcode_validator<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>PetitionCreator#postcode_validator doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    PostcodeValidator.new(attributes: [:postcode])
+  end
+
+  def constituency
+    @constituency ||= Constituency.find_by_postcode(postcode)
+  end
+
+  def constituency_id
+    constituency.try(:external_id)
+  end
+
+  def send_email_to_gather_sponsors(petition)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>PetitionCreator#send_email_to_gather_sponsors doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    GatherSponsorsForPetitionEmailJob.perform_later(petition)
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

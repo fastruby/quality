@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2017-11-24 15:30:14 +0000'>2017-11-24 15:30:14 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>spec/models /</small> taggable_examples.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">199</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">677.49</span><small> complexity</small></div>
+              <div><span class="metric">328</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                1
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">RSpec.shared_examples_for &quot;a taggable model&quot; do
+  it { is_expected.to have_db_column(:tags).of_type(:integer).with_options(array: true, null: false, default: []) }
+  it { is_expected.to have_db_index(:tags) }
+
+  it &quot;validates the existence of the tags&quot; do
+    subject.update(tags: [999])
+    expect(subject.errors[:tags]).to eq([&quot;The submitted tags were invalid - please reselect and try again&quot;])
+  end
+
+  let(:factory) { described_class.model_name.singular.to_sym }
+
+  describe &quot;.tagged_with&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="taggable_examples.html#L12" class="js-smell-location">0</a>                  <a href="taggable_examples.html#L55" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let!(:tag_1) { FactoryBot.create(:tag) }
+    let!(:tag_2) { FactoryBot.create(:tag) }
+    let!(:model_1) { FactoryBot.create(factory, tags: []) }
+    let!(:model_2) { FactoryBot.create(factory, tags: [tag_1.id]) }
+    let!(:model_3) { FactoryBot.create(factory, tags: [tag_1.id, tag_2.id]) }
+    let!(:model_4) { FactoryBot.create(factory, tags: [tag_2.id]) }
+
+    context &quot;when using no tags&quot; do
+      it &quot;returns all models&quot; do
+        expect(described_class.tagged_with([])).to include(model_1, model_2, model_3, model_4)
+      end
+    end
+
+    context &quot;when using one tag&quot; do
+      it &quot;returns all models tagged with that tag&quot; do
+        expect(described_class.tagged_with([tag_1.id])).to include(model_2, model_3)
+      end
+
+      it &quot;doesn&#39;t return models that aren&#39;t tagged with that tag&quot; do
+        expect(described_class.tagged_with([tag_1.id])).not_to include(model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with([tag_1.id])).not_to include(model_1)
+      end
+    end
+
+    context &quot;when using multiple tags&quot; do
+      it &quot;returns all models tagged with both tags&quot; do
+        expect(described_class.tagged_with([tag_1.id, tag_2.id])).to include(model_3)
+      end
+
+      it &quot;doesn&#39;t return models that are tagged with only one of the tags&quot; do
+        expect(described_class.tagged_with([tag_1.id, tag_2.id])).not_to include(model_2, model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with([tag_1.id, tag_2.id])).not_to include(model_1)
+      end
+    end
+  end
+
+  describe &quot;.tagged_with_all&quot; do<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="taggable_examples.html#L12" class="js-smell-location">0</a>                  <a href="taggable_examples.html#L55" class="js-smell-location">1</a>                  </div>  </li></ol>
+    let!(:tag_1) { FactoryBot.create(:tag) }
+    let!(:tag_2) { FactoryBot.create(:tag) }
+    let!(:model_1) { FactoryBot.create(factory, tags: []) }
+    let!(:model_2) { FactoryBot.create(factory, tags: [tag_1.id]) }
+    let!(:model_3) { FactoryBot.create(factory, tags: [tag_1.id, tag_2.id]) }
+    let!(:model_4) { FactoryBot.create(factory, tags: [tag_2.id]) }
+
+    context &quot;when using no tags&quot; do
+      it &quot;returns all models&quot; do
+        expect(described_class.tagged_with_all([])).to include(model_1, model_2, model_3, model_4)
+      end
+    end
+
+    context &quot;when using one tag&quot; do
+      it &quot;returns all models tagged with that tag&quot; do
+        expect(described_class.tagged_with_all([tag_1.id])).to include(model_2, model_3)
+      end
+
+      it &quot;doesn&#39;t return models that aren&#39;t tagged with that tag&quot; do
+        expect(described_class.tagged_with_all([tag_1.id])).not_to include(model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with_all([tag_1.id])).not_to include(model_1)
+      end
+    end
+
+    context &quot;when using multiple tags&quot; do
+      it &quot;returns all models tagged with both tags&quot; do
+        expect(described_class.tagged_with_all([tag_1.id, tag_2.id])).to include(model_3)
+      end
+
+      it &quot;doesn&#39;t return models that are tagged with only one of the tags&quot; do
+        expect(described_class.tagged_with_all([tag_1.id, tag_2.id])).not_to include(model_2, model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with_all([tag_1.id, tag_2.id])).not_to include(model_1)
+      end
+    end
+  end
+
+  describe &quot;.tagged_with_any&quot; do
+    let!(:tag_1) { FactoryBot.create(:tag) }
+    let!(:tag_2) { FactoryBot.create(:tag) }
+    let!(:model_1) { FactoryBot.create(factory, tags: []) }
+    let!(:model_2) { FactoryBot.create(factory, tags: [tag_1.id]) }
+    let!(:model_3) { FactoryBot.create(factory, tags: [tag_1.id, tag_2.id]) }
+    let!(:model_4) { FactoryBot.create(factory, tags: [tag_2.id]) }
+
+    context &quot;when using no tags&quot; do
+      it &quot;returns no models&quot; do
+        expect(described_class.tagged_with_any([])).to be_empty
+      end
+    end
+
+    context &quot;when using one tag&quot; do
+      it &quot;returns all models tagged with that tag&quot; do
+        expect(described_class.tagged_with_any([tag_1.id])).to include(model_2, model_3)
+      end
+
+      it &quot;doesn&#39;t return models that aren&#39;t tagged with that tag&quot; do
+        expect(described_class.tagged_with_any([tag_1.id])).not_to include(model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with_any([tag_1.id])).not_to include(model_1)
+      end
+    end
+
+    context &quot;when using multiple tags&quot; do
+      it &quot;returns all models tagged with both tags&quot; do
+        expect(described_class.tagged_with_any([tag_1.id, tag_2.id])).to include(model_3)
+      end
+
+      it &quot;returns models that are tagged with only one of the tags&quot; do
+        expect(described_class.tagged_with_any([tag_1.id, tag_2.id])).to include(model_2, model_4)
+      end
+
+      it &quot;doesn&#39;t return models that are untagged&quot; do
+        expect(described_class.tagged_with_any([tag_1.id, tag_2.id])).not_to include(model_1)
+      end
+    end
+  end
+
+  describe &quot;.untagged&quot; do
+    let!(:tag) { FactoryBot.create(:tag) }
+    let!(:model_1) { FactoryBot.create(factory, tags: []) }
+    let!(:model_2) { FactoryBot.create(factory, tags: [tag.id]) }
+
+    it &quot;returns untagged models&quot; do
+      expect(described_class.untagged).to include(model_1)
+    end
+
+    it &quot;doesn&#39;t return tagged models&quot; do
+      expect(described_class.untagged).not_to include(model_2)
+    end
+  end
+
+  describe &quot;.normalize_tags&quot; do
+    it &quot;removes non-numeric strings&quot; do
+      expect(described_class.normalize_tags([&quot;foo&quot;])).to eq([])
+    end
+
+    it &quot;removes zero strings&quot; do
+      expect(described_class.normalize_tags([&quot;0&quot;])).to eq([])
+    end
+
+    it &quot;removes nil values&quot; do
+      expect(described_class.normalize_tags([nil])).to eq([])
+    end
+
+    it &quot;converts strings to integers&quot; do
+      expect(described_class.normalize_tags([&quot;1&quot;])).to eq([1])
+    end
+  end
+
+  describe &quot;#normalize_tags&quot; do
+    it &quot;delegates to the class method&quot; do
+      expect(described_class).to receive(:normalize_tags).with([&quot;foo&quot;]).and_call_original
+      expect(subject.normalize_tags([&quot;foo&quot;])).to eq([])
+    end
+  end
+
+  describe &quot;#tags=&quot; do
+    it &quot;normalizes tag values&quot; do
+      subject.tags = [&quot;foo&quot;, nil, &quot;0&quot;, 0, &quot;1&quot;, 2]
+      expect(subject.tags).to eq([1, 2])
+    end
+  end
+
+  describe &quot;#tag_names&quot; do
+    before do
+      foo = FactoryBot.create(:tag, name: &quot;Foo&quot;)
+      bar = FactoryBot.create(:tag, name: &quot;Bar&quot;)
+
+      subject.tags = [foo.id, bar.id]
+    end
+
+    it &quot;returns the array of tag names&quot; do
+      expect(subject.tag_names).to eq(%w[Foo Bar])
+    end
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" alt="Ruby Critic Logo" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+      
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2016-02-11 12:25:13 +0000'>2016-02-11 12:25:13 +0000</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>db/migrate /</small> 20160210195916_import_initial_locations.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">253</span><small> lines of codes</small></div>
+              <div><span class="metric">2</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">119.0</span><small> complexity/method</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">238.0</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                6
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">class ImportInitialLocations &lt; ActiveRecord::Migration<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>ImportInitialLocations has no descriptive comment</span>          </div>  </li></ol>
+  class Location &lt; ActiveRecord::Base; end<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>ImportInitialLocations::Location has no descriptive comment</span>          </div>  </li></ol>
+
+  def up<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>VeryHighComplexity</b></a>        </span>      </div>      <span>ImportInitialLocations#up has a flog score of 237</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>ImportInitialLocations#up has approx 237 statements</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>ImportInitialLocations#up doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    # These are territories that aren&#39;t officially recognised
+    # as countries by the FCO but do appear in ISO 3166-1 alpha-2.
+    # The names are taken from https://www.gov.uk/api/world-locations
+    Location.create!(code: &quot;AS&quot;, name: &quot;American Samoa&quot;)
+    Location.create!(code: &quot;AI&quot;, name: &quot;Anguilla&quot;)
+    Location.create!(code: &quot;AW&quot;, name: &quot;Aruba&quot;)
+    Location.create!(code: &quot;BM&quot;, name: &quot;Bermuda&quot;)
+    Location.create!(code: &quot;BAT&quot;, name: &quot;British Antarctic Territory&quot;)
+    Location.create!(code: &quot;IO&quot;, name: &quot;British Indian Ocean Territory&quot;)
+    Location.create!(code: &quot;VG&quot;, name: &quot;British Virgin Islands&quot;)
+    Location.create!(code: &quot;KY&quot;, name: &quot;Cayman Islands&quot;)
+    Location.create!(code: &quot;XC&quot;, name: &quot;Channel Islands&quot;, end_date: &quot;2016-02-11&quot;)
+    Location.create!(code: &quot;FK&quot;, name: &quot;Falkland Islands&quot;)
+    Location.create!(code: &quot;GF&quot;, name: &quot;French Guiana&quot;)
+    Location.create!(code: &quot;PF&quot;, name: &quot;French Polynesia&quot;)
+    Location.create!(code: &quot;GI&quot;, name: &quot;Gibraltar&quot;)
+    Location.create!(code: &quot;GP&quot;, name: &quot;Guadeloupe&quot;)
+    Location.create!(code: &quot;HK&quot;, name: &quot;Hong Kong&quot;)
+    Location.create!(code: &quot;IM&quot;, name: &quot;Isle of Man&quot;)
+    Location.create!(code: &quot;MO&quot;, name: &quot;Macao&quot;)
+    Location.create!(code: &quot;MQ&quot;, name: &quot;Martinique&quot;)
+    Location.create!(code: &quot;YT&quot;, name: &quot;Mayotte&quot;)
+    Location.create!(code: &quot;MS&quot;, name: &quot;Montserrat&quot;)
+    Location.create!(code: &quot;NC&quot;, name: &quot;New Caledonia&quot;)
+    Location.create!(code: &quot;PS&quot;, name: &quot;The Occupied Palestinian Territories&quot;)
+    Location.create!(code: &quot;PN&quot;, name: &quot;Pitcairn Island&quot;)
+    Location.create!(code: &quot;RE&quot;, name: &quot;Réunion&quot;)
+    Location.create!(code: &quot;GS&quot;, name: &quot;South Georgia and the South Sandwich Islands&quot;)
+    Location.create!(code: &quot;PM&quot;, name: &quot;St Pierre &amp; Miquelon&quot;)
+    Location.create!(code: &quot;TW&quot;, name: &quot;Taiwan&quot;)
+    Location.create!(code: &quot;TC&quot;, name: &quot;Turks and Caicos Islands&quot;)
+    Location.create!(code: &quot;WF&quot;, name: &quot;Wallis and Futuna&quot;)
+    Location.create!(code: &quot;EH&quot;, name: &quot;Western Sahara&quot;)
+    Location.create!(code: &quot;SH&quot;, name: &quot;St Helena, Ascension and Tristan da Cunha&quot;)
+    Location.create!(code: &quot;BQ&quot;, name: &quot;Bonaire/St Eustatius/Saba&quot;)
+    Location.create!(code: &quot;CW&quot;, name: &quot;Curaçao&quot;)
+    Location.create!(code: &quot;GG&quot;, name: &quot;Guernsey&quot;)
+    Location.create!(code: &quot;JE&quot;, name: &quot;Jersey&quot;)
+    Location.create!(code: &quot;BL&quot;, name: &quot;Saint-Barthélemy&quot;)
+    Location.create!(code: &quot;SX&quot;, name: &quot;St Maarten&quot;)
+    Location.create!(code: &quot;MF&quot;, name: &quot;St Martin&quot;)
+
+    # These are countries offically recognised by the FCO
+    # Data is taken from https://country.register.gov.uk/records
+    Location.create!(code: &quot;GM&quot;, name: &quot;Gambia,The&quot;)
+    Location.create!(code: &quot;ZW&quot;, name: &quot;Zimbabwe&quot;, start_date: &quot;1980-04-18&quot;)
+    Location.create!(code: &quot;ZM&quot;, name: &quot;Zambia&quot;)
+    Location.create!(code: &quot;YE&quot;, name: &quot;Yemen&quot;, start_date: &quot;1990-05-22&quot;)
+    Location.create!(code: &quot;VN&quot;, name: &quot;Vietnam&quot;)
+    Location.create!(code: &quot;VE&quot;, name: &quot;Venezuela&quot;)
+    Location.create!(code: &quot;VA&quot;, name: &quot;Vatican City&quot;)
+    Location.create!(code: &quot;VU&quot;, name: &quot;Vanuatu&quot;, start_date: &quot;1980-07-30&quot;)
+    Location.create!(code: &quot;UZ&quot;, name: &quot;Uzbekistan&quot;, start_date: &quot;1991-09-01&quot;)
+    Location.create!(code: &quot;UY&quot;, name: &quot;Uruguay&quot;)
+    Location.create!(code: &quot;US&quot;, name: &quot;United States&quot;)
+    Location.create!(code: &quot;AE&quot;, name: &quot;United Arab Emirates&quot;)
+    Location.create!(code: &quot;UA&quot;, name: &quot;Ukraine&quot;, start_date: &quot;1991-08-24&quot;)
+    Location.create!(code: &quot;UG&quot;, name: &quot;Uganda&quot;)
+    Location.create!(code: &quot;TV&quot;, name: &quot;Tuvalu&quot;, start_date: &quot;1978-10-01&quot;)
+    Location.create!(code: &quot;TM&quot;, name: &quot;Turkmenistan&quot;, start_date: &quot;1991-10-27&quot;)
+    Location.create!(code: &quot;TR&quot;, name: &quot;Turkey&quot;)
+    Location.create!(code: &quot;TN&quot;, name: &quot;Tunisia&quot;)
+    Location.create!(code: &quot;TT&quot;, name: &quot;Trinidad and Tobago&quot;)
+    Location.create!(code: &quot;TO&quot;, name: &quot;Tonga&quot;)
+    Location.create!(code: &quot;TG&quot;, name: &quot;Togo&quot;)
+    Location.create!(code: &quot;TH&quot;, name: &quot;Thailand&quot;)
+    Location.create!(code: &quot;TZ&quot;, name: &quot;Tanzania&quot;)
+    Location.create!(code: &quot;TJ&quot;, name: &quot;Tajikistan&quot;, start_date: &quot;1991-09-09&quot;)
+    Location.create!(code: &quot;SY&quot;, name: &quot;Syria&quot;)
+    Location.create!(code: &quot;CH&quot;, name: &quot;Switzerland&quot;)
+    Location.create!(code: &quot;SE&quot;, name: &quot;Sweden&quot;)
+    Location.create!(code: &quot;SZ&quot;, name: &quot;Swaziland&quot;)
+    Location.create!(code: &quot;SR&quot;, name: &quot;Suriname&quot;, start_date: &quot;1975-11-25&quot;)
+    Location.create!(code: &quot;SD&quot;, name: &quot;Sudan&quot;)
+    Location.create!(code: &quot;LK&quot;, name: &quot;Sri Lanka&quot;)
+    Location.create!(code: &quot;ES&quot;, name: &quot;Spain&quot;)
+    Location.create!(code: &quot;SS&quot;, name: &quot;South Sudan&quot;, start_date: &quot;2011-07-09&quot;)
+    Location.create!(code: &quot;ZA&quot;, name: &quot;South Africa&quot;)
+    Location.create!(code: &quot;SO&quot;, name: &quot;Somalia&quot;)
+    Location.create!(code: &quot;SB&quot;, name: &quot;Solomon Islands&quot;, start_date: &quot;1978-07-07&quot;)
+    Location.create!(code: &quot;SI&quot;, name: &quot;Slovenia&quot;, start_date: &quot;1991-06-25&quot;)
+    Location.create!(code: &quot;SK&quot;, name: &quot;Slovakia&quot;, start_date: &quot;1993-01-01&quot;)
+    Location.create!(code: &quot;SG&quot;, name: &quot;Singapore&quot;)
+    Location.create!(code: &quot;SL&quot;, name: &quot;Sierra Leone&quot;)
+    Location.create!(code: &quot;SC&quot;, name: &quot;Seychelles&quot;, start_date: &quot;1976-06-29&quot;)
+    Location.create!(code: &quot;RS&quot;, name: &quot;Serbia&quot;)
+    Location.create!(code: &quot;SN&quot;, name: &quot;Senegal&quot;)
+    Location.create!(code: &quot;SA&quot;, name: &quot;Saudi Arabia&quot;)
+    Location.create!(code: &quot;ST&quot;, name: &quot;Sao Tome and Principe&quot;, start_date: &quot;1975-07-12&quot;)
+    Location.create!(code: &quot;SM&quot;, name: &quot;San Marino&quot;)
+    Location.create!(code: &quot;WS&quot;, name: &quot;Samoa&quot;)
+    Location.create!(code: &quot;VC&quot;, name: &quot;St Vincent&quot;, start_date: &quot;1979-10-27&quot;)
+    Location.create!(code: &quot;LC&quot;, name: &quot;St Lucia&quot;, start_date: &quot;1979-02-22&quot;)
+    Location.create!(code: &quot;KN&quot;, name: &quot;St Kitts and Nevis&quot;, start_date: &quot;1983-09-19&quot;)
+    Location.create!(code: &quot;RW&quot;, name: &quot;Rwanda&quot;)
+    Location.create!(code: &quot;RU&quot;, name: &quot;Russia&quot;, start_date: &quot;1991-12-25&quot;)
+    Location.create!(code: &quot;RO&quot;, name: &quot;Romania&quot;)
+    Location.create!(code: &quot;QA&quot;, name: &quot;Qatar&quot;)
+    Location.create!(code: &quot;PT&quot;, name: &quot;Portugal&quot;)
+    Location.create!(code: &quot;PL&quot;, name: &quot;Poland&quot;)
+    Location.create!(code: &quot;PH&quot;, name: &quot;Philippines&quot;)
+    Location.create!(code: &quot;PE&quot;, name: &quot;Peru&quot;)
+    Location.create!(code: &quot;PY&quot;, name: &quot;Paraguay&quot;)
+    Location.create!(code: &quot;PG&quot;, name: &quot;Papua New Guinea&quot;, start_date: &quot;1975-09-16&quot;)
+    Location.create!(code: &quot;PA&quot;, name: &quot;Panama&quot;)
+    Location.create!(code: &quot;PW&quot;, name: &quot;Palau&quot;, start_date: &quot;1994-10-01&quot;)
+    Location.create!(code: &quot;PK&quot;, name: &quot;Pakistan&quot;)
+    Location.create!(code: &quot;OM&quot;, name: &quot;Oman&quot;)
+    Location.create!(code: &quot;NO&quot;, name: &quot;Norway&quot;)
+    Location.create!(code: &quot;NG&quot;, name: &quot;Nigeria&quot;)
+    Location.create!(code: &quot;NE&quot;, name: &quot;Niger&quot;)
+    Location.create!(code: &quot;NI&quot;, name: &quot;Nicaragua&quot;)
+    Location.create!(code: &quot;NZ&quot;, name: &quot;New Zealand&quot;)
+    Location.create!(code: &quot;NL&quot;, name: &quot;Netherlands&quot;)
+    Location.create!(code: &quot;NP&quot;, name: &quot;Nepal&quot;)
+    Location.create!(code: &quot;NR&quot;, name: &quot;Nauru&quot;)
+    Location.create!(code: &quot;NA&quot;, name: &quot;Namibia&quot;, start_date: &quot;1980-03-21&quot;)
+    Location.create!(code: &quot;MZ&quot;, name: &quot;Mozambique&quot;, start_date: &quot;1975-06-25&quot;)
+    Location.create!(code: &quot;MA&quot;, name: &quot;Morocco&quot;)
+    Location.create!(code: &quot;ME&quot;, name: &quot;Montenegro&quot;)
+    Location.create!(code: &quot;MN&quot;, name: &quot;Mongolia&quot;)
+    Location.create!(code: &quot;MC&quot;, name: &quot;Monaco&quot;)
+    Location.create!(code: &quot;MD&quot;, name: &quot;Moldova&quot;, start_date: &quot;1991-08-27&quot;)
+    Location.create!(code: &quot;FM&quot;, name: &quot;Micronesia&quot;, start_date: &quot;1986-11-03&quot;)
+    Location.create!(code: &quot;MX&quot;, name: &quot;Mexico&quot;)
+    Location.create!(code: &quot;MU&quot;, name: &quot;Mauritius&quot;)
+    Location.create!(code: &quot;MR&quot;, name: &quot;Mauritania&quot;)
+    Location.create!(code: &quot;MH&quot;, name: &quot;Marshall Islands&quot;, start_date: &quot;1986-10-21&quot;)
+    Location.create!(code: &quot;MT&quot;, name: &quot;Malta&quot;)
+    Location.create!(code: &quot;ML&quot;, name: &quot;Mali&quot;)
+    Location.create!(code: &quot;MV&quot;, name: &quot;Maldives&quot;)
+    Location.create!(code: &quot;MY&quot;, name: &quot;Malaysia&quot;)
+    Location.create!(code: &quot;MW&quot;, name: &quot;Malawi&quot;)
+    Location.create!(code: &quot;MG&quot;, name: &quot;Madagascar&quot;)
+    Location.create!(code: &quot;MK&quot;, name: &quot;Macedonia&quot;, start_date: &quot;1991-09-08&quot;)
+    Location.create!(code: &quot;LU&quot;, name: &quot;Luxembourg&quot;)
+    Location.create!(code: &quot;LT&quot;, name: &quot;Lithuania&quot;, start_date: &quot;1990-03-11&quot;)
+    Location.create!(code: &quot;LI&quot;, name: &quot;Liechtenstein&quot;)
+    Location.create!(code: &quot;LY&quot;, name: &quot;Libya&quot;)
+    Location.create!(code: &quot;LR&quot;, name: &quot;Liberia&quot;)
+    Location.create!(code: &quot;LS&quot;, name: &quot;Lesotho&quot;)
+    Location.create!(code: &quot;LB&quot;, name: &quot;Lebanon&quot;)
+    Location.create!(code: &quot;LV&quot;, name: &quot;Latvia&quot;, start_date: &quot;1990-05-04&quot;)
+    Location.create!(code: &quot;LA&quot;, name: &quot;Laos&quot;)
+    Location.create!(code: &quot;KG&quot;, name: &quot;Kyrgyzstan&quot;, start_date: &quot;1991-08-31&quot;)
+    Location.create!(code: &quot;KW&quot;, name: &quot;Kuwait&quot;)
+    Location.create!(code: &quot;XK&quot;, name: &quot;Kosovo&quot;)
+    Location.create!(code: &quot;KR&quot;, name: &quot;South Korea&quot;)
+    Location.create!(code: &quot;KP&quot;, name: &quot;North Korea&quot;)
+    Location.create!(code: &quot;KI&quot;, name: &quot;Kiribati&quot;, start_date: &quot;1979-07-12&quot;)
+    Location.create!(code: &quot;KE&quot;, name: &quot;Kenya&quot;)
+    Location.create!(code: &quot;KZ&quot;, name: &quot;Kazakhstan&quot;, start_date: &quot;1991-12-16&quot;)
+    Location.create!(code: &quot;JO&quot;, name: &quot;Jordan&quot;)
+    Location.create!(code: &quot;JP&quot;, name: &quot;Japan&quot;)
+    Location.create!(code: &quot;JM&quot;, name: &quot;Jamaica&quot;)
+    Location.create!(code: &quot;CI&quot;, name: &quot;Ivory Coast&quot;)
+    Location.create!(code: &quot;IT&quot;, name: &quot;Italy&quot;)
+    Location.create!(code: &quot;IL&quot;, name: &quot;Israel&quot;)
+    Location.create!(code: &quot;IE&quot;, name: &quot;Ireland&quot;)
+    Location.create!(code: &quot;IQ&quot;, name: &quot;Iraq&quot;)
+    Location.create!(code: &quot;IR&quot;, name: &quot;Iran&quot;)
+    Location.create!(code: &quot;ID&quot;, name: &quot;Indonesia&quot;)
+    Location.create!(code: &quot;IN&quot;, name: &quot;India&quot;)
+    Location.create!(code: &quot;IS&quot;, name: &quot;Iceland&quot;)
+    Location.create!(code: &quot;HU&quot;, name: &quot;Hungary&quot;)
+    Location.create!(code: &quot;HN&quot;, name: &quot;Honduras&quot;)
+    Location.create!(code: &quot;HT&quot;, name: &quot;Haiti&quot;)
+    Location.create!(code: &quot;GY&quot;, name: &quot;Guyana&quot;)
+    Location.create!(code: &quot;GW&quot;, name: &quot;Guinea-Bissau&quot;)
+    Location.create!(code: &quot;GN&quot;, name: &quot;Guinea&quot;)
+    Location.create!(code: &quot;GT&quot;, name: &quot;Guatemala&quot;)
+    Location.create!(code: &quot;GD&quot;, name: &quot;Grenada&quot;, start_date: &quot;1974-02-07&quot;)
+    Location.create!(code: &quot;GR&quot;, name: &quot;Greece&quot;)
+    Location.create!(code: &quot;GH&quot;, name: &quot;Ghana&quot;)
+    Location.create!(code: &quot;DE&quot;, name: &quot;Germany&quot;, start_date: &quot;1990-10-03&quot;)
+    Location.create!(code: &quot;GE&quot;, name: &quot;Georgia&quot;, start_date: &quot;1991-04-09&quot;)
+    Location.create!(code: &quot;GA&quot;, name: &quot;Gabon&quot;)
+    Location.create!(code: &quot;FR&quot;, name: &quot;France&quot;)
+    Location.create!(code: &quot;FI&quot;, name: &quot;Finland&quot;)
+    Location.create!(code: &quot;FJ&quot;, name: &quot;Fiji&quot;)
+    Location.create!(code: &quot;ET&quot;, name: &quot;Ethiopia&quot;)
+    Location.create!(code: &quot;EE&quot;, name: &quot;Estonia&quot;, start_date: &quot;1991-08-20&quot;)
+    Location.create!(code: &quot;ER&quot;, name: &quot;Eritrea&quot;, start_date: &quot;1993-05-24&quot;)
+    Location.create!(code: &quot;GQ&quot;, name: &quot;Equatorial Guinea&quot;)
+    Location.create!(code: &quot;SV&quot;, name: &quot;El Salvador&quot;)
+    Location.create!(code: &quot;EG&quot;, name: &quot;Egypt&quot;)
+    Location.create!(code: &quot;EC&quot;, name: &quot;Ecuador&quot;)
+    Location.create!(code: &quot;TL&quot;, name: &quot;East Timor&quot;)
+    Location.create!(code: &quot;DO&quot;, name: &quot;Dominican Republic&quot;)
+    Location.create!(code: &quot;DM&quot;, name: &quot;Dominica&quot;, start_date: &quot;1978-11-03&quot;)
+    Location.create!(code: &quot;DJ&quot;, name: &quot;Djibouti&quot;, start_date: &quot;1977-06-27&quot;)
+    Location.create!(code: &quot;DK&quot;, name: &quot;Denmark&quot;)
+    Location.create!(code: &quot;CZ&quot;, name: &quot;Czech Republic&quot;, start_date: &quot;1993-01-01&quot;)
+    Location.create!(code: &quot;CY&quot;, name: &quot;Cyprus&quot;)
+    Location.create!(code: &quot;CU&quot;, name: &quot;Cuba&quot;)
+    Location.create!(code: &quot;HR&quot;, name: &quot;Croatia&quot;, start_date: &quot;1991-06-25&quot;)
+    Location.create!(code: &quot;CR&quot;, name: &quot;Costa Rica&quot;)
+    Location.create!(code: &quot;CD&quot;, name: &quot;Congo (Democratic Republic)&quot;)
+    Location.create!(code: &quot;CG&quot;, name: &quot;Congo&quot;)
+    Location.create!(code: &quot;KM&quot;, name: &quot;Comoros&quot;, start_date: &quot;1975-07-06&quot;)
+    Location.create!(code: &quot;CO&quot;, name: &quot;Colombia&quot;)
+    Location.create!(code: &quot;CN&quot;, name: &quot;China&quot;)
+    Location.create!(code: &quot;CL&quot;, name: &quot;Chile&quot;)
+    Location.create!(code: &quot;TD&quot;, name: &quot;Chad&quot;)
+    Location.create!(code: &quot;CF&quot;, name: &quot;Central African Republic&quot;)
+    Location.create!(code: &quot;CV&quot;, name: &quot;Cape Verde&quot;, start_date: &quot;1975-07-05&quot;)
+    Location.create!(code: &quot;CA&quot;, name: &quot;Canada&quot;)
+    Location.create!(code: &quot;CM&quot;, name: &quot;Cameroon&quot;)
+    Location.create!(code: &quot;KH&quot;, name: &quot;Cambodia&quot;)
+    Location.create!(code: &quot;BI&quot;, name: &quot;Burundi&quot;)
+    Location.create!(code: &quot;MM&quot;, name: &quot;Burma&quot;)
+    Location.create!(code: &quot;BF&quot;, name: &quot;Burkina Faso&quot;)
+    Location.create!(code: &quot;BG&quot;, name: &quot;Bulgaria&quot;)
+    Location.create!(code: &quot;BN&quot;, name: &quot;Brunei&quot;, start_date: &quot;1984-01-01&quot;)
+    Location.create!(code: &quot;BR&quot;, name: &quot;Brazil&quot;)
+    Location.create!(code: &quot;BW&quot;, name: &quot;Botswana&quot;)
+    Location.create!(code: &quot;BA&quot;, name: &quot;Bosnia and Herzegovina&quot;, start_date: &quot;1992-03-03&quot;)
+    Location.create!(code: &quot;BO&quot;, name: &quot;Bolivia&quot;)
+    Location.create!(code: &quot;BT&quot;, name: &quot;Bhutan&quot;)
+    Location.create!(code: &quot;BJ&quot;, name: &quot;Benin&quot;)
+    Location.create!(code: &quot;BZ&quot;, name: &quot;Belize&quot;, start_date: &quot;1981-09-21&quot;)
+    Location.create!(code: &quot;BE&quot;, name: &quot;Belgium&quot;)
+    Location.create!(code: &quot;BY&quot;, name: &quot;Belarus&quot;, start_date: &quot;1991-08-25&quot;)
+    Location.create!(code: &quot;BB&quot;, name: &quot;Barbados&quot;)
+    Location.create!(code: &quot;BD&quot;, name: &quot;Bangladesh&quot;)
+    Location.create!(code: &quot;BH&quot;, name: &quot;Bahrain&quot;)
+    Location.create!(code: &quot;BS&quot;, name: &quot;Bahamas,The&quot;)
+    Location.create!(code: &quot;AZ&quot;, name: &quot;Azerbaijan&quot;, start_date: &quot;1991-08-30&quot;)
+    Location.create!(code: &quot;AT&quot;, name: &quot;Austria&quot;)
+    Location.create!(code: &quot;AU&quot;, name: &quot;Australia&quot;)
+    Location.create!(code: &quot;AM&quot;, name: &quot;Armenia&quot;, start_date: &quot;1991-09-21&quot;)
+    Location.create!(code: &quot;AR&quot;, name: &quot;Argentina&quot;)
+    Location.create!(code: &quot;AG&quot;, name: &quot;Antigua and Barbuda&quot;, start_date: &quot;1981-11-01&quot;)
+    Location.create!(code: &quot;AO&quot;, name: &quot;Angola&quot;, start_date: &quot;1975-11-11&quot;)
+    Location.create!(code: &quot;AD&quot;, name: &quot;Andorra&quot;)
+    Location.create!(code: &quot;DZ&quot;, name: &quot;Algeria&quot;)
+    Location.create!(code: &quot;AL&quot;, name: &quot;Albania&quot;)
+    Location.create!(code: &quot;AF&quot;, name: &quot;Afghanistan&quot;)
+    Location.create!(code: &quot;GB&quot;, name: &quot;United Kingdom&quot;)
+    Location.create!(code: &quot;CS&quot;, name: &quot;Czechoslovakia&quot;, end_date: &quot;1992-12-31&quot;)
+    Location.create!(code: &quot;YU&quot;, name: &quot;Yugoslavia&quot;, end_date: &quot;1992-04-28&quot;)
+    Location.create!(code: &quot;DD&quot;, name: &quot;East Germany&quot;, end_date: &quot;1990-10-02&quot;)
+    Location.create!(code: &quot;SU&quot;, name: &quot;USSR&quot;, end_date: &quot;1991-12-25&quot;)
+  end
+
+  def down<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>ImportInitialLocations#down doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+    Location.delete_all
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>
