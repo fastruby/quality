@@ -1,0 +1,2672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <meta content='en' http-equiv='Content-Language' />
+    <title>metrics</title>
+    <style>
+    /*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.5.2
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}
+
+    /* --------------------------------------------------------------
+
+   buttons.css
+   * Gives you some great CSS-only buttons.
+
+   Created by Kevin Hale [particletree.com]
+   * particletree.com/features/rediscovering-the-button-element
+
+   See Readme.txt in this folder for instructions.
+
+-------------------------------------------------------------- */
+
+button {
+  display:block;
+  float:left;
+  margin:0 0.583em 0.667em 0;
+  padding:5px 10px 5px 7px;   /* Links */
+
+  border:1px solid #dedede;
+  border-top:1px solid #eee;
+  border-left:1px solid #eee;
+
+  background-color:#f5f5f5;
+  font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size:100%;
+  line-height:130%;
+  text-decoration:none;
+  font-weight:bold;
+  color:#565656;
+  cursor:pointer;
+}
+button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px;   /* IE6 */
+}
+button[type] {
+  padding:4px 10px 4px 7px;   /* Firefox */
+  line-height:17px;           /* Safari */
+}
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px;   /* IE7 */
+}
+button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+  float:none;
+}
+
+
+/* Button colors
+-------------------------------------------------------------- */
+
+/* Standard */
+button:hover {
+  background-color:#dff4ff;
+  border:1px solid #c2e1ef;
+  color:#336699;
+}
+
+/* Positive */
+body .positive {
+  color:#529214;
+}
+button.positive:hover {
+  background-color:#E6EFC2;
+  border:1px solid #C6D880;
+  color:#529214;
+}
+
+/* Negative */
+body .negative {
+  color:#d12f19;
+}
+button.negative:hover {
+  background:#fbe3e4;
+  border:1px solid #fbc2c4;
+  color:#d12f19;
+}
+
+    html {
+  background-color: #e0e0e0; }
+
+body {
+  font-size: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #333333; }
+
+a {
+  color: #ed1556;
+  text-decoration: none; }
+  a:hover {
+    color: #ffffff;
+    background-color: #ed1556; }
+
+#header, #content, #footer {
+  margin: 0 auto;
+  background: #eeeeee;
+  padding: 0 2em;
+  z-index: 0;
+  position: relative;
+  font-size: 1em; }
+
+#header {
+  background: #ffffff; }
+  #header h1 {
+    font-weight: bold;
+    font-size: 1.5em; }
+  #header address.watermark {
+    position: absolute;
+    font-weight: bold;
+    right: 3em;
+    top: 0;
+    font-size: .75em;
+    color: #cccccc; }
+    #header address.watermark a {
+      color: #cccccc;
+      font-weight: bold;
+      font-size: 2em; }
+      #header address.watermark a:hover {
+        background: transparent;
+        color: #aaaaaa; }
+
+#content {
+  padding-top: 1em;
+  padding-bottom: 2em; }
+  #content strong {
+    font-weight: bold; }
+  #content em {
+    font-style: italic; }
+  #content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+    color: #4e4e4e; }
+  #content h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: .75em;
+    padding: .25em 0;
+    line-height: 1.2;
+    border-bottom: 1px solid #c0c0c0; }
+  #content h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em 0 .2em; }
+  #content h3 {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: .25em 0; }
+  #content h4, #content h5, #content h6 {
+    font-weight: bold;
+    margin-top: .5em; }
+  #content code, #content pre, #content textarea, #content input {
+    font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+  #content form p {
+    margin-top: 1em;
+    position: relative; }
+    #content form p.checkbox label {
+      margin-top: 0 !important; }
+  #content form input.text, #content form textarea {
+    width: 30em;
+    padding: .2em .4em;
+    color: #4e4e4e; }
+  #content form input.text {
+    height: 1.4em; }
+  #content form label {
+    float: left;
+    display: block;
+    margin-top: .5em;
+    width: 8em;
+    margin-right: .75em; }
+  #content form .with_errors label {
+    background: red;
+    color: white;
+    position: relative;
+    top: -.7em; }
+  #content form .with_errors.required label {
+    position: static;
+    margin-right: .25em;
+    padding: 0 .2em; }
+  #content form .with_errors input, #content form .with_errors textarea {
+    border: 2px solid #f22;
+    background: #fee;
+    color: #222222; }
+  #content form .required label {
+    float: none;
+    display: block;
+    width: auto;
+    position: relative;
+    font-weight: bold;
+    margin-top: 1em;
+    text-indent: -.65em; }
+    #content form .required label:before {
+      content: "* ";
+      color: #ed1556; }
+  #content form .required input.text {
+    width: 25.6em;
+    font-size: 24px;
+    font-weight: bold; }
+  #content form .normal {
+    margin-top: 2em; }
+  #content form h2.notifier label {
+    float: none;
+    width: auto;
+    margin-right: 0; }
+    #content form h2.notifier label .warning {
+      font-size: .5em;
+      font-weight: normal;
+      color: #999999; }
+  #content form fieldset {
+    padding-bottom: 1em;
+    margin-left: 1.35em;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 1em; }
+    #content form fieldset h3 {
+      margin-top: 1em;
+      margin-bottom: 0; }
+    #content form fieldset p.normal {
+      margin-top: 1em; }
+    #content form fieldset p label {
+      width: 6.7em; }
+  #content form p.submit {
+    margin-top: 2em; }
+    #content form p.submit:after {
+      display: block;
+      clear: both;
+      float: none;
+      content: ".";
+      text-indent: -9999em;
+      text-align: left; }
+    #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+      float: none;
+      display: inline; }
+    #content form p.submit.manual-build button {
+      margin-right: 0; }
+  #content #build form, #content #last_build form {
+    font-size: .75em; }
+    #content #build form p.submit,     #content #last_build form p.submit {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      right: .5em;
+      top: 1.25em; }
+  #content .blank_slate p,   #content .error p {
+    position: relative;
+    top: .3em; }
+  #content .blank_slate h1,   #content .error h1 {
+    border-width: 0;
+    margin: 0;
+    padding: 0; }
+    #content .blank_slate h1 button,     #content .error h1 button {
+      float: none;
+      border: 0 none;
+      background: transparent;
+      display: inline;
+      color: #ed1556;
+      padding: 0.25em 0;
+      margin: 0; }
+      #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+        background: #ed1556;
+        color: #ffffff; }
+  #content .error dt {
+    margin-top: 1.4em;
+    margin-bottom: .3em;
+    font-size: 1.75em;
+    font-family: Georgia, Times New Roman, serif; }
+  #content .error dd {
+    line-height: 1.4; }
+  #content .error .backtrace {
+    margin: 1em 0;
+    overflow: scroll;
+    height: 30em;
+    border: 1px solid #c0c0c0;
+    line-height: 1.6; }
+  #content #projects {
+    margin: 1em 0 2em;
+    border-top: 1px solid #c0c0c0; }
+    #content #projects li {
+      position: relative;
+      border-bottom: 1px solid #c0c0c0; }
+      #content #projects li.odd {
+        background: #e6e6e6; }
+      #content #projects li.building {
+        background: transparent url(/spinner.gif) no-repeat scroll right; }
+      #content #projects li a {
+        font-size: 2em;
+        padding: .25em;
+        line-height: 1.2;
+        font-weight: bold;
+        display: block; }
+        #content #projects li a.success {
+          color: #337022; }
+        #content #projects li a.failed {
+          color: #ff1100; }
+      #content #projects li .meta {
+        position: absolute;
+        right: .6em;
+        top: 1.5em;
+        font-size: 0.8em;
+        color: #999999;
+        text-align: right; }
+      #content #projects li.building .meta {
+        right: 1.6em; }
+      #content #projects li.success .meta {
+        color: #337022; }
+      #content #projects li.failed .meta {
+        color: #ff1100; }
+  #content #previous_builds li a {
+    display: block;
+    padding: .25em;
+    margin-bottom: .25em;
+    border-width: 1px;
+    border-style: solid; }
+    #content #previous_builds li a strong {
+      font-size: 1.3em; }
+    #content #previous_builds li a .attribution {
+      font-size: .9em; }
+  #content #projects li.success a,   #content #previous_builds li.success a {
+    background-color: #bbf8aa;
+    border-color: #99d688;
+    color: #337022; }
+    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+      color: #77b466; }
+    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+      background-color: #ddffcc; }
+  #content #projects li.failed a,   #content #previous_builds li.failed a {
+    background-color: #ffbbaa;
+    border-color: #dd9988;
+    color: #ff1100; }
+    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+      color: #bb7766; }
+    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+      background-color: #ffddcc; }
+  #content #build, #content #last_build {
+    position: relative; }
+    #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+      border-width: 0 1px;
+      border-style: solid; }
+    #content #build h1,     #content #last_build h1 {
+      border-top-width: 1px; }
+    #content #build blockquote,     #content #last_build blockquote {
+      bottom-bottom-width: 1px;
+      line-height: 1.4; }
+    #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+      background-color: #bbf8aa;
+      border-color: #99d688 #ccffbb #ccffbb #99d688; }
+    #content #build.success h1,     #content #last_build.success h1 {
+      color: #337022; }
+    #content #build.success .meta,     #content #last_build.success .meta {
+      color: #77b466; }
+    #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+      background-color: #ffbbaa;
+      border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+    #content #build.failed h1,     #content #last_build.failed h1 {
+      color: #ff1100; }
+    #content #build.failed .meta,     #content #last_build.failed .meta {
+      color: #bb7766; }
+    #content #build h1,     #content #last_build h1 {
+      margin-top: .5em;
+      margin-bottom: 0;
+      padding: .25em;
+      color: #337022; }
+    #content #build blockquote,     #content #last_build blockquote {
+      padding: .75em;
+      margin-bottom: 2em; }
+      #content #build blockquote .meta,       #content #last_build blockquote .meta {
+        margin-top: 1em;
+        display: block;
+        font-size: .9em; }
+    #content #build pre.output,     #content #last_build pre.output {
+      background: #111;
+      color: #fff;
+      padding: .5em;
+      overflow: auto;
+      max-height: 50em;
+      font-size: .825em; }
+      #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+        color: #333; }
+      #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+        color: #e33; }
+      #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+        color: #3e3; }
+      #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+        color: #ee3; }
+      #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+        color: #33e; }
+      #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+        color: #e3e; }
+      #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+        color: #3ee; }
+      #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+        color: #fff; }
+  #content #push_path {
+    display: block;
+    margin-top: 1em;
+    margin-left: 2em; }
+  #content div#graph {
+    width: 100%;
+    height: 600px; }
+
+a.success {
+  color: #bbf8aa; }
+  a.success:hover {
+    background-color: #bbf8aa;
+    color: white; }
+a.failed {
+  color: #ffbbaa; }
+  a.failed:hover {
+    background-color: #ffbbaa;
+    color: white; }
+
+#footer {
+  padding: 1.5em 2.5em;
+  border-top: 1px solid #ccc;
+  font-size: .8em;
+  color: #666;
+  text-align: right; }
+  #footer strong {
+    font-weight: bold; }
+
+    table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: 1px solid #666;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+table tr.light {
+   background: #fff;
+}
+
+table tr.dark {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #FFFFC0;
+}
+
+table td, table th {
+  padding: 4px;
+  font-size: 11px;
+}
+table th {
+  text-align: center;
+  color: #337022;
+  background: #DDFFCC;
+  font-weight: bold;
+  border: #99D688 1px solid;
+}
+
+table td {
+  border: #d0d0d0 1px solid;
+}
+
+table td.score {
+  text-align: right;
+}
+
+.warning {
+  background: yellow;
+}
+
+    .bluff-tooltip {
+  background: #fff;
+  border: 1px solid #d1edf5;
+  padding: 8px 8px 6px;
+}
+.bluff-tooltip .color {
+  display: block;
+  height: 4px;
+  width: 30px;
+  margin: 0 0 4px;
+  overflow: hidden;
+}
+.bluff-tooltip .data {
+  font-weight: bold;
+}
+    </style>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico">
+    <script language="javascript" src="utils.js" type="text/javascript"></script>
+    <script language="javascript" src="js-class.js" type="text/javascript"></script>
+    <script language="javascript" src="bluff-min.js" type="text/javascript"></script>
+    <script language="javascript" src="excanvas.js" type="text/javascript"></script>
+    <script language="javascript" src="standalone-framework.js" type="text/javascript"></script>
+    <script language="javascript" src="highcharts.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id='header'>
+      <h1><a href="/">metrics</a> | <a href="index.html">e-petitions</a></h1>
+      <address class='watermark'>
+        built with
+        <a href='https://github.com/metricfu/metric_fu'>MetricFu</a>
+      </address>
+    </div>
+    <div id='content'>
+      <h3>Flay Results</h3>
+
+<p><a href='http://ruby.sadi.st/Flay.html'>Flay</a> analyzes ruby code for structural similarities.</p>
+
+<div id="graph_container"></div>
+<script language="javascript" src="flay.js?1569177040" type="text/javascript"></script>
+
+<h4>Total Score (lower is better): 20846</h4>
+<h5>Scores less than  are not shown or part of the total</h5>
+
+<table>
+  <tr>
+    <th>Files</th>
+    <th>Matches</th>
+  </tr>
+  
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_countries.html.erb'>app/views/admin/rate_limits/_countries.html.erb:23</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_countries.html.erb'>app/views/admin/rate_limits/_countries.html.erb:29</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_rate_limits.html.erb'>app/views/admin/rate_limits/_rate_limits.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_rate_limits.html.erb'>app/views/admin/rate_limits/_rate_limits.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_rate_limits.html.erb'>app/views/admin/rate_limits/_rate_limits.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_rate_limits.html.erb'>app/views/admin/rate_limits/_rate_limits.html.erb:23</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_rate_limits.html.erb'>app/views/admin/rate_limits/_rate_limits.html.erb:31</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_trending_items.html.erb'>app/views/admin/rate_limits/_trending_items.html.erb:16</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_trending_items.html.erb'>app/views/admin/rate_limits/_trending_items.html.erb:22</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_trending_items.html.erb'>app/views/admin/rate_limits/_trending_items.html.erb:28</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_trending_items.html.erb'>app/views/admin/rate_limits/_trending_items.html.erb:34</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_access.html.erb'>app/views/admin/sites/_access.html.erb:43</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:25</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_moderation.html.erb'>app/views/admin/sites/_moderation.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_moderation.html.erb'>app/views/admin/sites/_moderation.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_petitions.html.erb'>app/views/admin/sites/_petitions.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_petitions.html.erb'>app/views/admin/sites/_petitions.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_petitions.html.erb'>app/views/admin/sites/_petitions.html.erb:15</a><br/>
+        
+      </td>
+      <td>1) Similar code found in :attrasgn (mass = 1218)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_countries.html.erb'>app/views/admin/rate_limits/_countries.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_countries.html.erb'>app/views/admin/rate_limits/_countries.html.erb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_trending_items.html.erb'>app/views/admin/rate_limits/_trending_items.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_access.html.erb'>app/views/admin/sites/_access.html.erb:16</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:31</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:4</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:43</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:56</a><br/>
+        
+      </td>
+      <td>2) Similar code found in :attrasgn (mass = 990)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/_form.html.erb'>app/views/admin/domains/_form.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/_form.html.erb'>app/views/admin/domains/_form.html.erb:14</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/_form.html.erb'>app/views/admin/domains/_form.html.erb:20</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_access.html.erb'>app/views/admin/sites/_access.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_access.html.erb'>app/views/admin/sites/_access.html.erb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_description.html.erb'>app/views/admin/sites/_description.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_moderation.html.erb'>app/views/admin/sites/_moderation.html.erb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_moderation.html.erb'>app/views/admin/sites/_moderation.html.erb:21</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/tags/_form.html.erb'>app/views/admin/tags/_form.html.erb:1</a><br/>
+        
+      </td>
+      <td>3) Similar code found in :attrasgn (mass = 627)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/index.html.erb'>app/views/admin/archived/petitions/index.html.erb:27</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/index.html.erb'>app/views/admin/petitions/index.html.erb:23</a><br/>
+        
+      </td>
+      <td>4) IDENTICAL code found in :attrasgn (mass*2 = 568)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_creator_of_debate_outcome.text.erb'>app/views/archived/petition_mailer/notify_creator_of_debate_outcome.text.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_signer_of_debate_outcome.text.erb'>app/views/archived/petition_mailer/notify_signer_of_debate_outcome.text.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_debate_outcome.text.erb'>app/views/petition_mailer/notify_creator_of_debate_outcome.text.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_signer_of_debate_outcome.text.erb'>app/views/petition_mailer/notify_signer_of_debate_outcome.text.erb:7</a><br/>
+        
+      </td>
+      <td>5) Similar code found in :if (mass = 568)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_creator_of_debate_outcome.html.erb'>app/views/archived/petition_mailer/notify_creator_of_debate_outcome.html.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_signer_of_debate_outcome.html.erb'>app/views/archived/petition_mailer/notify_signer_of_debate_outcome.html.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_debate_outcome.html.erb'>app/views/petition_mailer/notify_creator_of_debate_outcome.html.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_signer_of_debate_outcome.html.erb'>app/views/petition_mailer/notify_signer_of_debate_outcome.html.erb:7</a><br/>
+        
+      </td>
+      <td>6) Similar code found in :if (mass = 556)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/government_response/_petition_action_government_response.html.erb'>app/views/admin/archived/government_response/_petition_action_government_response.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/government_response/_petition_action_government_response.html.erb'>app/views/admin/archived/government_response/_petition_action_government_response.html.erb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_emails/_petition_action_email_petitioners.html.erb'>app/views/admin/archived/petition_emails/_petition_action_email_petitioners.html.erb:25</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_emails/_petition_action_email_petitioners.html.erb'>app/views/admin/archived/petition_emails/_petition_action_email_petitioners.html.erb:32</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_emails/edit.html.erb'>app/views/admin/archived/petition_emails/edit.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_emails/edit.html.erb'>app/views/admin/archived/petition_emails/edit.html.erb:12</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/moderation_delays/new.html.erb'>app/views/admin/moderation_delays/new.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/moderation_delays/new.html.erb'>app/views/admin/moderation_delays/new.html.erb:12</a><br/>
+        
+      </td>
+      <td>7) Similar code found in :attrasgn (mass = 544)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/government_response/_petition_action_government_response.html.erb'>app/views/admin/government_response/_petition_action_government_response.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/government_response/_petition_action_government_response.html.erb'>app/views/admin/government_response/_petition_action_government_response.html.erb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb'>app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb:25</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb'>app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb:32</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/edit.html.erb'>app/views/admin/petition_emails/edit.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/edit.html.erb'>app/views/admin/petition_emails/edit.html.erb:12</a><br/>
+        
+      </td>
+      <td>8) Similar code found in :attrasgn (mass = 426)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:27</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:35</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_tabs.html.erb'>app/views/admin/rate_limits/_tabs.html.erb:43</a><br/>
+        
+      </td>
+      <td>9) Similar code found in :block (mass = 402)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/debate_outcome.rb'>app/models/archived/debate_outcome.rb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/debate_outcome.rb'>app/models/debate_outcome.rb:50</a><br/>
+        
+      </td>
+      <td>10) IDENTICAL code found in :defn (mass*2 = 376)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:12</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:21</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:39</a><br/>
+        
+      </td>
+      <td>11) Similar code found in :block (mass = 360)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:57</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/government_response/_petition_action_government_response.html.erb'>app/views/admin/government_response/_petition_action_government_response.html.erb:24</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/schedule_debate/_petition_action_debate_date.html.erb'>app/views/admin/schedule_debate/_petition_action_debate_date.html.erb:11</a><br/>
+        
+      </td>
+      <td>12) IDENTICAL code found in :if (mass*3 = 324)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:10</a><br/>
+        
+      </td>
+      <td>13) IDENTICAL code found in :attrasgn (mass*2 = 304)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_details/show.html.erb'>app/views/admin/archived/petition_details/show.html.erb:16</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_details/show.html.erb'>app/views/admin/archived/petition_details/show.html.erb:22</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:34</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:47</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:61</a><br/>
+        
+      </td>
+      <td>14) Similar code found in :attrasgn (mass = 285)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/show.html.erb'>app/views/archived/petitions/show.html.erb:82</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_debate_threshold.html.erb'>app/views/petitions/_debate_threshold.html.erb:4</a><br/>
+        
+      </td>
+      <td>15) Similar code found in :if (mass = 274)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/index.html.erb'>app/views/admin/signatures/index.html.erb:63</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/index.html.erb'>app/views/admin/signatures/index.html.erb:69</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/index.html.erb'>app/views/admin/signatures/index.html.erb:75</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/index.html.erb'>app/views/admin/signatures/index.html.erb:81</a><br/>
+        
+      </td>
+      <td>16) Similar code found in :attrasgn (mass = 252)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:42</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:48</a><br/>
+        
+      </td>
+      <td>17) Similar code found in :attrasgn (mass = 240)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:29</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:35</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:47</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:59</a><br/>
+        
+      </td>
+      <td>18) Similar code found in :attrasgn (mass = 240)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/take_down/_petition_action_change_rejection_status.html.erb'>app/views/admin/take_down/_petition_action_change_rejection_status.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/take_down/_petition_action_take_down.html.erb'>app/views/admin/take_down/_petition_action_take_down.html.erb:2</a><br/>
+        
+      </td>
+      <td>19) IDENTICAL code found in :attrasgn (mass*2 = 240)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/debate_outcomes/_petition_action_debate_outcome.html.erb:24</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/government_response/_petition_action_government_response.html.erb'>app/views/admin/government_response/_petition_action_government_response.html.erb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/schedule_debate/_petition_action_debate_date.html.erb'>app/views/admin/schedule_debate/_petition_action_debate_date.html.erb:3</a><br/>
+        
+      </td>
+      <td>20) Similar code found in :attrasgn (mass = 236)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:23</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:41</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:53</a><br/>
+        
+      </td>
+      <td>21) Similar code found in :attrasgn (mass = 236)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_allowed_domains.html.erb'>app/views/admin/rate_limits/_allowed_domains.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_allowed_ips.html.erb'>app/views/admin/rate_limits/_allowed_ips.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_blocked_domains.html.erb'>app/views/admin/rate_limits/_blocked_domains.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_blocked_ips.html.erb'>app/views/admin/rate_limits/_blocked_ips.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_countries.html.erb'>app/views/admin/rate_limits/_countries.html.erb:3</a><br/>
+        
+      </td>
+      <td>22) Similar code found in :attrasgn (mass = 230)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:42</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:48</a><br/>
+        
+      </td>
+      <td>23) Similar code found in :attrasgn (mass = 228)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_creator_stage.html.erb'>app/views/petitions/create/_creator_stage.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_replay_email_stage.html.erb'>app/views/petitions/create/_replay_email_stage.html.erb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_email_form.html.erb'>app/views/signatures/_email_form.html.erb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_form.html.erb'>app/views/signatures/_form.html.erb:18</a><br/>
+        
+      </td>
+      <td>24) Similar code found in :attrasgn (mass = 228)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb'>app/views/admin/archived/debate_outcomes/_petition_action_debate_outcome.html.erb:24</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/government_response/_petition_action_government_response.html.erb'>app/views/admin/archived/government_response/_petition_action_government_response.html.erb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/schedule_debate/_petition_action_debate_date.html.erb'>app/views/admin/archived/schedule_debate/_petition_action_debate_date.html.erb:3</a><br/>
+        
+      </td>
+      <td>25) Similar code found in :attrasgn (mass = 224)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_debate_date.html.erb'>app/views/admin/admin/_petition_action_debate_date.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_debate_outcome.html.erb'>app/views/admin/admin/_petition_action_debate_outcome.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_email_petitioners.html.erb'>app/views/admin/admin/_petition_action_email_petitioners.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_government_response.html.erb'>app/views/admin/admin/_petition_action_government_response.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_notes.html.erb'>app/views/admin/admin/_petition_action_notes.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/_petition_action_tags.html.erb'>app/views/admin/admin/_petition_action_tags.html.erb:1</a><br/>
+        
+      </td>
+      <td>26) Similar code found in :if (mass = 222)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_access.html.erb'>app/views/admin/sites/_access.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_features.html.erb'>app/views/admin/sites/_features.html.erb:69</a><br/>
+        
+      </td>
+      <td>27) Similar code found in :attrasgn (mass = 198)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:143</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:223</a><br/>
+        
+      </td>
+      <td>28) IDENTICAL code found in :if (mass*2 = 184)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/petition.rb'>app/models/archived/petition.rb:64</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/petition.rb'>app/models/petition.rb:97</a><br/>
+        
+      </td>
+      <td>29) IDENTICAL code found in :iter (mass*2 = 180)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/index.html.erb'>app/views/admin/archived/signatures/index.html.erb:57</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/index.html.erb'>app/views/admin/archived/signatures/index.html.erb:63</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/index.html.erb'>app/views/admin/archived/signatures/index.html.erb:69</a><br/>
+        
+      </td>
+      <td>30) Similar code found in :attrasgn (mass = 174)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:20</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:28</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:55</a><br/>
+        
+      </td>
+      <td>31) Similar code found in :attrasgn (mass = 174)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/debate_outcome.rb'>app/models/archived/debate_outcome.rb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/debate_outcome.rb'>app/models/debate_outcome.rb:12</a><br/>
+        
+      </td>
+      <td>32) IDENTICAL code found in :call (mass*2 = 168)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/index.html.erb'>app/views/archived/petitions/index.html.erb:24</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/index.html.erb'>app/views/archived/petitions/index.html.erb:68</a><br/>
+        
+      </td>
+      <td>33) IDENTICAL code found in :iter (mass*2 = 168)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/lib/active_support/cache/atomic_dalli_store.rb'>app/lib/active_support/cache/atomic_dalli_store.rb:65</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/lib/active_support/cache/atomic_dalli_store.rb'>app/lib/active_support/cache/atomic_dalli_store.rb:73</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/lib/active_support/cache/atomic_dalli_store.rb'>app/lib/active_support/cache/atomic_dalli_store.rb:81</a><br/>
+        
+      </td>
+      <td>34) IDENTICAL code found in :resbody (mass*3 = 162)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/index.html.erb'>app/views/petitions/index.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/search/_filter_nav.html.erb'>app/views/petitions/search/_filter_nav.html.erb:5</a><br/>
+        
+      </td>
+      <td>35) IDENTICAL code found in :iter (mass*2 = 160)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/edit.html.erb'>app/views/admin/domains/edit.html.erb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/new.html.erb'>app/views/admin/domains/new.html.erb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/edit.html.erb'>app/views/admin/invalidations/edit.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/new.html.erb'>app/views/admin/invalidations/new.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/tags/edit.html.erb'>app/views/admin/tags/edit.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/tags/new.html.erb'>app/views/admin/tags/new.html.erb:5</a><br/>
+        
+      </td>
+      <td>36) Similar code found in :attrasgn (mass = 150)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:48</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_site_tabs.html.erb'>app/views/admin/shared/_site_tabs.html.erb:57</a><br/>
+        
+      </td>
+      <td>37) Similar code found in :block (mass = 150)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_creator_of_threshold_response.text.erb'>app/views/archived/petition_mailer/notify_creator_of_threshold_response.text.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_threshold_response.html.erb'>app/views/petition_mailer/notify_creator_of_threshold_response.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_threshold_response.text.erb'>app/views/petition_mailer/notify_creator_of_threshold_response.text.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_signer_of_threshold_response.html.erb'>app/views/petition_mailer/notify_signer_of_threshold_response.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_signer_of_threshold_response.text.erb'>app/views/petition_mailer/notify_signer_of_threshold_response.text.erb:19</a><br/>
+        
+      </td>
+      <td>38) Similar code found in :if (mass = 140)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/trending_domains/index.html.erb'>app/views/admin/trending_domains/index.html.erb:6</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/trending_ips/index.html.erb'>app/views/admin/trending_ips/index.html.erb:6</a><br/>
+        
+      </td>
+      <td>39) Similar code found in :attrasgn (mass = 138)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petition_tags/_petition_action_tags.html.erb'>app/views/admin/archived/petition_tags/_petition_action_tags.html.erb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_tags/_petition_action_tags.html.erb'>app/views/admin/petition_tags/_petition_action_tags.html.erb:13</a><br/>
+        
+      </td>
+      <td>40) IDENTICAL code found in :block (mass*2 = 132)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:49</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:55</a><br/>
+        
+      </td>
+      <td>41) Similar code found in :attrasgn (mass = 130)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:40</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:67</a><br/>
+        
+      </td>
+      <td>42) Similar code found in :attrasgn (mass = 128)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/petition/email.rb'>app/models/archived/petition/email.rb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/petition/email.rb'>app/models/petition/email.rb:2</a><br/>
+        
+      </td>
+      <td>43) IDENTICAL code found in :class (mass*2 = 124)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/index.html.erb'>app/views/archived/petitions/index.html.erb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/search/_results.html.erb'>app/views/petitions/search/_results.html.erb:6</a><br/>
+        
+      </td>
+      <td>44) IDENTICAL code found in :iter (mass*2 = 124)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_explanation_petitions.html.erb'>app/views/pages/home/_explanation_petitions.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_explanation_petitions.html.erb'>app/views/pages/home/_explanation_petitions.html.erb:20</a><br/>
+        
+      </td>
+      <td>45) Similar code found in :if (mass = 122)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:65</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:98</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:110</a><br/>
+        
+      </td>
+      <td>46) Similar code found in :defn (mass = 120)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/_signature.html.erb'>app/views/admin/archived/signatures/_signature.html.erb:42</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:40</a><br/>
+        
+      </td>
+      <td>47) IDENTICAL code found in :if (mass*2 = 120)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_details/show.html.erb'>app/views/admin/petition_details/show.html.erb:22</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_details/show.html.erb'>app/views/admin/petition_details/show.html.erb:28</a><br/>
+        
+      </td>
+      <td>48) Similar code found in :attrasgn (mass = 120)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:7</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:13</a><br/>
+        
+      </td>
+      <td>49) Similar code found in :attrasgn (mass = 118)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:65</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_form.html.erb'>app/views/admin/invalidations/_form.html.erb:71</a><br/>
+        
+      </td>
+      <td>50) Similar code found in :attrasgn (mass = 118)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_content.html.erb'>app/views/admin/archived/petitions/_petition_content.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_content.html.erb'>app/views/admin/petitions/_petition_content.html.erb:26</a><br/>
+        
+      </td>
+      <td>51) IDENTICAL code found in :if (mass*2 = 116)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_creator_stage.html.erb'>app/views/petitions/create/_creator_stage.html.erb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_form.html.erb'>app/views/signatures/_form.html.erb:24</a><br/>
+        
+      </td>
+      <td>52) Similar code found in :attrasgn (mass = 114)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/trending_domains_by_petition_job.rb'>app/jobs/trending_domains_by_petition_job.rb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/trending_ips_by_petition_job.rb'>app/jobs/trending_ips_by_petition_job.rb:9</a><br/>
+        
+      </td>
+      <td>53) Similar code found in :defn (mass = 112)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:172</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:346</a><br/>
+        
+      </td>
+      <td>54) IDENTICAL code found in :defn (mass*2 = 112)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:88</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:98</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:108</a><br/>
+        
+      </td>
+      <td>55) Similar code found in :attrasgn (mass = 111)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_creator_stage.html.erb'>app/views/petitions/create/_creator_stage.html.erb:12</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_form.html.erb'>app/views/signatures/_form.html.erb:1</a><br/>
+        
+      </td>
+      <td>56) Similar code found in :attrasgn (mass = 110)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:36</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:56</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:74</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:92</a><br/>
+        
+      </td>
+      <td>57) Similar code found in :defn (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:4</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:9</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:29</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:42</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:83</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:88</a><br/>
+        
+      </td>
+      <td>58) Similar code found in :defn (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin_users/_form.html.erb'>app/views/admin/admin_users/_form.html.erb:38</a><br/>
+        
+      </td>
+      <td>59) Similar code found in :attrasgn (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/rate_limits/_form.html.erb'>app/views/admin/rate_limits/_form.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/sites/_form.html.erb'>app/views/admin/sites/_form.html.erb:1</a><br/>
+        
+      </td>
+      <td>60) Similar code found in :attrasgn (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:62</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:64</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:68</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:71</a><br/>
+        
+      </td>
+      <td>61) Similar code found in :block (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_creator_stage.html.erb'>app/views/petitions/create/_creator_stage.html.erb:42</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_form.html.erb'>app/views/signatures/_form.html.erb:30</a><br/>
+        
+      </td>
+      <td>62) Similar code found in :attrasgn (mass = 108)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:767</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/task.rb'>app/models/task.rb:35</a><br/>
+        
+      </td>
+      <td>63) IDENTICAL code found in :defn (mass*2 = 104)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb'>app/views/admin/petition_emails/_petition_action_email_petitioners.html.erb:41</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petition_emails/edit.html.erb'>app/views/admin/petition_emails/edit.html.erb:21</a><br/>
+        
+      </td>
+      <td>64) Similar code found in :if (mass = 104)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/index.html.erb'>app/views/admin/archived/signatures/index.html.erb:21</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/index.html.erb'>app/views/admin/signatures/index.html.erb:21</a><br/>
+        
+      </td>
+      <td>65) Similar code found in :block (mass = 96)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:19</a><br/>
+        
+      </td>
+      <td>66) Similar code found in :block (mass = 95)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_closed_petition_show.html.erb'>app/views/petitions/_closed_petition_show.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_open_petition_show.html.erb'>app/views/petitions/_open_petition_show.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_rejected_petition_show.html.erb'>app/views/petitions/_rejected_petition_show.html.erb:8</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_replay_petition_stage.html.erb'>app/views/petitions/create/_replay_petition_stage.html.erb:12</a><br/>
+        
+      </td>
+      <td>67) Similar code found in :if (mass = 92)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/social_meta_helper.rb'>app/helpers/social_meta_helper.rb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/social_meta_helper.rb'>app/helpers/social_meta_helper.rb:12</a><br/>
+        
+      </td>
+      <td>68) Similar code found in :defn (mass = 88)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_debate_threshold.html.erb'>app/views/petitions/_debate_threshold.html.erb:72</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_response_threshold.html.erb'>app/views/petitions/_response_threshold.html.erb:35</a><br/>
+        
+      </td>
+      <td>69) Similar code found in :if (mass = 88)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_creator_stage.html.erb'>app/views/petitions/create/_creator_stage.html.erb:48</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/_form.html.erb'>app/views/signatures/_form.html.erb:36</a><br/>
+        
+      </td>
+      <td>70) Similar code found in :attrasgn (mass = 88)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:150</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:165</a><br/>
+        
+      </td>
+      <td>71) Similar code found in :defn (mass = 86)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/backfill_canonical_emails_job.rb'>app/jobs/backfill_canonical_emails_job.rb:4</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/backfill_signature_uuids_job.rb'>app/jobs/backfill_signature_uuids_job.rb:4</a><br/>
+        
+      </td>
+      <td>72) Similar code found in :defn (mass = 86)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:29</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:30</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:31</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_responded_petitions.html.erb'>app/views/pages/home/_responded_petitions.html.erb:14</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_responded_petitions.html.erb'>app/views/pages/home/_responded_petitions.html.erb:15</a><br/>
+        
+      </td>
+      <td>73) Similar code found in :attrasgn (mass = 85)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/debate_outcomes_controller.rb'>app/controllers/admin/archived/debate_outcomes_controller.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/government_response_controller.rb'>app/controllers/admin/archived/government_response_controller.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/schedule_debate_controller.rb'>app/controllers/admin/archived/schedule_debate_controller.rb:8</a><br/>
+        
+      </td>
+      <td>74) Similar code found in :defn (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:15</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:33</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:51</a><br/>
+        
+      </td>
+      <td>75) Similar code found in :defn (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/debate_outcomes_controller.rb'>app/controllers/admin/debate_outcomes_controller.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/government_response_controller.rb'>app/controllers/admin/government_response_controller.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/schedule_debate_controller.rb'>app/controllers/admin/schedule_debate_controller.rb:8</a><br/>
+        
+      </td>
+      <td>76) Similar code found in :defn (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:14</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:22</a><br/>
+        
+      </td>
+      <td>77) Similar code found in :defn (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/petition.rb'>app/models/archived/petition.rb:318</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/petition.rb'>app/models/petition.rb:750</a><br/>
+        
+      </td>
+      <td>78) IDENTICAL code found in :defn (mass*2 = 84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:141</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:220</a><br/>
+        
+      </td>
+      <td>79) IDENTICAL code found in :if (mass*2 = 84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:48</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:51</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/_invalidation.html.erb'>app/views/admin/invalidations/_invalidation.html.erb:54</a><br/>
+        
+      </td>
+      <td>80) Similar code found in :if (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_creator_of_threshold_response.html.erb'>app/views/archived/petition_mailer/notify_creator_of_threshold_response.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_signer_of_threshold_response.html.erb'>app/views/archived/petition_mailer/notify_signer_of_threshold_response.html.erb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petition_mailer/notify_signer_of_threshold_response.text.erb'>app/views/archived/petition_mailer/notify_signer_of_threshold_response.text.erb:19</a><br/>
+        
+      </td>
+      <td>81) Similar code found in :if (mass = 84)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:91</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:160</a><br/>
+        
+      </td>
+      <td>82) IDENTICAL code found in :if (mass*2 = 80)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:261</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:635</a><br/>
+        
+      </td>
+      <td>83) IDENTICAL code found in :defn (mass*2 = 80)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_actions.html.erb'>app/views/admin/archived/petitions/_petition_actions.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_actions.html.erb'>app/views/admin/archived/petitions/_petition_actions.html.erb:27</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_actions.html.erb'>app/views/admin/petitions/_petition_actions.html.erb:23</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_actions.html.erb'>app/views/admin/petitions/_petition_actions.html.erb:39</a><br/>
+        
+      </td>
+      <td>84) Similar code found in :if (mass = 80)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/local_petitions/all.html.erb'>app/views/local_petitions/all.html.erb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/local_petitions/show.html.erb'>app/views/local_petitions/show.html.erb:10</a><br/>
+        
+      </td>
+      <td>85) IDENTICAL code found in :if (mass*2 = 80)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:38</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:46</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:122</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:130</a><br/>
+        
+      </td>
+      <td>86) Similar code found in :defn (mass = 76)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:134</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:213</a><br/>
+        
+      </td>
+      <td>87) IDENTICAL code found in :block (mass*2 = 76)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/signatures/confirm.html.erb'>app/views/signatures/confirm.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/sponsors/confirm.html.erb'>app/views/sponsors/confirm.html.erb:1</a><br/>
+        
+      </td>
+      <td>88) IDENTICAL code found in :block (mass*2 = 76)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature_logs.rb'>app/models/signature_logs.rb:124</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature_logs.rb'>app/models/signature_logs.rb:157</a><br/>
+        
+      </td>
+      <td>89) Similar code found in :defn (mass = 74)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:163</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:195</a><br/>
+        
+      </td>
+      <td>90) Similar code found in :if (mass = 74)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/trending_domains/index.html.erb'>app/views/admin/trending_domains/index.html.erb:18</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/trending_ips/index.html.erb'>app/views/admin/trending_ips/index.html.erb:18</a><br/>
+        
+      </td>
+      <td>91) Similar code found in :if (mass = 74)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/concerns/email_delivery.rb'>app/jobs/concerns/email_delivery.rb:13</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/email_job.rb'>app/jobs/email_job.rb:11</a><br/>
+        
+      </td>
+      <td>92) IDENTICAL code found in :cdecl (mass*2 = 72)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/rejection.rb'>app/models/archived/rejection.rb:14</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/rejection.rb'>app/models/rejection.rb:11</a><br/>
+        
+      </td>
+      <td>93) IDENTICAL code found in :iter (mass*2 = 72)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:179</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:211</a><br/>
+        
+      </td>
+      <td>94) Similar code found in :if (mass = 70)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_content.html.erb'>app/views/admin/archived/petitions/_petition_content.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_content.html.erb'>app/views/admin/petitions/_petition_content.html.erb:6</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_content.html.erb'>app/views/admin/petitions/_petition_content.html.erb:11</a><br/>
+        
+      </td>
+      <td>95) Similar code found in :if (mass = 69)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/_signature.html.erb'>app/views/admin/archived/signatures/_signature.html.erb:59</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/_signature.html.erb'>app/views/admin/archived/signatures/_signature.html.erb:61</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:55</a><br/>
+        
+      </td>
+      <td>96) Similar code found in :block (mass = 69)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/import_constituencies_job.rb'>app/jobs/import_constituencies_job.rb:43</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/refresh_constituency_party_job.rb'>app/jobs/refresh_constituency_party_job.rb:61</a><br/>
+        
+      </td>
+      <td>97) IDENTICAL code found in :defn (mass*2 = 68)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/petition.rb'>app/models/archived/petition.rb:332</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/petition.rb'>app/models/petition.rb:764</a><br/>
+        
+      </td>
+      <td>98) IDENTICAL code found in :defn (mass*2 = 68)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:450</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:469</a><br/>
+        
+      </td>
+      <td>99) Similar code found in :defn (mass = 68)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:21</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:33</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:41</a><br/>
+        
+      </td>
+      <td>100) Similar code found in :defn (mass = 66)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_actions.html.erb'>app/views/admin/archived/petitions/_petition_actions.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_actions.html.erb'>app/views/admin/petitions/_petition_actions.html.erb:29</a><br/>
+        
+      </td>
+      <td>101) Similar code found in :if (mass = 66)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_details.html.erb'>app/views/admin/petitions/_petition_details.html.erb:70</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_details.html.erb'>app/views/admin/petitions/_petition_details.html.erb:85</a><br/>
+        
+      </td>
+      <td>102) Similar code found in :iter (mass = 66)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:17</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:20</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_debated_petitions.html.erb'>app/views/pages/home/_debated_petitions.html.erb:23</a><br/>
+        
+      </td>
+      <td>103) Similar code found in :if (mass = 66)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:67</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:75</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:87</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/helpers/admin_helper.rb'>app/helpers/admin_helper.rb:95</a><br/>
+        
+      </td>
+      <td>104) Similar code found in :defn (mass = 64)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:97</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:145</a><br/>
+        
+      </td>
+      <td>105) IDENTICAL code found in :defn (mass*2 = 64)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:162</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:336</a><br/>
+        
+      </td>
+      <td>106) IDENTICAL code found in :defn (mass*2 = 64)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/_petition_details.html.erb'>app/views/admin/archived/petitions/_petition_details.html.erb:31</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/_petition_details.html.erb'>app/views/admin/petitions/_petition_details.html.erb:42</a><br/>
+        
+      </td>
+      <td>107) IDENTICAL code found in :if (mass*2 = 64)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/tags/_form.html.erb'>app/views/admin/tags/_form.html.erb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_petition_stage.html.erb'>app/views/petitions/create/_petition_stage.html.erb:14</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_petition_stage.html.erb'>app/views/petitions/create/_petition_stage.html.erb:22</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/create/_petition_stage.html.erb'>app/views/petitions/create/_petition_stage.html.erb:39</a><br/>
+        
+      </td>
+      <td>108) Similar code found in :attrasgn (mass = 64)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_sponsored_petition_being_stopped.html.erb'>app/views/petition_mailer/notify_creator_of_sponsored_petition_being_stopped.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_of_validated_petition_being_stopped.html.erb'>app/views/petition_mailer/notify_creator_of_validated_petition_being_stopped.html.erb:11</a><br/>
+        
+      </td>
+      <td>109) IDENTICAL code found in :if (mass*2 = 64)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_that_petition_was_rejected.html.erb'>app/views/petition_mailer/notify_creator_that_petition_was_rejected.html.erb:6</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_sponsor_that_petition_was_rejected.html.erb'>app/views/petition_mailer/notify_sponsor_that_petition_was_rejected.html.erb:6</a><br/>
+        
+      </td>
+      <td>110) IDENTICAL code found in :if (mass*2 = 64)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/petition_emails_controller.rb'>app/controllers/admin/petition_emails_controller.rb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/petition_emails_controller.rb'>app/controllers/admin/petition_emails_controller.rb:32</a><br/>
+        
+      </td>
+      <td>111) Similar code found in :defn (mass = 62)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/petition_emails_controller.rb'>app/controllers/admin/archived/petition_emails_controller.rb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/petition_emails_controller.rb'>app/controllers/admin/archived/petition_emails_controller.rb:32</a><br/>
+        
+      </td>
+      <td>112) Similar code found in :defn (mass = 60)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archived/deliver_debate_outcome_email_job.rb'>app/jobs/archived/deliver_debate_outcome_email_job.rb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archived/deliver_debate_scheduled_email_job.rb'>app/jobs/archived/deliver_debate_scheduled_email_job.rb:2</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archived/deliver_threshold_response_email_job.rb'>app/jobs/archived/deliver_threshold_response_email_job.rb:2</a><br/>
+        
+      </td>
+      <td>113) Similar code found in :class (mass = 57)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:20</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/archived/petition_mailer.rb'>app/mailers/archived/petition_mailer.rb:29</a><br/>
+        
+      </td>
+      <td>114) Similar code found in :defn (mass = 56)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/notify_trending_domain_job.rb'>app/jobs/notify_trending_domain_job.rb:16</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/notify_trending_ip_job.rb'>app/jobs/notify_trending_ip_job.rb:16</a><br/>
+        
+      </td>
+      <td>115) Similar code found in :defn (mass = 54)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/lib/deprecated_attributes.rb'>app/lib/deprecated_attributes.rb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/lib/deprecated_attributes.rb'>app/lib/deprecated_attributes.rb:22</a><br/>
+        
+      </td>
+      <td>116) Similar code found in :block (mass = 54)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/show.html.erb'>app/views/archived/petitions/show.html.erb:177</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_other_business_details.html.erb'>app/views/petitions/_other_business_details.html.erb:6</a><br/>
+        
+      </td>
+      <td>117) Similar code found in :block (mass = 54)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/invalidations_controller.rb'>app/controllers/admin/invalidations_controller.rb:77</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/invalidations_controller.rb'>app/controllers/admin/invalidations_controller.rb:89</a><br/>
+        
+      </td>
+      <td>118) Similar code found in :defn (mass = 52)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency_petition_journal.rb'>app/models/constituency_petition_journal.rb:35</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/country_petition_journal.rb'>app/models/country_petition_journal.rb:31</a><br/>
+        
+      </td>
+      <td>119) Similar code found in :defn (mass = 50)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/rate_limits_controller.rb'>app/controllers/admin/rate_limits_controller.rb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/sites_controller.rb'>app/controllers/admin/sites_controller.rb:11</a><br/>
+        
+      </td>
+      <td>120) Similar code found in :defn (mass = 48)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/index.html.erb'>app/views/admin/domains/index.html.erb:39</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/domains/index.html.erb'>app/views/admin/domains/index.html.erb:46</a><br/>
+        
+      </td>
+      <td>121) Similar code found in :if (mass = 48)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_messages.html.erb'>app/views/admin/shared/_messages.html.erb:1</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_messages.html.erb'>app/views/admin/shared/_messages.html.erb:4</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/application/_messages.html.erb'>app/views/application/_messages.html.erb:1</a><br/>
+        
+      </td>
+      <td>122) Similar code found in :if (mass = 48)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/application/_parliament_dissolution_warning.html.erb'>app/views/application/_parliament_dissolution_warning.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/pages/home/_pending.html.erb'>app/views/pages/home/_pending.html.erb:5</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petitions/_closed_petition_show.html.erb'>app/views/petitions/_closed_petition_show.html.erb:20</a><br/>
+        
+      </td>
+      <td>123) Similar code found in :if (mass = 48)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/show.html.erb'>app/views/archived/petitions/show.html.erb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_creator_that_petition_was_rejected.html.erb'>app/views/petition_mailer/notify_creator_that_petition_was_rejected.html.erb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/notify_sponsor_that_petition_was_rejected.html.erb'>app/views/petition_mailer/notify_sponsor_that_petition_was_rejected.html.erb:10</a><br/>
+        
+      </td>
+      <td>124) Similar code found in :if (mass = 48)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/refresh_constituency_party_job.rb'>app/jobs/refresh_constituency_party_job.rb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency/api_query.rb'>app/models/constituency/api_query.rb:54</a><br/>
+        
+      </td>
+      <td>125) Similar code found in :block (mass = 44)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:47</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:52</a><br/>
+        
+      </td>
+      <td>126) Similar code found in :defn (mass = 44)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:57</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/mailers/petition_mailer.rb'>app/mailers/petition_mailer.rb:65</a><br/>
+        
+      </td>
+      <td>127) Similar code found in :defn (mass = 44)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/show.html.erb'>app/views/archived/petitions/show.html.erb:24</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/archived/petitions/show.html.erb'>app/views/archived/petitions/show.html.erb:31</a><br/>
+        
+      </td>
+      <td>128) Similar code found in :if (mass = 44)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:58</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:68</a><br/>
+        
+      </td>
+      <td>129) Similar code found in :block (mass = 42)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:118</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/admin/index.html.erb'>app/views/admin/admin/index.html.erb:124</a><br/>
+        
+      </td>
+      <td>130) Similar code found in :attrasgn (mass = 42)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:78</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/parliaments/show.html.erb'>app/views/admin/parliaments/show.html.erb:80</a><br/>
+        
+      </td>
+      <td>131) Similar code found in :block (mass = 42)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:23</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/signatures/_signature.html.erb'>app/views/admin/signatures/_signature.html.erb:35</a><br/>
+        
+      </td>
+      <td>132) Similar code found in :block (mass = 42)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:43</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:84</a><br/>
+        
+      </td>
+      <td>133) Similar code found in :defn (mass = 40)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:61</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:102</a><br/>
+        
+      </td>
+      <td>134) Similar code found in :defn (mass = 40)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/invalidations_controller.rb'>app/controllers/admin/invalidations_controller.rb:53</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/invalidations_controller.rb'>app/controllers/admin/invalidations_controller.rb:65</a><br/>
+        
+      </td>
+      <td>135) Similar code found in :defn (mass = 40)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency_petition_journal.rb'>app/models/constituency_petition_journal.rb:28</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/country_petition_journal.rb'>app/models/country_petition_journal.rb:24</a><br/>
+        
+      </td>
+      <td>136) Similar code found in :defn (mass = 40)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/domains_controller.rb'>app/controllers/admin/domains_controller.rb:35</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/holidays_controller.rb'>app/controllers/admin/holidays_controller.rb:11</a><br/>
+        
+      </td>
+      <td>137) Similar code found in :defn (mass = 38)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/site.rb'>app/models/site.rb:182</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/site.rb'>app/models/site.rb:202</a><br/>
+        
+      </td>
+      <td>138) Similar code found in :defn (mass = 38)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/shared/_header.html.erb'>app/views/admin/shared/_header.html.erb:3</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/application/_header.html.erb'>app/views/application/_header.html.erb:8</a><br/>
+        
+      </td>
+      <td>139) Similar code found in :attrasgn (mass = 38)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/domains_controller.rb'>app/controllers/admin/domains_controller.rb:19</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/invalidations_controller.rb'>app/controllers/admin/invalidations_controller.rb:19</a><br/>
+        
+      </td>
+      <td>140) Similar code found in :defn (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/fetch_country_register_job.rb'>app/jobs/fetch_country_register_job.rb:41</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/refresh_constituency_party_job.rb'>app/jobs/refresh_constituency_party_job.rb:69</a><br/>
+        
+      </td>
+      <td>141) Similar code found in :defn (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/archived/signature.rb'>app/models/archived/signature.rb:45</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/signature.rb'>app/models/signature.rb:73</a><br/>
+        
+      </td>
+      <td>142) Similar code found in :defn (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/rate_limit.rb'>app/models/rate_limit.rb:176</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/rate_limit.rb'>app/models/rate_limit.rb:187</a><br/>
+        
+      </td>
+      <td>143) Similar code found in :defn (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/invalidations/index.html.erb'>app/views/admin/invalidations/index.html.erb:35</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/tags/index.html.erb'>app/views/admin/tags/index.html.erb:29</a><br/>
+        
+      </td>
+      <td>144) Similar code found in :if (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/gather_sponsors_for_petition.html.erb'>app/views/petition_mailer/gather_sponsors_for_petition.html.erb:10</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/petition_mailer/gather_sponsors_for_petition.text.erb'>app/views/petition_mailer/gather_sponsors_for_petition.text.erb:10</a><br/>
+        
+      </td>
+      <td>145) Similar code found in :if (mass = 36)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/archived/signatures_controller.rb'>app/controllers/admin/archived/signatures_controller.rb:25</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/admin/signatures_controller.rb'>app/controllers/admin/signatures_controller.rb:66</a><br/>
+        
+      </td>
+      <td>146) Similar code found in :defn (mass = 34)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:33</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:49</a><br/>
+        
+      </td>
+      <td>147) Similar code found in :block (mass = 34)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/petitions/index.html.erb'>app/views/admin/archived/petitions/index.html.erb:11</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/petitions/index.html.erb'>app/views/admin/petitions/index.html.erb:7</a><br/>
+        
+      </td>
+      <td>148) Similar code found in :attrasgn (mass = 34)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/_signature.html.erb'>app/views/admin/archived/signatures/_signature.html.erb:25</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/views/admin/archived/signatures/_signature.html.erb'>app/views/admin/archived/signatures/_signature.html.erb:37</a><br/>
+        
+      </td>
+      <td>149) Similar code found in :block (mass = 34)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/signatures_controller.rb'>app/controllers/signatures_controller.rb:185</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/controllers/sponsors_controller.rb'>app/controllers/sponsors_controller.rb:44</a><br/>
+        
+      </td>
+      <td>150) Similar code found in :defn (mass = 32)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:99</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/jobs/archive_petition_job.rb'>app/jobs/archive_petition_job.rb:104</a><br/>
+        
+      </td>
+      <td>151) Similar code found in :if (mass = 32)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency_petition_journal.rb'>app/models/constituency_petition_journal.rb:12</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/country_petition_journal.rb'>app/models/country_petition_journal.rb:12</a><br/>
+        
+      </td>
+      <td>152) Similar code found in :defn (mass = 32)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency_petition_journal.rb'>app/models/constituency_petition_journal.rb:44</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/country_petition_journal.rb'>app/models/country_petition_journal.rb:40</a><br/>
+        
+      </td>
+      <td>153) Similar code found in :defn (mass = 32)</td>
+    </tr>
+    
+  
+    <tr class='dark'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/constituency_petition_journal.rb'>app/models/constituency_petition_journal.rb:60</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/country_petition_journal.rb'>app/models/country_petition_journal.rb:52</a><br/>
+        
+      </td>
+      <td>154) Similar code found in :defn (mass = 32)</td>
+    </tr>
+    
+  
+    <tr class='light'>
+      <td>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/rate_limit.rb'>app/models/rate_limit.rb:198</a><br/>
+        
+          <a href='file:///Users/etagwerker/Projects/fastruby/quality/e-petitions/app/models/rate_limit.rb'>app/models/rate_limit.rb:209</a><br/>
+        
+      </td>
+      <td>155) Similar code found in :defn (mass = 32)</td>
+    </tr>
+    
+  
+</table>
+
+<p>Generated on 2019-09-22 14:30:40 -0400</p>
+
+    </div>
+
+    
+    <script language="javascript" src="bluff_graph.js" type="text/javascript"></script>
+  </body>
+</html>

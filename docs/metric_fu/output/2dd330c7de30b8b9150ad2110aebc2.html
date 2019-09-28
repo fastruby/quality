@@ -1,0 +1,2065 @@
+<html>
+  <head>
+    <style>
+      table { background: #fff; color: #000; }
+.ruby .normal { color: #000; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #b1713d; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #00f; }
+.ruby .string { color: #4a4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #000; }
+.ruby .constant { color: #b1713d; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #f84; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }
+    </style>
+    <title>Analyzed File Report</title>
+  </head>
+  <body>
+    <table cellpadding='0' cellspacing='0' class='ruby'>
+      
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span class="keyword">class</span> <span class="class">AdminUser</span> &lt; <span class="constant">ActiveRecord</span>::<span class="constant">Base</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>  <span class="constant">DISABLED_LOGIN_COUNT</span> = <span class="integer">5</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span class="constant">SYSADMIN_ROLE</span> = <span class="string"><span class="delimiter">'</span><span class="content">sysadmin</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>  <span class="constant">MODERATOR_ROLE</span> = <span class="string"><span class="delimiter">'</span><span class="content">moderator</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>  <span class="constant">ROLES</span> = [<span class="constant">SYSADMIN_ROLE</span>, <span class="constant">MODERATOR_ROLE</span>]
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>  <span class="constant">PASSWORD_REGEX</span> = <span class="regexp"><span class="delimiter">/</span><span class="char">\A</span><span class="content">.*(?=.*</span><span class="char">\d</span><span class="content">)(?=.*[a-z])(?=.*[A-Z])(?=.*[</span><span class="char">\W</span><span class="content">_]).*</span><span class="char">\z</span><span class="delimiter">/</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>  <span class="keyword">class</span> <span class="class">CannotDeleteCurrentUser</span> &lt; <span class="constant">RuntimeError</span>; <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  <span class="keyword">class</span> <span class="class">MustBeAtLeastOneAdminUser</span> &lt; <span class="constant">RuntimeError</span>; <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>  acts_as_authentic <span class="keyword">do</span> |config|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>    config.check_passwords_against_database = <span class="predefined-constant">true</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>    config.ignore_blank_passwords = <span class="predefined-constant">true</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>    config.logged_in_timeout = <span class="constant">Site</span>.login_timeout
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>    config.require_password_confirmation = <span class="predefined-constant">true</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>    config.merge_validates_length_of_password_field_options <span class="key">minimum</span>: <span class="integer">8</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n18" name="n18">18</a></span>    config.merge_validates_uniqueness_of_email_field_options <span class="key">case_sensitive</span>: <span class="predefined-constant">false</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>    config.merge_validates_format_of_email_field_options <span class="key">unless</span>: -&gt;(u) { u.email.blank? }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>    config.merge_validates_length_of_email_field_options <span class="key">unless</span>: -&gt;(u) { u.email.blank? }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n21" name="n21">21</a></span>    config.merge_validates_length_of_password_field_options <span class="key">unless</span>: -&gt;(u) { u.password.blank? }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n22" name="n22">22</a></span>    config.merge_validates_confirmation_of_password_field_options <span class="key">unless</span>: -&gt;(u) { u.password.blank? }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n23" name="n23">23</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n24" name="n24">24</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n25" name="n25">25</a></span>  <span class="comment"># = Validations =</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n26" name="n26">26</a></span>  validates_presence_of <span class="symbol">:email</span>, <span class="symbol">:first_name</span>, <span class="symbol">:last_name</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n27" name="n27">27</a></span>  validates_presence_of <span class="symbol">:password</span>, <span class="key">on</span>: <span class="symbol">:create</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n28" name="n28">28</a></span>  validates_format_of <span class="symbol">:password</span>, <span class="key">with</span>: <span class="constant">PASSWORD_REGEX</span>, <span class="key">allow_blank</span>: <span class="predefined-constant">true</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n29" name="n29">29</a></span>  validates_inclusion_of <span class="symbol">:role</span>, <span class="key">in</span>: <span class="constant">ROLES</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>  <span class="comment"># = Callbacks =</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n32" name="n32">32</a></span>  before_update <span class="key">if</span>: <span class="symbol">:crypted_password_changed?</span> <span class="keyword">do</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n33" name="n33">33</a></span>    <span class="predefined-constant">self</span>.force_password_reset = <span class="predefined-constant">false</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>    <span class="predefined-constant">self</span>.password_changed_at = <span class="constant">Time</span>.current
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n36" name="n36">36</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n37" name="n37">37</a></span>  <span class="comment"># = Finders =</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>  scope <span class="symbol">:by_name</span>, -&gt; { order(<span class="symbol">:last_name</span>, <span class="symbol">:first_name</span>) }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>  scope <span class="symbol">:by_role</span>, -&gt;(role) { where(<span class="key">role</span>: role).order(<span class="symbol">:id</span>) }
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>  <span class="comment"># = Methods =</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 2 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>  <span class="keyword">def</span> <span class="function">current_password</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span>    <span class="keyword">defined?</span>(<span class="instance-variable">@current_password</span>) ? <span class="instance-variable">@current_password</span> : <span class="predefined-constant">nil</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n44" name="n44">44</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n45" name="n45">45</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n46" name="n46">46</a></span>  <span class="keyword">def</span> <span class="function">current_password=</span>(value)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n47" name="n47">47</a></span>    <span class="instance-variable">@current_password</span> = value
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n48" name="n48">48</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n49" name="n49">49</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>TooManyStatements - has approx 8 statements &raquo; reek</li>
+               
+                 <li>Complexity 6 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>  <span class="keyword">def</span> <span class="function">update_with_password</span>(attrs)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n51" name="n51">51</a></span>    <span class="keyword">if</span> attrs[<span class="symbol">:password</span>].blank?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n52" name="n52">52</a></span>      attrs.delete(<span class="symbol">:password</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n53" name="n53">53</a></span>      attrs.delete(<span class="symbol">:password_confirmation</span>) <span class="keyword">if</span> attrs[<span class="symbol">:password_confirmation</span>].blank?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n54" name="n54">54</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n55" name="n55">55</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n56" name="n56">56</a></span>    <span class="predefined-constant">self</span>.attributes = attrs
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n57" name="n57">57</a></span>    <span class="predefined-constant">self</span>.valid?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n58" name="n58">58</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n59" name="n59">59</a></span>    <span class="keyword">if</span> current_password.blank?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>      errors.add(<span class="symbol">:current_password</span>, <span class="symbol">:blank</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n61" name="n61">61</a></span>    <span class="keyword">elsif</span> !valid_password?(current_password)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n62" name="n62">62</a></span>      errors.add(<span class="symbol">:current_password</span>, <span class="symbol">:invalid</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n63" name="n63">63</a></span>    <span class="keyword">elsif</span> current_password == password
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n64" name="n64">64</a></span>      errors.add(<span class="symbol">:password</span>, <span class="symbol">:taken</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n65" name="n65">65</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n66" name="n66">66</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n67" name="n67">67</a></span>    errors.empty? &amp;&amp; save(<span class="key">validate</span>: <span class="predefined-constant">false</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n68" name="n68">68</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n69" name="n69">69</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>ControlParameter - is controlled by argument 'current_user' &raquo; reek</li>
+               
+                 <li>Complexity 3 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n70" name="n70">70</a></strong></span>  <span class="keyword">def</span> <span class="function">destroy</span>(<span class="key">current_user</span>: <span class="predefined-constant">nil</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n71" name="n71">71</a></span>    <span class="keyword">if</span> <span class="predefined-constant">self</span> == current_user
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n72" name="n72">72</a></span>      raise <span class="constant">CannotDeleteCurrentUser</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Cannot delete current user</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n73" name="n73">73</a></span>    <span class="keyword">elsif</span> <span class="predefined-constant">self</span>.class.count &lt; <span class="integer">2</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n74" name="n74">74</a></span>      raise <span class="constant">MustBeAtLeastOneAdminUser</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">There must be at least one admin user</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n75" name="n75">75</a></span>    <span class="keyword">else</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n76" name="n76">76</a></span>      <span class="keyword">super</span>()
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n77" name="n77">77</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n78" name="n78">78</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n79" name="n79">79</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n80" name="n80">80</a></strong></span>  <span class="keyword">def</span> <span class="function">name</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n81" name="n81">81</a></span>    <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">#{</span>last_name<span class="inline-delimiter">}</span></span><span class="content">, </span><span class="inline"><span class="inline-delimiter">#{</span>first_name<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n82" name="n82">82</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n83" name="n83">83</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n84" name="n84">84</a></span>  <span class="keyword">def</span> <span class="function">pretty_name</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n85" name="n85">85</a></span>    <span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">#{</span>first_name<span class="inline-delimiter">}</span></span><span class="content"> </span><span class="inline"><span class="inline-delimiter">#{</span>last_name<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n86" name="n86">86</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n87" name="n87">87</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n88" name="n88">88</a></span>  <span class="keyword">def</span> <span class="function">is_a_sysadmin?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n89" name="n89">89</a></span>    <span class="predefined-constant">self</span>.role == <span class="string"><span class="delimiter">'</span><span class="content">sysadmin</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n90" name="n90">90</a></strong></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n91" name="n91">91</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n92" name="n92">92</a></span>  <span class="keyword">def</span> <span class="function">is_a_moderator?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n93" name="n93">93</a></span>    <span class="predefined-constant">self</span>.role == <span class="string"><span class="delimiter">'</span><span class="content">moderator</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n94" name="n94">94</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n95" name="n95">95</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>DuplicateMethodCall - calls 'self.password_changed_at' 2 times &raquo; reek</li>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n96" name="n96">96</a></span>  <span class="keyword">def</span> <span class="function">has_to_change_password?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n97" name="n97">97</a></span>    <span class="predefined-constant">self</span>.force_password_reset <span class="keyword">or</span> (<span class="predefined-constant">self</span>.password_changed_at <span class="keyword">and</span> <span class="predefined-constant">self</span>.password_changed_at &lt; <span class="integer">9</span>.months.ago)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n98" name="n98">98</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n99" name="n99">99</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n100" name="n100">100</a></strong></span>  <span class="keyword">def</span> <span class="function">can_take_petitions_down?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n101" name="n101">101</a></span>    is_a_sysadmin? || is_a_moderator?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n102" name="n102">102</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n103" name="n103">103</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n104" name="n104">104</a></span>  <span class="keyword">def</span> <span class="function">can_edit_responses?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n105" name="n105">105</a></span>    is_a_sysadmin? || is_a_moderator?
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n106" name="n106">106</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n107" name="n107">107</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n108" name="n108">108</a></span>  <span class="keyword">def</span> <span class="function">account_disabled</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n109" name="n109">109</a></span>    <span class="predefined-constant">self</span>.failed_login_count &gt;= <span class="constant">DISABLED_LOGIN_COUNT</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n110" name="n110">110</a></strong></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n111" name="n111">111</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 2 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n112" name="n112">112</a></span>  <span class="keyword">def</span> <span class="function">account_disabled=</span>(flag)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n113" name="n113">113</a></span>    <span class="predefined-constant">self</span>.failed_login_count = (flag == <span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span> <span class="keyword">or</span> !flag) ? <span class="integer">0</span> : <span class="constant">DISABLED_LOGIN_COUNT</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n114" name="n114">114</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n115" name="n115">115</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n116" name="n116">116</a></span>  <span class="keyword">def</span> <span class="function">elapsed_time</span>(now = <span class="constant">Time</span>.current)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n117" name="n117">117</a></span>    (now - last_request_at).floor
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n118" name="n118">118</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n119" name="n119">119</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+             <ul>
+               
+                 <li>Complexity 1 &raquo; saikuro</li>
+               
+            </ul>
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n120" name="n120">120</a></strong></span>  <span class="keyword">def</span> <span class="function">time_remaining</span>(now = <span class="constant">Time</span>.current)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n121" name="n121">121</a></span>    [<span class="constant">Site</span>.login_timeout - elapsed_time(now), <span class="integer">0</span>].max
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n122" name="n122">122</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n123" name="n123">123</a></span><span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+    </table>
+  </body>
+</html>

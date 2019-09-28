@@ -1,0 +1,703 @@
+<html>
+  <head>
+    <style>
+      table { background: #fff; color: #000; }
+.ruby .normal { color: #000; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #b1713d; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #00f; }
+.ruby .string { color: #4a4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #000; }
+.ruby .constant { color: #b1713d; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #f84; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }
+    </style>
+    <title>Analyzed File Report</title>
+  </head>
+  <body>
+    <table cellpadding='0' cellspacing='0' class='ruby'>
+      
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>namespace <span class="symbol">:errors</span> <span class="keyword">do</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>  desc <span class="string"><span class="delimiter">&quot;</span><span class="content">Precompile error pages into /public</span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>  task <span class="symbol">:precompile</span> =&gt; <span class="symbol">:environment</span> <span class="keyword">do</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>    require <span class="string"><span class="delimiter">'</span><span class="content">base64</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>    controller_class = <span class="constant">Class</span>.new(<span class="constant">ActionController</span>::<span class="constant">Base</span>) <span class="keyword">do</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>      <span class="keyword">def</span> <span class="function">url_options</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>        <span class="constant">Site</span>.constraints_for_public
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>      <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>    context_class = <span class="constant">Class</span>.new(<span class="constant">ActionView</span>::<span class="constant">Base</span>) <span class="keyword">do</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>      include <span class="constant">Rails</span>.application.routes.url_helpers
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>      <span class="keyword">def</span> <span class="function">data_uri</span>(path)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>        <span class="string"><span class="delimiter">&quot;</span><span class="content">data:image/png;base64,</span><span class="inline"><span class="inline-delimiter">#{</span><span class="constant">Base64</span>.strict_encode64(asset_data(path))<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>      <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n18" name="n18">18</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>      <span class="keyword">def</span> <span class="function">asset_data</span>(path)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>        <span class="constant">File</span>.read(<span class="constant">Rails</span>.root.join(<span class="string"><span class="delimiter">'</span><span class="content">app</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">assets</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">images</span><span class="delimiter">'</span></span>, path))
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n21" name="n21">21</a></span>      <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n22" name="n22">22</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n23" name="n23">23</a></span>      <span class="keyword">def</span> <span class="function">home_page?</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n24" name="n24">24</a></span>        <span class="predefined-constant">false</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n25" name="n25">25</a></span>      <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n26" name="n26">26</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n27" name="n27">27</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n28" name="n28">28</a></span>    <span class="string"><span class="delimiter">%w[</span><span class="content">400 403 404 406 422 500 503</span><span class="delimiter">]</span></span>.each <span class="keyword">do</span> |status|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n29" name="n29">29</a></span>      context = context_class.new(<span class="string"><span class="delimiter">'</span><span class="content">app/views</span><span class="delimiter">'</span></span>, { <span class="key">status</span>: status }, controller_class.new)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>      <span class="constant">File</span>.open(<span class="constant">Rails</span>.public_path.join(<span class="string"><span class="delimiter">&quot;</span><span class="inline"><span class="inline-delimiter">#{</span>status<span class="inline-delimiter">}</span></span><span class="content">.html</span><span class="delimiter">&quot;</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">wb</span><span class="delimiter">'</span></span>) <span class="keyword">do</span> |f|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>        f.write context.render(<span class="key">template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">errors/</span><span class="inline"><span class="inline-delimiter">#{</span>status<span class="inline-delimiter">}</span></span><span class="delimiter">&quot;</span></span>, <span class="key">layout</span>: <span class="string"><span class="delimiter">'</span><span class="content">errors/layout</span><span class="delimiter">'</span></span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n32" name="n32">32</a></span>      <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n33" name="n33">33</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>    context = context_class.new(<span class="string"><span class="delimiter">'</span><span class="content">app/views</span><span class="delimiter">'</span></span>, {}, controller_class.new)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n36" name="n36">36</a></span>    <span class="constant">File</span>.open(<span class="constant">Rails</span>.public_path.join(<span class="string"><span class="delimiter">&quot;</span><span class="content">error.css</span><span class="delimiter">&quot;</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">wb</span><span class="delimiter">'</span></span>) <span class="keyword">do</span> |f|
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n37" name="n37">37</a></span>      f.write context.render(<span class="key">template</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">errors/error</span><span class="delimiter">&quot;</span></span>, <span class="key">layout</span>: <span class="predefined-constant">false</span>)
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>    <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>  <span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span><span class="keyword">end</span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>task <span class="string"><span class="delimiter">'</span><span class="content">assets:precompile</span><span class="delimiter">'</span></span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">errors:precompile</span><span class="delimiter">'</span></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+    </table>
+  </body>
+</html>

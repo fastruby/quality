@@ -1,0 +1,2079 @@
+<html>
+  <head>
+    <style>
+      table { background: #fff; color: #000; }
+.ruby .normal { color: #000; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #b1713d; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #00f; }
+.ruby .string { color: #4a4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #000; }
+.ruby .constant { color: #b1713d; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #f84; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }
+    </style>
+    <title>Analyzed File Report</title>
+  </head>
+  <body>
+    <table cellpadding='0' cellspacing='0' class='ruby'>
+      
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>&lt;dl&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>  &lt;dt&gt;<span class="constant">Status</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>  &lt;dd <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">petition-meta-state</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> @petition.state.capitalize %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">unless</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.in_todo_list? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>  &lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to admin_petition_signatures_url(@petition) do %&gt;</span></span>
+<span class="line-numbers"><a href="#n7" name="n7">7</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>    &lt;dt&gt;<span class="constant">Signatures</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n8" name="n8">8</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    &lt;dd <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">petition-meta-signature-count</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_with_delimiter(@petition.signature_count) %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>&lt;dt&gt;<span class="constant">Creator</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>&lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>  &lt;<span class="string"><span class="delimiter">%=</span><span class="content">  @petition.creator.name %&gt;&lt;br /&gt;</span></span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>  &lt;<span class="string"><span class="delimiter">%=</span><span class="content"> auto_link(@petition.creator.email) %&gt;</span></span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n17" name="n17">17</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n18" name="n18">18</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.collecting_sponsors? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n19" name="n19">19</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n19" name="n19">19</a></span>  &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>    &lt;<span class="string"><span class="delimiter">%=</span><span class="content">  button_to 'Resend email to the creator', resend_admin_petition_url(@petition), method: :post, class: 'button', data: { confirm: &quot;Resend a copy of the email to the petition creator and forward a copy to the feedback address?&quot; } %&gt;</span></span>
+<span class="line-numbers"><a href="#n21" name="n21">21</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n21" name="n21">21</a></span>  &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n22" name="n22">22</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n22" name="n22">22</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n23" name="n23">23</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n24" name="n24">24</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.in_todo_list? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n25" name="n25">25</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n25" name="n25">25</a></span>  &lt;dt&gt;<span class="constant">Created</span> on&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n26" name="n26">26</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n26" name="n26">26</a></span>  &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> date_time_format(@petition.created_at) %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n27" name="n27">27</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n27" name="n27">27</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n28" name="n28">28</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.moderation_threshold_reached_at? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n29" name="n29">29</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n29" name="n29">29</a></span>    &lt;dt&gt;<span class="constant">Sponsored</span> on&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>    &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> date_time_format(@petition.moderation_threshold_reached_at) %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n31" name="n31">31</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n31" name="n31">31</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n32" name="n32">32</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">else</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n33" name="n33">33</a></span>  &lt;dt&gt;<span class="constant">Deadline</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n34" name="n34">34</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n34" name="n34">34</a></span>  &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> date_format_admin(@petition.deadline) %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n35" name="n35">35</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n35" name="n35">35</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n36" name="n36">36</a></span>  &lt;dt&gt;<span class="constant">Link</span> to petition&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n37" name="n37">37</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n37" name="n37">37</a></span>  &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to petition_path(@petition), petition_url(@petition), target: &quot;_blank&quot; %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n38" name="n38">38</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n38" name="n38">38</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n39" name="n39">39</a></span>  &lt;dt&gt;<span class="constant">ID</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n40" name="n40">40</a></strong></span>  &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> @petition.id %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n41" name="n41">41</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n41" name="n41">41</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n42" name="n42">42</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.tags? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n43" name="n43">43</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n43" name="n43">43</a></span>    &lt;dt&gt;<span class="constant">Tags</span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n44" name="n44">44</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n44" name="n44">44</a></span>    &lt;dd&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> @petition.tag_names.join(&quot;, &quot;) %&gt;&lt;/dd&gt;</span></span>
+<span class="line-numbers"><a href="#n45" name="n45">45</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n45" name="n45">45</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n46" name="n46">46</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n47" name="n47">47</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span>current_user.is_a_sysadmin? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n48" name="n48">48</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n48" name="n48">48</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.statistics.refreshed? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n49" name="n49">49</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n49" name="n49">49</a></span>      &lt;dt&gt;<span class="constant">Duplicate</span> emails&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n50" name="n50">50</a></strong></span>      &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n51" name="n51">51</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.statistics.duplicate_emails.present? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n52" name="n52">52</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n52" name="n52">52</a></span>          &lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_with_delimiter(@petition.statistics.duplicate_emails) %&gt;</span></span>
+<span class="line-numbers"><a href="#n53" name="n53">53</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n53" name="n53">53</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">else</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n54" name="n54">54</a></span>          
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n55" name="n55">55</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n56" name="n56">56</a></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n57" name="n57">57</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n57" name="n57">57</a></span>      &lt;dt&gt;<span class="constant">Pending</span> rate&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n58" name="n58">58</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n58" name="n58">58</a></span>      &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n59" name="n59">59</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.statistics.pending_rate.present? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n60" name="n60">60</a></strong></span>          &lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_to_percentage(@petition.statistics.pending_rate, precision: 1) %&gt;</span></span>
+<span class="line-numbers"><a href="#n61" name="n61">61</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n61" name="n61">61</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">else</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n62" name="n62">62</a></span>          
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n63" name="n63">63</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n64" name="n64">64</a></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n65" name="n65">65</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n65" name="n65">65</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n66" name="n66">66</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n67" name="n67">67</a></span>    &lt;dt&gt;<span class="constant">Trending</span> <span class="constant">IP</span> addresses&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n68" name="n68">68</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n68" name="n68">68</a></span>    &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n69" name="n69">69</a></span>      &lt;table <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">fraudulent-domains</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n70" name="n70">70</a></strong></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">@petition.trending_ips.limit(10).each</span><span class="delimiter"> </span></span><span class="keyword">do</span> |trending_ip| <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n71" name="n71">71</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n71" name="n71">71</a></span>          &lt;tr&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n72" name="n72">72</a></span>            &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to trending_ip.ip_address, admin_petition_trending_ips_path(@petition, q: trending_ip.ip_address) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n73" name="n73">73</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n73" name="n73">73</a></span>            &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_with_delimiter(trending_ip.count) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n74" name="n74">74</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n74" name="n74">74</a></span>          &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">tr&gt;</span></span>
+<span class="line-numbers"><a href="#n75" name="n75">75</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n75" name="n75">75</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n76" name="n76">76</a></span>        &lt;tr&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n77" name="n77">77</a></span>          &lt;td colspan=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to &quot;View all trending IP addresses&quot;, admin_petition_trending_ips_path(@petition) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n78" name="n78">78</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n78" name="n78">78</a></span>        &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">tr&gt;</span></span>
+<span class="line-numbers"><a href="#n79" name="n79">79</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n79" name="n79">79</a></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">table&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n80" name="n80">80</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n80" name="n80">80</a></strong></span>    &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n81" name="n81">81</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n81" name="n81">81</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n82" name="n82">82</a></span>    &lt;dt&gt;<span class="constant">Trending</span> domains&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dt&gt;</span></span>
+<span class="line-numbers"><a href="#n83" name="n83">83</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n83" name="n83">83</a></span>    &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n84" name="n84">84</a></span>      &lt;table <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">fraudulent-domains</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n85" name="n85">85</a></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">@petition.trending_domains.limit(10).each</span><span class="delimiter"> </span></span><span class="keyword">do</span> |trending_domain| <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n86" name="n86">86</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n86" name="n86">86</a></span>          &lt;tr&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n87" name="n87">87</a></span>            &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to trending_domain.domain, admin_petition_trending_domains_path(@petition, q: trending_domain.domain) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n88" name="n88">88</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n88" name="n88">88</a></span>            &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_with_delimiter(trending_domain.count) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n89" name="n89">89</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n89" name="n89">89</a></span>          &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">tr&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n90" name="n90">90</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n90" name="n90">90</a></strong></span>        &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n91" name="n91">91</a></span>        &lt;tr&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n92" name="n92">92</a></span>          &lt;td colspan=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to &quot;View all trending domains&quot;, admin_petition_trending_domains_path(@petition) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n93" name="n93">93</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n93" name="n93">93</a></span>        &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">tr&gt;</span></span>
+<span class="line-numbers"><a href="#n94" name="n94">94</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n94" name="n94">94</a></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">table&gt;</span></span>
+<span class="line-numbers"><a href="#n95" name="n95">95</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n95" name="n95">95</a></span>    &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n96" name="n96">96</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n96" name="n96">96</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n97" name="n97">97</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.fraudulent_domains? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n98" name="n98">98</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n98" name="n98">98</a></span>      &lt;dd&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n99" name="n99">99</a></span>        &lt;details&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n100" name="n100">100</a></strong></span>          &lt;summary&gt;<span class="constant">Fraudulent</span> domains&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">summary&gt;</span></span>
+<span class="line-numbers"><a href="#n101" name="n101">101</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n101" name="n101">101</a></span>          &lt;table <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">fraudulent-domains</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n102" name="n102">102</a></span>            &lt;<span class="string"><span class="delimiter">% </span><span class="content">@petition.fraudulent_domains.each</span><span class="delimiter"> </span></span><span class="keyword">do</span> |domain, count| <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n103" name="n103">103</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n103" name="n103">103</a></span>              &lt;tr&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n104" name="n104">104</a></span>                &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> domain %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n105" name="n105">105</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n105" name="n105">105</a></span>                &lt;td&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> number_with_delimiter(count) %&gt;&lt;/td&gt;</span></span>
+<span class="line-numbers"><a href="#n106" name="n106">106</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n106" name="n106">106</a></span>              &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">tr&gt;</span></span>
+<span class="line-numbers"><a href="#n107" name="n107">107</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n107" name="n107">107</a></span>            &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n108" name="n108">108</a></span>          &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">table&gt;</span></span>
+<span class="line-numbers"><a href="#n109" name="n109">109</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n109" name="n109">109</a></span>        &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">details&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n110" name="n110">110</a></strong></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n110" name="n110">110</a></strong></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dd&gt;</span></span>
+<span class="line-numbers"><a href="#n111" name="n111">111</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n111" name="n111">111</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n112" name="n112">112</a></span>  &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n113" name="n113">113</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n114" name="n114">114</a></span>&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">dl&gt;</span></span>
+<span class="line-numbers"><a href="#n115" name="n115">115</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n115" name="n115">115</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n116" name="n116">116</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span>current_user.is_a_sysadmin? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n117" name="n117">117</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n117" name="n117">117</a></span>  &lt;div <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">statistics-meta</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n118" name="n118">118</a></span>    &lt;small&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n119" name="n119">119</a></span>      &lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span><span class="instance-variable">@petition</span>.statistics.refreshed? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><strong><a href="#n120" name="n120">120</a></strong></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n120" name="n120">120</a></strong></span>        <span class="constant">Statistics</span> last updated at &lt;time datetime=<span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;%= @petition.statistics.refreshed_at.iso8601 %&gt;</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> date_time_format(@petition.statistics.refreshed_at) %&gt;&lt;/time&gt;</span></span>
+<span class="line-numbers"><a href="#n121" name="n121">121</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n121" name="n121">121</a></span>      &lt;<span class="string"><span class="delimiter">% </span><span class="content">else</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n122" name="n122">122</a></span>        <span class="constant">Statistics</span> <span class="keyword">not</span> yet generated
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n123" name="n123">123</a></span>      &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n124" name="n124">124</a></span>    &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">small&gt;</span></span>
+<span class="line-numbers"><a href="#n125" name="n125">125</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n125" name="n125">125</a></span>
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n126" name="n126">126</a></span>    &lt;<span class="string"><span class="delimiter">%=</span><span class="content">  button_to 'Refresh statistics', admin_petition_statistics_url(@petition), method: :patch, class: 'button' %&gt;</span></span>
+<span class="line-numbers"><a href="#n127" name="n127">127</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n127" name="n127">127</a></span>  &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">div&gt;</span></span>
+<span class="line-numbers"><a href="#n128" name="n128">128</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n128" name="n128">128</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+    </table>
+  </body>
+</html>

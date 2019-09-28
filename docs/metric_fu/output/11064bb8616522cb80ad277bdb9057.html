@@ -1,0 +1,287 @@
+<html>
+  <head>
+    <style>
+      table { background: #fff; color: #000; }
+.ruby .normal { color: #000; }
+.ruby .comment { color: #005; font-style: italic; }
+.ruby .keyword { color: #A44; font-weight: bold; }
+.ruby .method { color: #44f; }
+.ruby .class { color: #b1713d; }
+.ruby .module { color: #050; }
+.ruby .punct { color: #668; font-weight: bold; }
+.ruby .symbol { color: #00f; }
+.ruby .string { color: #4a4; }
+.ruby .char { color: #F07; }
+.ruby .ident { color: #000; }
+.ruby .constant { color: #b1713d; }
+.ruby .regex { color: #B66; background: #FEF; }
+.ruby .number { color: #F99; }
+.ruby .attribute { color: #f84; }
+.ruby .global { color: #7FB; }
+.ruby .expr { color: #227; }
+.ruby .escape { color: #277; }
+    </style>
+    <title>Analyzed File Report</title>
+  </head>
+  <body>
+    <table cellpadding='0' cellspacing='0' class='ruby'>
+      
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">if</span><span class="delimiter"> </span></span>actioned[<span class="symbol">:awaiting_response</span>][<span class="symbol">:count</span>].zero? &amp;&amp; actioned[<span class="symbol">:with_response</span>][<span class="symbol">:count</span>].zero? <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span>  &lt;p&gt;<span class="constant">The</span> government hasnt responded to any petitions yet&lt;<span class="regexp"><span class="delimiter">/</span><span class="content">p&gt;</span></span>
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">else</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>  &lt;ol <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">threshold-petitions</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">actioned[:with_response][:list].each</span><span class="delimiter"> </span></span><span class="keyword">do</span> |petition| <span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>      &lt;li <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">petition-item</span><span class="delimiter">&quot;</span></span>&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>        &lt;h3&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to petition.action, petition_path(petition, reveal_response: &quot;yes&quot;, anchor: 'response-threshold'), class: &quot;threshold-petition-title&quot; %&gt;&lt;/h3&gt;</span></span>
+<span class="line-numbers"><a href="#n8" name="n8">8</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n8" name="n8">8</a></span>        &lt;p <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">intro</span><span class="delimiter">&quot;</span></span>&gt;<span class="constant">The</span> government responded on &lt;<span class="string"><span class="delimiter">%=</span><span class="content"> short_date_format(petition.government_response_at) %&gt;&lt;/p&gt;</span></span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>        &lt;blockquote <span class="keyword">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">pull-quote</span><span class="delimiter">&quot;</span></span>&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> simple_format(petition.government_response.summary) %&gt;&lt;/blockquote&gt;</span></span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>        &lt;p&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to &quot;Read the response in full&quot;, petition_path(petition, reveal_response: &quot;yes&quot;, anchor: 'response-threshold') %&gt;&lt;/p&gt;</span></span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>      &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">li&gt;</span></span>
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>    &lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>-<span class="string"><span class="delimiter">%&gt;</span><span class="content"></span></span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>  &lt;<span class="regexp"><span class="delimiter">/</span><span class="content">ol&gt;</span></span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span><span class="regexp"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>  &lt;p&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to petition_count(:with_response_explanation, actioned[:with_response][:count]), petitions_path(state: :with_response), class: &quot;view-all&quot; %&gt;&lt;/p&gt;</span></span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>  &lt;p&gt;&lt;<span class="string"><span class="delimiter">%=</span><span class="content"> link_to petition_count(:awaiting_response_explanation, actioned[:awaiting_response][:count]), petitions_path(state: :awaiting_response), class: &quot;view-all&quot; %&gt;&lt;/p&gt;</span></span>
+<span class="line-numbers"><a href="#n16" name="n16">16</a></span><span class="string"><span class="content"></span></span></pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>&lt;<span class="string"><span class="delimiter">% </span><span class="content">end</span><span class="delimiter"> </span></span>%&gt;
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+    </table>
+  </body>
+</html>

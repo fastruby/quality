@@ -1,0 +1,24 @@
+#logo{
+  overflow: hidden;
+  .logos{
+    margin-top: 40px;
+    li{
+      width: 46%;
+      float: left;
+      background: rgba($light_grey, .3);
+      margin: 10px;
+      padding-bottom: 10px;
+      img{
+        margin: auto;
+        display: block;
+        padding: 20px 0px;
+        width: 100%;
+        max-width: 300px;
+      }
+      span{
+        text-align: center;
+        font-weight: 100;
+      }
+    }
+  }
+}
